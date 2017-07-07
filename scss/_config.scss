@@ -1,0 +1,69 @@
+// Import helpers files
+// -------------------------------------------------
+
+// Susy configuration
+// @import "bower_components/susy/sass/susy";
+// $susy: (
+// 	columns: 12,
+// 	gutters: 30px/65px,
+// 	container: 1110px,
+// );
+
+// Variables
+@import "helpers/font-stacks";
+@import "helpers/color-palettes";
+
+// Mixins
+@import "helpers/mixins";
+
+// Typography Variables
+// -------------------------------------------------
+
+// Project base font family
+// ==================================
+$montserrat:          'Montserrat', sans-serif;
+$source:              'Source Sans Pro', sans-serif;
+// ==================================
+
+// Basic Typography
+$base-font-size:       16px;
+$base-line-height:     24px;
+$font-size:            $base-font-size !default;
+$browser-font-size:    16px !default;
+
+// Body type
+$body-font-family:     $source !default;
+$body-font-weight:     400 !default;
+$body-font-style:      normal !default;
+
+// Heading type
+$heading-font-family:  $montserrat !default;
+$heading-font-weight:  400 !default;
+$heading-font-style:   normal !default;
+
+// Color Variables
+// -------------------------------------------------
+
+// Project base color
+// ==================================
+$black:         #000 !default;
+$white:         #fff !default;
+$red:           #ea4452 !default;
+$grey:          #efefef !default;
+$dark_grey:     #5a5b5c !default;
+// ===================================
+
+// Base colors
+$body-bg-color:        #f9f9f9 !default;
+$border-color:         $grey !default;
+$selection-bg-color:   $red !default;
+$selection-font-color: $white !default;
+
+// Typography colors
+$body-font-color:      $dark_grey !default;
+$heading-font-color:   $black !default;
+
+// Link colors
+$link-color:           $red !default;
+$link-hover-color:     $body-font-color !default;
+$link-visited-color:   darken($link-color, 5%) !default;
