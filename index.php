@@ -1,27 +1,32 @@
 <?php get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div class="container">
 
-			<?php if ( have_posts() ) : ?>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php if ( have_posts() ) : ?>
 
-					<?php get_template_part( 'partials/content', get_post_format() ); ?>
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php endwhile; ?>
+						<?php get_template_part( 'partials/content', get_post_format() ); ?>
 
-				<?php get_template_part( 'pagination' ); // Loads the pagination.php template  ?>
+					<?php endwhile; ?>
 
-			<?php else : ?>
+					<?php get_template_part( 'pagination' ); // Loads the pagination.php template  ?>
 
-				<?php get_template_part( 'partials/content', 'none' ); ?>
+				<?php else : ?>
 
-			<?php endif; ?>
+					<?php get_template_part( 'partials/content', 'none' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				<?php endif; ?>
 
-<?php get_sidebar(); ?>
+			</main><!-- #main -->
+		</div><!-- #primary -->
+
+		<?php get_sidebar(); ?>
+
+	</div><!-- .container -->
+
 <?php get_footer(); ?>

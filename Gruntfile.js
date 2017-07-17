@@ -25,7 +25,8 @@ module.exports = function( grunt ) {
 					'theia-sticky-sidebar.js': 'theia-sticky-sidebar/dist/theia-sticky-sidebar.js',
 					'ResizeSensor.js': 'theia-sticky-sidebar/dist/ResizeSensor.js',
 					'owl.carousel.js': 'owl.carousel/dist/owl.carousel.js',
-					'jquery-scrolltofixed-min.js': 'ScrollToFixed/jquery-scrolltofixed-min.js'
+					'jquery-scrolltofixed-min.js': 'ScrollToFixed/jquery-scrolltofixed-min.js',
+					'jquery.magnific-popup.js': 'magnific-popup/dist/jquery.magnific-popup.js',
 				}
 			},
 			js: {
@@ -43,7 +44,8 @@ module.exports = function( grunt ) {
 				files: {
 					'font-awesome.min.css': 'fontawesome/css/font-awesome.min.css',
 					'owl.carousel.css': 'owl.carousel/dist/assets/owl.carousel.css',
-					'owl.theme.default.css': 'owl.carousel/dist/assets/owl.theme.default.css'
+					'owl.theme.default.css': 'owl.carousel/dist/assets/owl.theme.default.css',
+					'magnific-popup.css': 'magnific-popup/dist/magnific-popup.css',
 				}
 			},
 			fonts: {

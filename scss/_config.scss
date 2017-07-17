@@ -2,16 +2,16 @@
 // -------------------------------------------------
 
 // Susy configuration
-// @import "bower_components/susy/sass/susy";
-// $susy: (
-// 	columns: 12,
-// 	gutters: 30px/65px,
-// 	container: 1110px,
-// );
+@import "bower_components/susy/sass/susy";
+$susy: (
+	columns: 12,
+	gutters: 4.0rem/6.0rem,
+	container: 116rem,
+);
 
 // Variables
 @import "helpers/font-stacks";
-@import "helpers/color-palettes";
+// @import "helpers/color-palettes";
 
 // Mixins
 @import "helpers/mixins";
@@ -21,24 +21,23 @@
 
 // Project base font family
 // ==================================
-$montserrat:          'Montserrat', sans-serif;
-$source:              'Source Sans Pro', sans-serif;
+$montserrat:         'Montserrat', sans-serif;
+$karla:              'Karla', sans-serif;
 // ==================================
 
 // Basic Typography
-$base-font-size:       16px;
-$base-line-height:     24px;
+$base-font-size:       1.8rem;
+$base-line-height:     2.7rem;
 $font-size:            $base-font-size !default;
-$browser-font-size:    16px !default;
 
 // Body type
-$body-font-family:     $source !default;
+$body-font-family:     $karla !default;
 $body-font-weight:     400 !default;
 $body-font-style:      normal !default;
 
 // Heading type
 $heading-font-family:  $montserrat !default;
-$heading-font-weight:  400 !default;
+$heading-font-weight:  600 !default;
 $heading-font-style:   normal !default;
 
 // Color Variables
@@ -46,24 +45,23 @@ $heading-font-style:   normal !default;
 
 // Project base color
 // ==================================
-$black:         #000 !default;
+$black:         #292929 !default;
 $white:         #fff !default;
-$red:           #ea4452 !default;
+$green:         #54e5b0 !default;
 $grey:          #efefef !default;
-$dark_grey:     #5a5b5c !default;
 // ===================================
 
 // Base colors
-$body-bg-color:        #f9f9f9 !default;
+$body-bg-color:        $white !default;
 $border-color:         $grey !default;
-$selection-bg-color:   $red !default;
+$selection-bg-color:   $green !default;
 $selection-font-color: $white !default;
 
 // Typography colors
-$body-font-color:      $dark_grey !default;
+$body-font-color:      $black !default;
 $heading-font-color:   $black !default;
 
 // Link colors
-$link-color:           $red !default;
+$link-color:           $green !default;
 $link-hover-color:     $body-font-color !default;
 $link-visited-color:   darken($link-color, 5%) !default;

@@ -1,0 +1,88 @@
+.main-navigation {
+	@include span(10 of 12 last);
+	line-height: 7.1rem;
+}
+
+.menu-primary-items {
+	@extend %reset-list;
+	text-align: right;
+	display: block;
+
+	li {
+		position: relative;
+		display: inline-block;
+		margin-right: 3.2rem;
+		border-top: 0.3rem solid transparent;
+		transition: border-color 200ms ease-in-out 0s;
+
+		&:hover {
+			border-color: $green;
+
+			@include susy-media(800px) {
+				> .sub-menu {
+					display: block;
+					animation: 200ms linear animate_submenu;
+				}
+			}
+
+		}
+
+		&:last-child {
+			margin-right: 8.5rem;
+		}
+	}
+
+	a {
+		font-size: 1.3rem;
+		text-transform: uppercase;
+		color: $white;
+	}
+
+	.sub-menu {
+		@extend %reset-list;
+		padding: 0.5rem 0;
+		text-align: left;
+		border-top: 0;
+
+		@include susy-media(800px) {
+			position: absolute;
+			z-index: 9999;
+			top: 100%;
+			left: 0;
+			display: none;
+			min-width: 18rem;
+			background-color: $white;
+			box-shadow: 0 0 0.7rem rgba(0, 0, 0, .1);
+		}
+
+		ul {
+			top: 0;
+			left: 100%;
+		}
+
+		a {
+			color: $black;
+		}
+
+	}
+
+}
+
+@include susy-media(800px) {
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+@keyframes animate_submenu {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

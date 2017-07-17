@@ -4,12 +4,8 @@
 	box-sizing: border-box;
 }
 
-* html {
-	font-size: 100% * ( $font-size / $browser-font-size );
-}
-
 html {
-	min-height: 100%;
+	font-size: 62.5%;
 }
 
 body {
@@ -17,7 +13,7 @@ body {
 	font-size: $font-size;
 	font-weight: $body-font-weight;
 	font-style: $body-font-style;
-	line-height: ($base-line-height / $font-size) * 1em;
+	line-height: $base-line-height;
 	color: $body-font-color;
 	background: $body-bg-color;
 }

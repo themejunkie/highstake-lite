@@ -28,7 +28,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 
 	// Register heading font setting.
 	$wp_customize->add_setting( 'highstake_heading_font', array(
-		'default'           => 'Playfair+Display:400,700,900',
+		'default'           => 'Montserrat:400,400i,600,600i',
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_heading_font', array(
@@ -40,7 +40,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 
 	// Register heading font family setting.
 	$wp_customize->add_setting( 'highstake_heading_font_family', array(
-		'default'           => '\'Playfair Display\', serif',
+		'default'           => '\'Montserrat\', sans-serif',
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_heading_font_family', array(
@@ -62,7 +62,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 
 	// Register body font setting.
 	$wp_customize->add_setting( 'highstake_body_font', array(
-		'default'           => 'Montserrat:400,700',
+		'default'           => 'Karla:400,400i,700,700i',
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_body_font', array(
@@ -74,7 +74,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 
 	// Register body font family setting.
 	$wp_customize->add_setting( 'highstake_body_font_family', array(
-		'default'           => '\'Montserrat\', sans-serif',
+		'default'           => '\'Karla\', sans-serif',
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_body_font_family', array(

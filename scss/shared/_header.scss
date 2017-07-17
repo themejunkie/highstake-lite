@@ -1,0 +1,48 @@
+.site-header {
+	@extend %clearfix;
+	background-color: $black;
+
+	.container {
+		position: relative;
+	}
+}
+
+.site-branding {
+	@include span(2 of 12);
+
+	.site-title {
+		font-size: 2.4rem;
+		font-weight: 400;
+		margin: 2.5rem 0 2.4rem;
+
+		a {
+			&:link,
+			&:visited {
+				color: $white;
+			}
+		}
+	}
+}
+
+.logo {
+	margin: 2.2rem 0;
+
+	a,
+	img {
+		display: block;
+	}
+}
+
+/**
+ * Search button
+ */
+.search-toggle {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 2.8rem 1.9rem 2.7rem;
+
+	.fa {
+		color: $white;
+	}
+}

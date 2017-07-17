@@ -1,0 +1,19 @@
+.container {
+	@include container;
+}
+
+.content-area {
+
+	@include susy-media( 900px ) {
+		@include span( 8 of 12 );
+	}
+
+}
+
+.widget-area {
+
+	@include susy-media( 900px ) {
+		@include span( 4 of 12 last );
+	}
+
+}

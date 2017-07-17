@@ -33,36 +33,36 @@ h6 {
 
 h1,
 .h1 {
-	font-size: 36px;
-	line-height: 1.1em;
+	font-size: 3.6rem;
+	line-height: 3.96rem;
 }
 
 h2,
 .h2 {
-	font-size: 30px;
-	line-height: 1.1em;
+	font-size: 3rem;
+	line-height: 3.3em;
 }
 
 h3,
 .h3 {
-	font-size: 24px;
-	line-height: 1.3em;
+	font-size: 2.4rem;
+	line-height: 3.12rem;
 }
 
 h4,
 .h4 {
-	font-size: 20px;
-	line-height: 1.3em;
+	font-size: 2rem;
+	line-height: 2.6rem;
 }
 
 h5,
 .h5 {
-	font-size: 16px;
+	font-size: 1.6rem;
 }
 
 h6,
 .h6 {
-	font-size: 14px;
+	font-size: 1.4rem;
 }
 
 /**
@@ -87,7 +87,7 @@ code,
 kbd,
 pre,
 samp {
-	font-size: 16px;
+	font-size: 1.6rem;
 }
 
 pre {
@@ -103,15 +103,15 @@ code {
 
 blockquote {
 	font-style: italic;
-	margin: $base-line-height 40px;
-	padding-left: 20px;
+	margin: $base-line-height 4rem;
+	padding-left: 2rem;
 	color: #777;
-	border-left: 3px solid $red;
+	border-left: 0.3rem solid $green;
 
 	cite {
 		position: relative;
 		display: block;
-		padding: 10px 0 0 20px;
+		padding: 1rem 0 0 2rem;
 		color: #555;
 		&:before {
 			position: absolute;
@@ -178,10 +178,10 @@ dd {
 
 hr {
 	clear: both;
-	height: 1px;
+	height: 0.1rem;
 	min-height: 0;
 	margin: $base-line-height 0;
-	border-top: 1px solid $border-color;
+	border-top: 0.1rem solid $border-color;
 	border-right: 0;
 	border-bottom: 0;
 	border-left: 0;

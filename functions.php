@@ -72,9 +72,9 @@ function highstake_theme_setup() {
 	// Register custom navigation menu.
 	register_nav_menus(
 		array(
-			'primary'   => esc_html__( 'Primary Location', 'highstake' ),
-			'secondary' => esc_html__( 'Secondary Location' , 'highstake' ),
-			'social'    => esc_html__( 'Social Links' , 'highstake' ),
+			'primary'  => esc_html__( 'Primary Location', 'highstake' ),
+			'footer'   => esc_html__( 'Footer Location' , 'highstake' ),
+			'social'   => esc_html__( 'Social Links' , 'highstake' ),
 		)
 	);
 
@@ -91,7 +91,7 @@ function highstake_theme_setup() {
 	 * See: http://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside', 'audio', 'image', 'gallery', 'link', 'quote', 'video'
+		'audio', 'image', 'gallery', 'quote', 'video'
 	) );
 
 	// Setup the WordPress core custom background feature.
@@ -101,8 +101,8 @@ function highstake_theme_setup() {
 
 	// Enable support for Custom Logo
 	add_theme_support( 'custom-logo', array(
-		'height'      => 26,
-		'width'       => 200,
+		'height'      => 31,
+		'width'       => 117,
 		'flex-width' => true,
 	) );
 
@@ -213,8 +213,8 @@ add_action( 'widgets_init', 'highstake_sidebars_init' );
 function highstake_fonts_url() {
 
 	// Get the customizer data
-	$heading_font   = get_theme_mod( 'highstake_heading_font', 'Playfair+Display:400,700,900' );
-	$body_font      = get_theme_mod( 'highstake_body_font', 'Montserrat:400,700' );
+	$heading_font   = get_theme_mod( 'highstake_heading_font', 'Montserrat:400,400i,600,600i' );
+	$body_font      = get_theme_mod( 'highstake_body_font', 'Karla:400,400i,700,700i' );
 
 	// Important variable
 	$fonts_url = '';
