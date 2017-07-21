@@ -45,33 +45,37 @@ function highstake_site_branding() {
 }
 endif;
 
-if ( ! function_exists( 'highstake_posted_on' ) ) :
+if ( ! function_exists( 'highstake_post_meta' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
- *
- * @since 1.0.0
  */
-function highstake_posted_on() {
+function highstake_post_meta() {
 	?>
+
+	<div class="entry-meta">
+
+		<?php if ( is_single() ) : ?>
+			<span class="entry-author">
+				<?php $author_id = get_queried_object()->post_author; ?>
+				<?php printf( esc_html__( 'by %s', 'highstake' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( $author_id ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $author_id ) ) . '</a>' ) ?>
+			</span>
+		<?php else : ?>
+			<span class="entry-author">
+				<?php printf( esc_html__( 'by %s', 'highstake' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>' ) ?>
+			</span>
+		<?php endif; ?>
+
+		<time class="entry-date published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+
+		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
+			<span class="entry-comment">
+				<?php comments_popup_link( __( '0 Comment', 'highstake' ), __( '1 Comment', 'highstake' ), __( '% Comments', 'highstake' ) ); ?>
+			</span>
+		<?php endif; ?>
+
+	</div>
+
 	<?php
-
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() )
-	);
-
-	printf( esc_html__( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'highstake' ),
-		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
-			esc_url( get_permalink() ),
-			$time_string
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s"><span itemprop="name">%2$s</span></a></span>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		)
-	);
 }
 endif;
 
@@ -126,13 +130,13 @@ endif;
 add_action( 'edit_category', 'highstake_category_transient_flusher' );
 add_action( 'save_post',     'highstake_category_transient_flusher' );
 
-if ( ! function_exists( 'highstake_entry_share' ) ) :
+if ( ! function_exists( 'highstake_social_share' ) ) :
 /**
  * Social share.
  *
  * @since 1.0.0
  */
-function highstake_entry_share() {
+function highstake_social_share() {
 
 	// Get the data set in customizer
 	$share = get_theme_mod( 'highstake_post_share', 1 );
@@ -141,15 +145,12 @@ function highstake_entry_share() {
 		return;
 	}
 	?>
-		<div class="entry-share clearfix">
+		<div class="post-share">
 			<ul>
 				<li class="twitter"><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode( esc_attr( get_the_title( get_the_ID() ) ) ); ?>&amp;url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="fa fa-twitter"></i><span class="screen-reader-text">Twitter</span></a></li>
 				<li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="fa fa-facebook"></i><span class="screen-reader-text">Facebook</span></a></li>
 				<li class="google-plus"><a href="https://plus.google.com/share?url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="fa fa-google-plus"></i><span class="screen-reader-text">Google+</span></a></li>
-				<li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&amp;title=<?php echo urlencode( esc_attr( get_the_title( get_the_ID() ) ) ); ?>" target="_blank"><i class="fa fa-linkedin"></i><span class="screen-reader-text">LinkedIn</span></a></li>
 				<li class="pinterest"><a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&amp;media=<?php echo urlencode( wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ) ); ?>" target="_blank"><i class="fa fa-pinterest"></i><span class="screen-reader-text">Pinterest</span></a></li>
-				<li class="buffer"><a href="https://bufferapp.com/add?url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&amp;text=<?php echo urlencode( esc_attr( get_the_title( get_the_ID() ) ) ); ?>" target="_blank"><i class="fa fa-share-alt"></i><span class="screen-reader-text">Buffer</span></a></li>
-				<li class="email"><a href="mailto:?subject=<?php echo esc_url( urlencode( '[' . get_bloginfo( 'name' ) . '] ' . get_the_title( get_the_ID() ) ) ); ?>&amp;body=<?php echo esc_url( urlencode( get_permalink( get_the_ID() ) ) ); ?>"><i class="fa fa-envelope"></i><span class="screen-reader-text">Email</span></a></li>
 			</ul>
 		</div>
 	<?php
@@ -192,21 +193,21 @@ function highstake_post_author_box() {
 ?>
 
 	<div class="author-bio clearfix">
-		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'highstake_author_bio_avatar_size', 64 ), '', strip_tags( get_the_author() ) ); ?>
+		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'highstake_author_bio_avatar_size', 120 ), '', strip_tags( get_the_author() ) ); ?>
 		<div class="description">
 
 			<h3 class="author-title name">
-				<a class="author-name url fn n" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><span itemprop="name"><?php echo strip_tags( get_the_author() ); ?></span></a>
+				<a class="author-name url fn n" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author"><?php echo strip_tags( get_the_author() ); ?></a>
 			</h3>
 
-			<p class="bio" itemprop="description"><?php echo stripslashes( get_the_author_meta( 'description' ) ); ?></p>
+			<p class="bio"><?php echo stripslashes( get_the_author_meta( 'description' ) ); ?></p>
 
 		</div>
 
 		<?php if ( $twitter || $facebook || $gplus || $instagram || $pinterest || $linkedin ) : ?>
-			<div class="social-links">
+			<div class="author-social-links">
 				<?php if ( $twitter ) { ?>
-					<a href="//twitter.com/<?php echo esc_attr( $twitter ) ?>"><i class="fa fa-twitter"></i></a>
+					<a href="<?php echo esc_url( $twitter ); ?>"><i class="fa fa-twitter"></i></a>
 				<?php } ?>
 				<?php if ( $facebook ) { ?>
 					<a href="<?php echo esc_url( $facebook ); ?>"><i class="fa fa-facebook"></i></a>
@@ -266,7 +267,7 @@ function highstake_related_posts() {
 				'operator' => 'IN'
 			)
 		),
-		'posts_per_page' => 3,
+		'posts_per_page' => 4,
 		'post_type'      => 'post',
 	);
 
@@ -279,15 +280,24 @@ function highstake_related_posts() {
 	if ( $related->have_posts() ) : ?>
 
 		<div class="related-posts">
-			<h3><?php esc_html_e( 'You might also like:', 'highstake' ); ?></h3>
+			<h3 class="related-title"><?php esc_html_e( 'You might also like', 'highstake' ); ?></h3>
 			<ul>
 				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
 					<li>
 						<?php if ( has_post_thumbnail() ) : ?>
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
+							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'highstake-related-posts-image', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
+						<?php endif; ?>
+						<?php if ( 'post' == get_post_type() ) : ?>
+							<?php
+								$category = get_the_category( get_the_ID() );
+								if ( $category ) :
+							?>
+							<span class="cat-link">
+								<a href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ); ?>"><?php echo esc_attr( $category[0]->name ); ?></a>
+							</span>
+							<?php endif; // End if categories ?>
 						<?php endif; ?>
 						<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-						<time class="published" datetime="<?php echo esc_html( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
 					</li>
 				<?php endwhile; ?>
 			</ul>
@@ -359,7 +369,7 @@ function highstake_comment( $comment, $args, $depth ) {
 						<?php endif; ?>
 						<?php comment_text(); ?>
 						<span class="reply">
-							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => esc_html__( '<i class="fa fa-reply"></i> Reply', 'highstake' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => wp_kses_post( __( '<i class="fa fa-reply"></i> Reply', 'highstake' ) ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 						</span><!-- .reply -->
 					</div><!-- .comment-content -->
 

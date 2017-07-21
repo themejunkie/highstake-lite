@@ -45,6 +45,10 @@ function highstake_body_classes( $classes ) {
 		$classes[] = 'framed-container';
 	}
 
+	if ( is_single() || is_page() && has_post_thumbnail( get_the_ID() ) ) {
+		$classes[] = 'has-featured-image';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'highstake_body_classes' );
@@ -95,7 +99,12 @@ add_filter( 'excerpt_more', 'highstake_excerpt_more' );
  * Filter the except length to 20 words.
  */
 function highstake_custom_excerpt_length( $length ) {
-	return 24;
+
+	if ( is_archive() || is_search() ) {
+		return 25;
+	}
+
+	return 50;
 }
 add_filter( 'excerpt_length', 'highstake_custom_excerpt_length', 999 );
 
@@ -152,15 +161,13 @@ add_filter( 'user_contactmethods', 'highstake_contact_info_fields' );
  */
 function highstake_extend_archive_title( $title ) {
 	if ( is_category() ) {
-		$title = single_cat_title( '', false );
+		$title = sprintf( esc_html__( 'posts in %s category', 'highstake' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 	} elseif ( is_tag() ) {
-		$title = single_tag_title( '', false );
+		$title = sprintf( esc_html__( 'posts in %s tag', 'highstake' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 	} elseif ( is_author() ) {
-		$title = get_the_author();
+		$title = sprintf( esc_html__( 'posts by %s', 'highstake' ), '<span>' . get_the_author() . '</span>' );
 	} elseif ( is_search() ) {
 		$title = sprintf( esc_html__( 'Search Results for: %s', 'highstake' ), '<span>' . get_search_query() . '</span>' );
-	} elseif ( is_404() ) {
-		$title = esc_html__( '404 Not Found!', 'highstake' );
 	} else {
 		$title = esc_html__( 'Latest News', 'highstake' );
 	}
@@ -181,8 +188,6 @@ function highstake_customize_tag_cloud( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'highstake_customize_tag_cloud' );
-// Uncomment this if support WooCommerce
-// add_filter( 'woocommerce_product_tag_cloud_widget_args', 'highstake_customize_tag_cloud' );
 
 /**
  * Modifies the theme layout on attachment pages.
@@ -202,3 +207,27 @@ function highstake_mod_theme_layout( $layout ) {
 	return $layout;
 }
 add_filter( 'theme_mod_theme_layout', 'highstake_mod_theme_layout', 15 );
+
+/**
+ * Limit search to post
+ */
+function highstake_search_filter($query) {
+	if ( !is_admin() && $query->is_main_query() ) {
+		if ( $query->is_search ) {
+			$query->set( 'post_type', 'post' );
+		}
+	}
+}
+add_action( 'pre_get_posts', 'highstake_search_filter' );
+
+/**
+ * Disable Subtitles in home and archive views.
+ */
+function highstake_subtitles_mod_supported_views() {
+
+	if ( is_home() || is_front_page() || is_archive() || is_search() ) {
+		return false;
+	}
+
+}
+add_filter( 'subtitle_view_supported', 'highstake_subtitles_mod_supported_views' );

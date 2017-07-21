@@ -31,12 +31,14 @@
 				</nav>
 			<?php endif; ?>
 
-			<button class="search-toggle">
+			<button class="search-toggle button-primary">
 				<i class="fa fa-search"></i>
 			</button>
 
 		</div>
 
 	</header><!-- #masthead -->
+
+	<?php get_template_part( 'partials/content', 'page-header' ); ?>
 
 	<div id="content" class="site-content">

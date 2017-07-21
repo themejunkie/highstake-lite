@@ -27,6 +27,8 @@ module.exports = function( grunt ) {
 					'owl.carousel.js': 'owl.carousel/dist/owl.carousel.js',
 					'jquery-scrolltofixed-min.js': 'ScrollToFixed/jquery-scrolltofixed-min.js',
 					'jquery.magnific-popup.js': 'magnific-popup/dist/jquery.magnific-popup.js',
+					'jarallax.js': 'jarallax/jarallax/jarallax.js',
+					'jarallax-video.js': 'jarallax/jarallax/jarallax-video.js'
 				}
 			},
 			js: {

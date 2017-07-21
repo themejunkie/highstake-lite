@@ -1,50 +1,25 @@
 <?php get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div class="container">
 
-			<section class="error-404 not-found">
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main">
 
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'highstake' ); ?></h1>
-				</header><!-- .page-header -->
+				<section class="error-404 not-found">
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'highstake' ); ?></p>
+					<div class="page-content">
+						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'featured' ); ?></p>
+						<ul>
+							<li><a href="javascript: history.go(-1);"><?php esc_html_e( 'Go to Previous Page', 'featured' ) ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Go to Home Page', 'featured' ) ?></a></li>
+						</ul>
+					</div><!-- .page-content -->
+				</section><!-- .error-404 -->
 
-					<?php get_search_form(); ?>
+			</main><!-- #main -->
+		</div><!-- #primary -->
 
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+		<?php get_sidebar(); ?>
 
-					<?php if ( highstake_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-						<div class="widget widget_categories">
-							<h2 class="widgettitle"><?php esc_html_e( 'Most Used Categories', 'highstake' ); ?></h2>
-							<ul>
-								<?php
-									wp_list_categories( array(
-										'orderby'    => 'count',
-										'order'      => 'DESC',
-										'show_count' => 1,
-										'title_li'   => '',
-										'number'     => 10,
-									) );
-								?>
-							</ul>
-						</div><!-- .widget -->
-					<?php endif; ?>
-
-					<?php
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'highstake' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-					?>
-
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+	</div>
 <?php get_footer(); ?>

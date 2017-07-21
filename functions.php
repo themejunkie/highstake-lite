@@ -20,7 +20,7 @@
  * @global int $content_width
  */
 function highstake_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'highstake_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'highstake_content_width', 760 );
 }
 add_action( 'after_setup_theme', 'highstake_content_width', 0 );
 
@@ -67,7 +67,10 @@ function highstake_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Declare image sizes.
-	add_image_size( 'highstake-widget-thumb', 60, 60, true );
+	add_image_size( 'highstake-featured-image', 1500, 450, true );
+	add_image_size( 'highstake-post-featured-image', 760, 450, true );
+	add_image_size( 'highstake-archive-featured-image', 520, 400, true );
+	add_image_size( 'highstake-related-posts-image', 720, 460, true );
 
 	// Register custom navigation menu.
 	register_nav_menus(
@@ -261,6 +264,11 @@ require trailingslashit( get_template_directory() ) . 'inc/plugins.php';
  * Customizer.
  */
 require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
+
+/**
+ * Page header.
+ */
+require trailingslashit( get_template_directory() ) . 'inc/header.php';
 
 /**
  * We use some part of Hybrid Core to extends our themes.

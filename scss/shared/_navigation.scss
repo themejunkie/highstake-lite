@@ -40,7 +40,7 @@
 
 	.sub-menu {
 		@extend %reset-list;
-		padding: 0.5rem 0;
+		padding: 1.3rem 0;
 		text-align: left;
 		border-top: 0;
 
@@ -51,7 +51,7 @@
 			left: 0;
 			display: none;
 			min-width: 18rem;
-			background-color: $white;
+			background-color: $green;
 			box-shadow: 0 0 0.7rem rgba(0, 0, 0, .1);
 		}
 
@@ -60,8 +60,29 @@
 			left: 100%;
 		}
 
+		li {
+			display: block;
+			padding: 0 2rem;
+			line-height: 3.5rem;
+			border-top: 0;
+			position: relative;
+			border-left: 3px solid transparent;
+			margin-right: 0;
+
+			&:hover {
+				border-color: $black;
+			}
+		}
+
 		a {
-			color: $black;
+			color: $white;
+			font-size: 1.2rem;
+			margin-left: 0;
+			transition: all 120ms linear;
+
+			&:hover {
+				margin-left: 0.5rem;
+			}
 		}
 
 	}

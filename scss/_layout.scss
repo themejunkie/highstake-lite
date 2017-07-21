@@ -2,6 +2,10 @@
 	@include container;
 }
 
+.site-content {
+	margin-bottom: 14rem;
+}
+
 .content-area {
 
 	@include susy-media( 900px ) {

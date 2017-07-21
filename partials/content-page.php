@@ -6,12 +6,6 @@ $image = get_theme_mod( 'highstake_page_featured_image', 0 );
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( $title ) : ?>
-		<header class="entry-header">
-			<?php the_title( '<h1 class="page-title">', '</h1>' ); ?>
-		</header><!-- .entry-header -->
-	<?php endif; ?>
-
 	<?php if ( has_post_thumbnail() && $image ) : ?>
 		<a class="thumbnail-link" href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail( 'large', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>

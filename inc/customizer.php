@@ -12,6 +12,7 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer/header.php
 require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/footer.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/featured.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/fonts.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/colors.php';
 
@@ -173,4 +174,24 @@ function highstake_sanitize_footer_widget_column( $col ) {
 		$col = '6';
 	}
 	return $col;
+}
+
+/**
+ * Sanitize the featured type value.
+ */
+function highstake_sanitize_featured_type( $type ) {
+	if ( ! in_array( $type, array( 'disable', 'default', 'slider' ) ) ) {
+		$type = 'default';
+	}
+	return $type;
+}
+
+/**
+ * Sanitize the footer content value.
+ */
+function highstake_sanitize_footer_content( $type ) {
+	if ( ! in_array( $type, array( 'disable', 'logo', 'custom' ) ) ) {
+		$type = 'logo';
+	}
+	return $type;
 }

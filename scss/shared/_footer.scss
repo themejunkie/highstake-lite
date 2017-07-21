@@ -1,0 +1,60 @@
+.site-footer {
+	clear: both;
+}
+
+.footer-custom-content {
+	background-color: $black;
+	text-align: center;
+	padding: 6.2rem 0;
+}
+
+.site-info {
+	padding: 5rem 0;
+
+	.framed-container & {
+		margin-bottom: 3.5rem;
+	}
+}
+
+.copyright {
+	color: $black;
+	font-size: 1.4rem;
+	line-height: 2.3rem;
+	margin-bottom: 0;
+
+	a {
+		font-weight: 400;
+	}
+}
+
+.info-left {
+	text-align: center;
+	@include susy-media(600px) {
+		@include span( 6 of 12 );
+		text-align: left;
+	}
+}
+
+.info-right {
+	text-align: center;
+
+	@include susy-media(600px) {
+		@include span( 6 of 12 last );
+		text-align: right;
+	}
+
+	.to-top {
+		font-size: 1.4rem;
+		font-weight: 400;
+		text-transform: uppercase;
+		color: $black;
+
+		.fa {
+			padding-left: .5rem;
+		}
+
+		&:hover {
+			color: $green;
+		}
+	}
+}

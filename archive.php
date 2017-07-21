@@ -1,34 +1,31 @@
 <?php get_header(); ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div class="container">
 
-			<?php if ( have_posts() ) : ?>
+		<section id="primary" class="content-area">
+			<main id="main" class="site-main">
 
-				<header class="page-header">
-					<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
-						the_archive_description( '<div class="taxonomy-description">', '</div>' );
-					?>
-				</header><!-- .page-header -->
+				<?php if ( have_posts() ) : ?>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'partials/content', get_post_format() ); ?>
+						<?php get_template_part( 'partials/content', 'archive' ); ?>
 
-				<?php endwhile; ?>
+					<?php endwhile; ?>
 
-				<?php get_template_part( 'pagination' ); // Loads the pagination.php template  ?>
+					<?php get_template_part( 'pagination' ); // Loads the pagination.php template  ?>
 
-			<?php else : ?>
+				<?php else : ?>
 
-				<?php get_template_part( 'partials/content', 'none' ); ?>
+					<?php get_template_part( 'partials/content', 'none' ); ?>
 
-			<?php endif; ?>
+				<?php endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+			</main><!-- #main -->
+		</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+		<?php get_sidebar(); ?>
+
+	</div>
+
 <?php get_footer(); ?>
