@@ -12,33 +12,35 @@
 
 <div id="page" class="site">
 
-	<header id="masthead" class="site-header">
+	<div class="wide-container">
 
-		<div class="container">
+		<header id="masthead" class="site-header">
 
-			<?php highstake_site_branding(); ?>
+			<div class="container">
 
-			<?php if ( has_nav_menu ( 'primary' ) ) : ?>
-				<nav class="main-navigation" id="site-navigation">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'highstake' ); ?></button>
-					<?php wp_nav_menu(
-						array(
-							'theme_location'  => 'primary',
-							'menu_id'         => 'menu-primary-items',
-							'menu_class'      => 'menu-primary-items'
-						)
-					); ?>
-				</nav>
-			<?php endif; ?>
+				<?php highstake_site_branding(); ?>
 
-			<button class="search-toggle button-primary">
-				<i class="fa fa-search"></i>
-			</button>
+				<?php if ( has_nav_menu ( 'primary' ) ) : ?>
+					<nav class="main-navigation" id="site-navigation">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'highstake' ); ?></button>
+						<?php wp_nav_menu(
+							array(
+								'theme_location'  => 'primary',
+								'menu_id'         => 'menu-primary-items',
+								'menu_class'      => 'menu-primary-items'
+							)
+						); ?>
+					</nav>
+				<?php endif; ?>
 
-		</div>
+				<button class="search-toggle button-primary">
+					<i class="fa fa-search"></i>
+				</button>
 
-	</header><!-- #masthead -->
+			</div>
 
-	<?php get_template_part( 'partials/content', 'page-header' ); ?>
+		</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+		<?php get_template_part( 'partials/content', 'page-header' ); ?>
+
+		<div id="content" class="site-content">

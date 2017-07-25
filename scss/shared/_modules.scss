@@ -11,6 +11,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	margin-top: 7.5rem;
 
 	.container {
 		position: relative;
@@ -122,6 +123,15 @@
 		float: left;
 		margin-right: 0;
 	}
+
+	.next,
+	.prev {
+		color: $black;
+		&:hover {
+			color: $green;
+		}
+	}
+
 }
 
 /**
@@ -129,6 +139,25 @@
  */
 .widget {
 	margin-bottom: 8rem;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+
+	ul {
+		@extend %reset-list;
+	}
+
+	li {
+		padding: .3rem 0;
+	}
+
+	select {
+		width: 100%;
+		max-width: 100%;
+		height: 3.6rem;
+		padding: 1rem;
+		border: .1rem solid $border-color;
+		background-color: $white;
+	}
 }
 
 .widget-title {
@@ -144,6 +173,278 @@
 		width: 2.7rem;
 		display: block;
 		padding-top: .7rem;
+	}
+}
+
+.ad-widget {
+
+	.widget-title {
+		font-size: 1rem;
+		font-weight: 400;
+		letter-spacing: .1rem;
+		margin-bottom: 0;
+		text-align: center;
+		color: #ccc;
+
+		&::after {
+			padding-top: 0;
+			border-bottom: none;
+		}
+	}
+
+}
+
+.widget_archive,
+.widget_categories {
+	@extend %clearfix;
+
+	li {
+		@extend %clearfix;
+		text-align: right;
+		float: left;
+		width: 45%;
+		margin-right: 5%;
+
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+	}
+
+	a {
+		float: left;
+	}
+}
+
+.widget_tag_cloud {
+
+	a {
+		line-height: 2.2rem;
+		display: inline-block;
+		margin-right: .5rem;
+		margin-bottom: .5rem;
+		padding: .2rem .8rem;
+		letter-spacing: .1rem;
+		text-transform: uppercase;
+		color: $white;
+		border-radius: .2rem;
+		background-color: $green;
+		font-weight: 600;
+
+		&:hover {
+			background-color: $black;
+			color: $white;
+		}
+
+	}
+
+}
+
+.posts-thumbnail-widget {
+
+	ul {
+		@extend %reset-list;
+	}
+
+	li {
+		overflow: hidden;
+		padding: 1.5rem 0;
+		line-height: 2rem;
+	}
+
+	.post-title {
+		display: block;
+		font-family: $montserrat;
+		color: $black;
+		font-weight: 600;
+		margin-bottom: 1rem;
+
+		&:hover {
+			color: $green;
+		}
+	}
+
+	.thumbnail-link {
+		float: left;
+		max-width: 8rem;
+		margin-right: $base-line-height / 2;
+		margin-bottom: 0;
+	}
+
+	.entry-thumbnail {
+		display: block;
+	}
+
+}
+
+.widget_social_icons {
+
+	a {
+		display: inline-block;
+		margin: 3px 0 6px;
+		width: 47px;
+		height: 47px;
+		position: relative;
+		text-align: center;
+		background-color: $green;
+		color: $white;
+		line-height: 48px;
+		opacity: 1;
+		border-radius: 4px;
+		font-size: 18px;
+
+		@include susy-media( 1025px ) {
+			margin: 4px 4px 6px 4px;
+		}
+
+		&:hover,
+		&:visited {
+			color: $white;
+		}
+
+		&.facebook {
+			background-color: #3b5998;
+		}
+
+		&.twitter {
+			background-color: #55acee;
+		}
+
+		&.gplus {
+			background-color: #dc4e41;
+		}
+
+		&.instagram {
+			background-color: #3f729b;
+		}
+
+		&.pinterest {
+			background-color: #bd081c;
+		}
+
+		&.linkedin {
+			background-color: #0077b5;
+		}
+
+		&.behance {
+			background-color: #1769ff;
+		}
+
+		&.dribbble {
+			background-color: #ea4c89;
+		}
+
+		&.github {
+			background-color: #4078c0;
+		}
+
+		&.codepen {
+			background-color: #333;
+		}
+
+		&.rss {
+			background-color: #f26522;
+		}
+
+		&.tumblr {
+			background-color: #35465c;
+		}
+	}
+
+}
+
+.widget_pages {
+
+	.children {
+		margin-left: 1.5em;
+	}
+
+}
+
+.widget_nav_menu {
+
+	.sub-menu {
+		margin-left: 1.5em;
+	}
+
+}
+
+.widget_mc4wp_form_widget {
+	border: .5rem solid $black;
+	text-align: center;
+	outline: .5rem solid $black;
+	outline-offset: .1rem;
+	margin-left: .56rem;
+	margin-right: .56rem;
+	padding: 3rem;
+	font-size: 1.8rem;
+
+	.widget-title {
+		font-size: 2.4rem;
+		margin-bottom: 3rem;
+
+		&::after {
+			padding-top: 0;
+			border-bottom: none;
+		}
+	}
+
+	p {
+		&:nth-last-of-type(2) {
+			margin-bottom: 1rem;
+		}
+
+		&:nth-last-of-type(1) {
+			margin-bottom: 0;
+		}
+	}
+
+	label {
+		display: none;
+	}
+
+	input {
+		width: 100%;
+	}
+
+	input[type="email"] {
+		&::-webkit-input-placeholder {
+			text-align: center;
+			color: #ccc;
+			font-weight: 400;
+			font-family: $karla;
+		}
+
+		&::-moz-placeholder {
+			text-align: center;
+			color: #ccc;
+			font-weight: 400;
+			font-family: $karla;
+		}
+
+		&:-ms-input-placeholder {
+			text-align: center;
+			color: #ccc;
+			font-weight: 400;
+			font-family: $karla;
+		}
+
+		&:-moz-placeholder {
+			text-align: center;
+			color: #ccc;
+			font-weight: 400;
+			font-family: $karla;
+		}
+	}
+
+	input[type="submit"] {
+		background-color: $black;
+		color: $white;
+		padding: 1.3rem 3rem;
+
+		&:hover {
+			background-color: transparent;
+			color: $black;
+		}
 	}
 }
 
@@ -289,6 +590,7 @@
 	text-align: center;
 	margin-bottom: 8rem;
 	padding: 12.5rem 0;
+	margin-top: 7.5rem;
 
 	.single & {
 		min-height: 45rem;

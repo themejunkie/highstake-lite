@@ -48,5 +48,17 @@ function highstake_general_customize_register( $wp_customize ) {
 		)
 	) );
 
+	// Register sticky sidebar setting
+	$wp_customize->add_setting( 'highstake_sticky_sidebar', array(
+		'default'           => 1,
+		'sanitize_callback' => 'highstake_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'highstake_sticky_sidebar', array(
+		'label'             => esc_html__( 'Enable sticky sidebar', 'highstake' ),
+		'section'           => 'highstake_general',
+		'priority'          => 5,
+		'type'              => 'checkbox'
+	) );
+
 }
 add_action( 'customize_register', 'highstake_general_customize_register' );

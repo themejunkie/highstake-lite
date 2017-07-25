@@ -99,7 +99,7 @@ function highstake_theme_setup() {
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'highstake_custom_background_args', array(
-		'default-color' => 'ffffff'
+		'default-color' => 'f5f5f5'
 	) ) );
 
 	// Enable support for Custom Logo
@@ -113,6 +113,7 @@ function highstake_theme_setup() {
 	add_theme_support( 'theme-layouts',
 		array(
 			'1c'   => esc_html__( '1 Column Wide (Full Width)', 'highstake' ),
+			'1c-n' => esc_html__( '1 Column Narrow (Full Width)', 'highstake' ),
 			'2c-l' => esc_html__( '2 Columns: Content / Sidebar', 'highstake' ),
 			'2c-r' => esc_html__( '2 Columns: Sidebar / Content', 'highstake' )
 		),
@@ -141,17 +142,9 @@ function highstake_widgets_init() {
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-ads.php';
 	register_widget( 'Highstake_Ads_Widget' );
 
-	// Register ads 125 widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-ads125.php';
-	register_widget( 'Highstake_Ads125_Widget' );
-
 	// Register Facebook widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-facebook.php';
 	register_widget( 'Highstake_Facebook_Widget' );
-
-	// Register feedburner widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-feedburner.php';
-	register_widget( 'Highstake_Feedburner_Widget' );
 
 	// Register recent posts thumbnail widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-recent.php';
@@ -164,14 +157,6 @@ function highstake_widgets_init() {
 	// Register random posts thumbnail widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-random.php';
 	register_widget( 'Highstake_Random_Widget' );
-
-	// Register most views posts thumbnail widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-views.php';
-	register_widget( 'Highstake_Views_Widget' );
-
-	// Register tabs widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-tabs.php';
-	register_widget( 'Highstake_Tabs_Widget' );
 
 	// Register twitter widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-twitter.php';
@@ -275,7 +260,5 @@ require trailingslashit( get_template_directory() ) . 'inc/header.php';
  *
  * @link  http://themehybrid.com/hybrid-core Hybrid Core site.
  */
-require trailingslashit( get_template_directory() ) . 'inc/extensions/breadcrumb-trail.php';
 require trailingslashit( get_template_directory() ) . 'inc/extensions/theme-layouts.php';
-require trailingslashit( get_template_directory() ) . 'inc/extensions/entry-views.php';
 require trailingslashit( get_template_directory() ) . 'inc/extensions/hybrid-media-grabber.php';

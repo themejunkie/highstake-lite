@@ -1,5 +1,35 @@
+.wide-container {
+	background-color: $white;
+
+	.boxed-container & {
+		max-width: 120rem;
+		margin: 0 auto;
+		box-shadow: 0 0 1rem rgba($black, .05);
+	}
+
+}
+
+.framed-container {
+	@extend .boxed-container;
+	margin: 0 auto;
+
+	@include susy-media(1024px) {
+		margin: 4rem auto;
+	}
+}
+
 .container {
 	@include container;
+	padding: 0 20px;
+
+	@include susy-media(1280px) {
+		padding: 0;
+	}
+
+	.boxed-container &,
+	.framed-container & {
+		padding: 0 20px;
+	}
 }
 
 .site-content {
@@ -8,16 +38,39 @@
 
 .content-area {
 
-	@include susy-media( 900px ) {
-		@include span( 8 of 12 );
+	.layout-2c-l & {
+		@include susy-media( 900px ) {
+			@include span( 8 of 12 );
+		}
+	}
+
+	.layout-2c-r & {
+		@include susy-media( 900px ) {
+			@include span( 8 of 12 last );
+		}
+	}
+
+	.layout-1c-n & {
+		@include susy-media( 900px ) {
+			width: span( 8 of 12 );
+			margin: auto;
+		}
 	}
 
 }
 
 .widget-area {
 
-	@include susy-media( 900px ) {
-		@include span( 4 of 12 last );
+	.layout-2c-l & {
+		@include susy-media( 900px ) {
+			@include span( 4 of 12 last );
+		}
+	}
+
+	.layout-2c-r & {
+		@include susy-media( 900px ) {
+			@include span( 4 of 12 );
+		}
 	}
 
 }

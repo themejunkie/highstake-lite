@@ -56,7 +56,7 @@ class Highstake_Social_Widget extends WP_Widget {
 					echo '<a class="twitter" href="' . esc_url( $instance['twitter'] ) . '"><i class="fa fa-twitter"></i></a>';
 				}
 				if ( $instance['gplus'] ) {
-					echo '<a class="google-plus" href="' . esc_url( $instance['gplus'] ) . '"><i class="fa fa-google-plus"></i></a>';
+					echo '<a class="gplus" href="' . esc_url( $instance['gplus'] ) . '"><i class="fa fa-google-plus"></i></a>';
 				}
 				if ( $instance['pinterest'] ) {
 					echo '<a class="pinterest" href="' . esc_url( $instance['pinterest'] ) . '"><i class="fa fa-pinterest"></i></a>';
@@ -66,6 +66,18 @@ class Highstake_Social_Widget extends WP_Widget {
 				}
 				if ( $instance['instagram'] ) {
 					echo '<a class="instagram" href="' . esc_url( $instance['instagram'] ) . '"><i class="fa fa-instagram"></i></a>';
+				}
+				if ( $instance['behance'] ) {
+					echo '<a class="behance" href="' . esc_url( $instance['behance'] ) . '"><i class="fa fa-behance"></i></a>';
+				}
+				if ( $instance['dribbble'] ) {
+					echo '<a class="dribbble" href="' . esc_url( $instance['dribbble'] ) . '"><i class="fa fa-dribbble"></i></a>';
+				}
+				if ( $instance['github'] ) {
+					echo '<a class="github" href="' . esc_url( $instance['github'] ) . '"><i class="fa fa-github"></i></a>';
+				}
+				if ( $instance['codepen'] ) {
+					echo '<a class="codepen" href="' . esc_url( $instance['codepen'] ) . '"><i class="fa fa-codepen"></i></a>';
 				}
 				if ( $instance['tumblr'] ) {
 					echo '<a class="tumblr" href="' . esc_url( $instance['tumblr'] ) . '"><i class="fa fa-tumblr"></i></a>';
@@ -96,6 +108,10 @@ class Highstake_Social_Widget extends WP_Widget {
 		$instance['pinterest']  = esc_url( $new_instance['pinterest'] );
 		$instance['linkedin']   = esc_url( $new_instance['linkedin'] );
 		$instance['instagram']  = esc_url( $new_instance['instagram'] );
+		$instance['behance']    = esc_url( $new_instance['behance'] );
+		$instance['dribbble']   = esc_url( $new_instance['dribbble'] );
+		$instance['github']     = esc_url( $new_instance['github'] );
+		$instance['codepen']    = esc_url( $new_instance['codepen'] );
 		$instance['tumblr']     = esc_url( $new_instance['tumblr'] );
 		$instance['rss']        = esc_url( $new_instance['rss'] );
 
@@ -118,6 +134,10 @@ class Highstake_Social_Widget extends WP_Widget {
 			'pinterest'  => '',
 			'linkedin'   => '',
 			'instagram'  => '',
+			'behance'    => '',
+			'dribbble'   => '',
+			'github'     => '',
+			'codepen'    => '',
 			'tumblr'     => '',
 			'rss'        => ''
 		);
@@ -172,6 +192,34 @@ class Highstake_Social_Widget extends WP_Widget {
 				<?php esc_html_e( 'Instagram', 'highstake' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>" value="<?php echo esc_url( $instance['instagram'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'behance' ); ?>">
+				<?php esc_html_e( 'Behance', 'highstake' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'behance' ); ?>" name="<?php echo $this->get_field_name( 'behance' ); ?>" value="<?php echo esc_url( $instance['behance'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'dribbble' ); ?>">
+				<?php esc_html_e( 'Dribbble', 'highstake' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'dribbble' ); ?>" name="<?php echo $this->get_field_name( 'dribbble' ); ?>" value="<?php echo esc_url( $instance['dribbble'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'github' ); ?>">
+				<?php esc_html_e( 'Github', 'highstake' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'github' ); ?>" name="<?php echo $this->get_field_name( 'github' ); ?>" value="<?php echo esc_url( $instance['github'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'codepen' ); ?>">
+				<?php esc_html_e( 'Codepen', 'highstake' ); ?>
+			</label>
+			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'codepen' ); ?>" name="<?php echo $this->get_field_name( 'codepen' ); ?>" value="<?php echo esc_url( $instance['codepen'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>

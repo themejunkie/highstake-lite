@@ -58,26 +58,32 @@ class Highstake_Random_Widget extends WP_Widget {
 		// The post query
 		$random = new WP_Query( $args );
 
-		global $post;
-		if ( $random->have_posts() ) {
-			echo '<ul>';
+		if ( $random->have_posts() ) : ?>
+			<ul>
 
-				while ( $random->have_posts() ) :
-					$random->the_post();
+				<?php while ( $random->have_posts() ) : $random->the_post(); ?>
 
-					echo '<li>';
-						if ( has_post_thumbnail() )
-							echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_post_thumbnail( get_the_ID(), 'highstake-widget-thumb', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ) . '</a>';
-						echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . esc_attr( get_the_title() ) . '</a>';
-						if ( $instance['show_date'] ) :
-							echo '<time class="entry-date" datetime="' . esc_html( get_the_date( 'c' ) ) . '">' . esc_html( get_the_date() ) . '</time>';
-						endif;
-					echo '</li>';
+					<li>
+						<?php if ( has_post_thumbnail() ) : ?>
+							<a class="thumbnail-link" href="<?php the_permalink(); ?>" rel="bookmark">
+								<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
+							</a>
+						<?php endif; ?>
+						<a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+						<?php
+							$category = get_the_category( get_the_ID() );
+							if ( $category ) :
+						?>
+						<span class="cat-link">
+							<a href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ); ?>"><?php echo esc_attr( $category[0]->name ); ?></a>
+						</span>
+						<?php endif; // End if categories ?>
+					</li>
 
-				endwhile;
+				<?php endwhile; ?>
 
-			echo '</ul>';
-		}
+			</ul>
+		<?php endif;
 
 		// Reset the query.
 		wp_reset_postdata();
@@ -97,7 +103,6 @@ class Highstake_Random_Widget extends WP_Widget {
 		$instance = $new_instance;
 		$instance['title']     = strip_tags( $new_instance['title'] );
 		$instance['limit']     = (int) $new_instance['limit'];
-		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 
 		return $instance;
 	}
@@ -112,8 +117,7 @@ class Highstake_Random_Widget extends WP_Widget {
 		// Default value.
 		$defaults = array(
 			'title'     => esc_html__( 'Random Posts', 'highstake' ),
-			'limit'     => 5,
-			'show_date' => false
+			'limit'     => 5
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -131,13 +135,6 @@ class Highstake_Random_Widget extends WP_Widget {
 				<?php esc_html_e( 'Number of posts to show', 'highstake' ); ?>
 			</label>
 			<input class="small-text" id="<?php echo $this->get_field_id( 'limit' ); ?>" name="<?php echo $this->get_field_name( 'limit' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['limit'] ); ?>" />
-		</p>
-
-		<p>
-			<input class="checkbox" type="checkbox" <?php checked( $instance['show_date'] ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'show_date' ); ?>">
-				<?php esc_html_e( 'Display post date?', 'highstake' ); ?>
-			</label>
 		</p>
 
 	<?php

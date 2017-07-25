@@ -16,11 +16,11 @@ form select,
 form textarea {
 	display: inline-block;
 	box-sizing: border-box;
-	height: 2.5em;
-	padding: .5em .6em;
+	height: 4.5rem;
+	padding: .9rem 1rem;
 	vertical-align: middle;
-	border: 1px solid $border-color;
-	background-color: #f9f9f9;
+	border: .1rem solid $black;
+	background-color: $white;
 	border-radius: 0;
 	-webkit-border-radius:0;
 	-webkit-appearance: none;
