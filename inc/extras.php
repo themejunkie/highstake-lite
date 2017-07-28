@@ -49,6 +49,19 @@ function highstake_body_classes( $classes ) {
 		$classes[] = 'has-featured-image';
 	}
 
+	if ( is_home() || is_front_page() ) {
+
+		$featured_type = get_theme_mod( 'highstake_featured_type', 'default' );
+		if ( $featured_type == 'disable' ) {
+			$classes[] = 'featured-disabled';
+		}
+
+		$featured_style = get_theme_mod( 'highstake_featured_style', 'fullwidth' );
+		if ( $featured_style == 'fullwidth' ) {
+			$classes[] = 'fullwidth-featured';
+		}
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'highstake_body_classes' );

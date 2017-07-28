@@ -19,6 +19,22 @@ function highstake_featured_customize_register( $wp_customize ) {
 		}
 	) );
 
+	// Register featured style setting
+	$wp_customize->add_setting( 'highstake_featured_style', array(
+		'default'           => 'fullwidth',
+		'sanitize_callback' => 'highstake_sanitize_featured_style',
+	) );
+	$wp_customize->add_control( 'highstake_featured_style', array(
+		'label'             => esc_html__( 'Style', 'highstake' ),
+		'section'           => 'highstake_featured',
+		'priority'          => 1,
+		'type'              => 'radio',
+		'choices'           => array(
+			'fullwidth' => esc_html__( 'Full Width', 'highstake' ),
+			'boxed'     => esc_html__( 'Boxed', 'highstake' )
+		)
+	) );
+
 	// Register featured type setting
 	$wp_customize->add_setting( 'highstake_featured_type', array(
 		'default'           => 'default',
@@ -27,12 +43,12 @@ function highstake_featured_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'highstake_featured_type', array(
 		'label'             => esc_html__( 'Type', 'highstake' ),
 		'section'           => 'highstake_featured',
-		'priority'          => 1,
+		'priority'          => 3,
 		'type'              => 'radio',
 		'choices'           => array(
 			'disable' => esc_html__( 'Disable', 'highstake' ),
 			'default' => esc_html__( 'Default', 'highstake' ),
-			'slider'  => esc_html__( 'Slider', 'highstake' )
+			'posts'   => esc_html__( 'Posts Slider', 'highstake' )
 		)
 	) );
 
@@ -58,11 +74,57 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'highstake_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'highstake_featured_default_text', array(
-		'label'             => esc_html__( 'Text', 'silver' ),
+		'label'             => esc_html__( 'Text', 'highstake' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 5,
 		'type'              => 'textarea',
 		'active_callback'   => 'highstake_is_featured_default'
+	) );
+
+	// Register featured image setting
+	$wp_customize->add_setting( 'highstake_featured_posts_info', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_attr'
+	) );
+	$wp_customize->add_control( new Highstake_Custom_Text( $wp_customize, 'highstake_featured_posts_info', array(
+		'label'             => esc_html__( 'Featured Posts', 'highstake' ),
+		'description'       => sprintf( __( 'Use a <a href="%1$s">tag</a> to feature your posts. If no posts match the tag, <a href="%2$s">sticky posts</a> will be displayed instead.', 'highstake' ),
+				esc_url( add_query_arg( 'tag', _x( 'featured', 'featured content default tag slug', 'highstake' ), admin_url( 'edit.php' ) ) ),
+				admin_url( 'edit.php?show_sticky=1' )
+			),
+		'section'           => 'highstake_featured',
+		'priority'          => 7,
+		'active_callback'   => 'highstake_is_featured_posts'
+	) ) );
+
+	// Register featured posts tag name setting
+	$wp_customize->add_setting( 'highstake_featured_posts_tag', array(
+		'default'           => 'featured',
+		'sanitize_callback' => 'esc_attr',
+	) );
+	$wp_customize->add_control( 'highstake_featured_posts_tag', array(
+		'label'             => esc_html__( 'Tag name', 'highstake' ),
+		'section'           => 'highstake_featured',
+		'priority'          => 9,
+		'type'              => 'text',
+		'active_callback'   => 'highstake_is_featured_posts'
+	) );
+
+	// Register number of posts setting
+	$wp_customize->add_setting( 'highstake_featured_posts_number', array(
+		'default'           => 3,
+		'sanitize_callback' => 'absint',
+	) );
+	$wp_customize->add_control( 'highstake_featured_posts_number', array(
+		'label'             => esc_html__( 'Number of posts', 'highstake' ),
+		'section'           => 'highstake_featured',
+		'priority'          => 11,
+		'type'              => 'number',
+		'input_attrs'       => array(
+			'min'  => 0,
+			'step' => 1
+		),
+		'active_callback'   => 'highstake_is_featured_posts'
 	) );
 
 }
@@ -75,10 +137,25 @@ function highstake_is_featured_default() {
 
 	$option = get_theme_mod( 'highstake_featured_type', 'default' );
 
-	if ( $option != 'default' ) {
-		return false;
-	} else {
+	if ( $option == 'default' ) {
 		return true;
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Active callback option
+ */
+function highstake_is_featured_posts() {
+
+	$option = get_theme_mod( 'highstake_featured_type', 'default' );
+
+	if ( $option == 'posts' ) {
+		return true;
+	} else {
+		return false;
 	}
 
 }

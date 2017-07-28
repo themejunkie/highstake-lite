@@ -1,37 +1,33 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header">
+	<div class="format-image-inner">
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$categories_list = get_the_category_list( esc_html__( ', ', 'highstake' ) );
-				if ( $categories_list && highstake_categorized_blog() ) :
-			?>
-			<span class="cat-links">
-				<?php echo $categories_list; ?>
-			</span>
-			<?php endif; // End if categories ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<a class="thumbnail-link" href="<?php the_permalink(); ?>">
+				<?php the_post_thumbnail( 'highstake-post-featured-image', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
+				<i class="fa fa-camera" aria-hidden="true"></i>
+			</a>
 		<?php endif; ?>
 
-		<time class="entry-date published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
+		<header class="entry-header">
 
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+			<?php if ( 'post' == get_post_type() ) : ?>
+				<?php
+					$category = get_the_category( get_the_ID() );
+					if ( $category ) :
+				?>
+				<span class="cat-link">
+					<a href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ); ?>"><?php echo esc_attr( $category[0]->name ); ?></a>
+				</span>
+				<?php endif; // End if categories ?>
+			<?php endif; ?>
 
-	</header>
+			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-	<?php if ( has_post_thumbnail() ) : ?>
-		<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail( 'large', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
-		</a>
-	<?php endif; ?>
+			<?php highstake_post_meta(); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
+		</header>
+
 	</div>
-
-	<span class="more-link-wrapper">
-		<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Continue Reading', 'highstake' ); ?></a>
-	</span>
 
 </article><!-- #post-## -->

@@ -3,6 +3,7 @@
  */
 .featured {
 	margin-bottom: 10rem;
+	margin-top: 7.5rem;
 }
 
 .featured-default {
@@ -11,7 +12,11 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	margin-top: 7.5rem;
+
+	// .fullwidth-featured & {
+	// 	@include container;
+	// 	padding-top: 11.5rem;
+	// }
 
 	.container {
 		position: relative;
@@ -787,6 +792,27 @@
 		line-height: 2.4rem;
 		margin-bottom: 0;
 		margin-top: .5rem;
+	}
+
+}
+
+/**
+ * Popup
+ */
+.mfp-container {
+
+	.mfp-content {
+
+		.mfp-figure {
+
+			button {
+				&:hover {
+					background-color: transparent;
+				}
+			}
+
+		}
+
 	}
 
 }

@@ -425,10 +425,9 @@ function highstake_get_format_gallery() {
 
 	// Set up placeholders
 	$slider = '';
-	$carousel = '';
 
 	// for has_sidebar
-	$size = 'medium';
+	$size = 'highstake-post-featured-image';
 
 	// for no sidebar
 	if ( current_theme_supports( 'theme-layouts' ) && ! is_admin() ) {
@@ -451,15 +450,11 @@ function highstake_get_format_gallery() {
 
 			// Display the gallery in a cool slideshow on index page.
 			foreach( $ids as $id ) {
-				$slider .= '<li class="hentry post">';
-				$slider .= '<a class="post-link" rel="prettyPhoto" href="' . wp_get_attachment_url( $id ) . '">';
+				$slider .= '<div>';
+				$slider .= '<a href="' . wp_get_attachment_url( $id ) . '">';
 				$slider .= wp_get_attachment_image( $id, $size, false, array( 'class' => 'entry-thumbnail' ) );
 				$slider .= '</a>';
-				$slider .= '</li>';
-
-				$carousel .= '<li>';
-				$carousel .= wp_get_attachment_image( $id, 'thumbnail', false, array( 'class' => 'entry-thumbnail' ) );
-				$carousel .= '</li>';
+				$slider .= '</div>';
 			}
 
 		} else {
@@ -474,15 +469,11 @@ function highstake_get_format_gallery() {
 
 			// Display the gallery in a cool slideshow on index page.
 			foreach( $srcs as $src ) {
-				$slider .= '<li class="hentry post">';
-				$slider .= '<a class="post-link" rel="prettyPhoto" href="' . esc_url( $src ) . '">';
+				$slider .= '<div>';
+				$slider .= '<a href="' . esc_url( $src ) . '">';
 				$slider .= '<img src="' . esc_url( $src ) . '" />';
 				$slider .= '</a>';
-				$slider .= '</li>';
-
-				$carousel .= '<li>';
-				$carousel .= '<img src="' . esc_url( $src ) . '" />';
-				$carousel .= '</li>';
+				$slider .= '</div>';
 			}
 
 		}
@@ -507,15 +498,11 @@ function highstake_get_format_gallery() {
 
 			// Display the attachment images in a cool slideshow on index page.
 			foreach ( $attachments as $attachment ) {
-				$slider .= '<li class="hentry post">';
-				$slider .= '<a class="post-link" rel="prettyPhoto" href="' . wp_get_attachment_url( $attachment->ID ) . '">';
+				$slider .= '<div>';
+				$slider .= '<a href="' . wp_get_attachment_url( $attachment->ID ) . '">';
 				$slider .= wp_get_attachment_image( $attachment->ID, $size, false, array( 'class' => 'entry-thumbnail' ) );
 				$slider .= '</a>';
-				$slider .= '</li>';
-
-				$carousel .= '<li>';
-				$carousel .= wp_get_attachment_image( $attachment->ID, 'thumbnail', false, array( 'class' => 'entry-thumbnail' ) );
-				$carousel .= '</li>';
+				$slider .= '</div>';
 			}
 
 		} else {
@@ -527,20 +514,11 @@ function highstake_get_format_gallery() {
 
 	}
 	?>
-	<div class="entry-image clearfix">
-
-		<div id="single-slider" class="flexslider">
-			<ul class="slides">
-				<?php echo $slider; ?>
-			</ul>
-		</div><!-- #single-slider -->
-
-		<div id="carousel" class="flexslider">
-			<ul class="slides">
-				<?php echo $carousel; ?>
-			</ul>
-		</div><!-- #carousel -->
-
+	<div class="entry-gallery">
+		<div class="owl-carousel owl-theme format-gallery-slider">
+			<?php echo $slider; ?>
+		</div>
+		<i class="fa fa-expand" aria-hidden="true"></i>
 	</div><!-- .entry-image -->
 	<?php
 }

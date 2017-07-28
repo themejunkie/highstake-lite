@@ -1,5 +1,17 @@
 <?php if ( is_home() ) : ?>
-	<?php get_template_part( 'partials/featured/content', 'featured' ); ?>
+
+	<?php
+		// Get the data set in customizer
+		$featured = get_theme_mod( 'highstake_featured_type', 'default' );
+		if ( $featured != 'disable' ) :
+	?>
+		<?php if ( $featured == 'default' ) : ?>
+			<?php get_template_part( 'partials/featured/content', 'featured' ); ?>
+		<?php elseif ( $featured == 'posts' ) : ?>
+			<?php get_template_part( 'partials/featured/content', 'featured-posts' ); ?>
+		<?php endif; ?>
+	<?php endif; ?>
+
 <?php endif; ?>
 
 <?php if ( is_archive() ) : ?>
@@ -30,6 +42,7 @@
 <?php endif; ?>
 
 <?php if ( is_page() || is_single() ) : ?>
+
 	<div data-jarallax='{"speed": 0.4}' class="page-header jarallax">
 		<div class="container">
 

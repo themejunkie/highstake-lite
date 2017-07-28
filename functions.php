@@ -94,7 +94,7 @@ function highstake_theme_setup() {
 	 * See: http://codex.wordpress.org/Post_Formats
 	 */
 	add_theme_support( 'post-formats', array(
-		'audio', 'image', 'gallery', 'quote', 'video'
+		'audio', 'image', 'gallery', 'video'
 	) );
 
 	// Setup the WordPress core custom background feature.

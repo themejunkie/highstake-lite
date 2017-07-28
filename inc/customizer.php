@@ -176,10 +176,20 @@ function highstake_sanitize_footer_widget_column( $col ) {
 }
 
 /**
+ * Sanitize the featured style value.
+ */
+function highstake_sanitize_featured_style( $style ) {
+	if ( ! in_array( $style, array( 'fullwidth', 'boxed' ) ) ) {
+		$style = 'fullwidth';
+	}
+	return $style;
+}
+
+/**
  * Sanitize the featured type value.
  */
 function highstake_sanitize_featured_type( $type ) {
-	if ( ! in_array( $type, array( 'disable', 'default', 'slider' ) ) ) {
+	if ( ! in_array( $type, array( 'disable', 'default', 'posts' ) ) ) {
 		$type = 'default';
 	}
 	return $type;

@@ -1,10 +1,21 @@
 /**
+ * Wrapper
+ */
+.wide-container {
+
+	.featured-disabled & {
+		padding-top: 11rem;
+	}
+
+}
+
+/**
  * Post
  */
 .entry {
-	padding-bottom: 10rem;
-	margin-bottom: 8rem;
-	border-bottom: .1rem solid $black;
+	// padding-bottom: 10rem;
+	margin-bottom: 10rem;
+	// border-bottom: .1rem solid $black;
 	position: relative;
 
 	&:nth-last-of-type(1) {
@@ -125,4 +136,108 @@ h2.entry-title {
 	margin-top: 3rem;
 	border-bottom: .1rem solid $black;
 	padding-bottom: 4rem;
+}
+
+/**
+ * Post formats
+ */
+.entry-format {
+	margin-bottom: $base-line-height;
+}
+
+.home .format-image {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.format-image-inner {
+	position: relative;
+
+	.fa {
+		position: absolute;
+		top: 3rem;
+		right: 3rem;
+		color: $white;
+		z-index: 1;
+	}
+
+	.thumbnail-link {
+		margin-bottom: 0;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($black, .3);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 0;
+		}
+	}
+
+	.entry-header {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		right: 0;
+		width: 80%;
+		margin: auto;
+
+		.cat-link a,
+		.entry-title a,
+		.entry-meta a {
+			color: $white;
+
+			&:hover {
+				color: $green;
+			}
+		}
+
+		.entry-meta {
+			color: $white;
+		}
+	}
+}
+
+.entry-gallery {
+	margin-bottom: $base-line-height;
+	position: relative;
+
+	.owl-nav {
+		margin-top: 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+
+		[class*=owl-] {
+			margin: 0;
+			background-color: $black;
+			border-radius: 0;
+			padding: .5rem 1.5rem;
+
+			&:hover {
+				background-color: $green;
+			}
+		}
+	}
+
+	.owl-prev {
+		float: left;
+	}
+
+	.owl-next {
+		float: right;
+	}
+
+	.fa-expand {
+		position: absolute;
+		top: 1.7rem;
+		right: 2rem;
+		z-index: 1;
+		color: $white;
+	}
+
 }

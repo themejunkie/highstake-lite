@@ -4,19 +4,18 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<?php
-				/* translators: used between list items, there is a space after the comma */
-				$categories_list = get_the_category_list( esc_html__( ', ', 'highstake' ) );
-				if ( $categories_list && highstake_categorized_blog() ) :
+				$category = get_the_category( get_the_ID() );
+				if ( $category ) :
 			?>
-			<span class="cat-links">
-				<?php echo $categories_list; ?>
+			<span class="cat-link">
+				<a href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ); ?>"><?php echo esc_attr( $category[0]->name ); ?></a>
 			</span>
 			<?php endif; // End if categories ?>
 		<?php endif; ?>
 
-		<time class="entry-date published" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
-
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+
+		<?php highstake_post_meta(); ?>
 
 	</header>
 
@@ -27,7 +26,9 @@
 	</div>
 
 	<span class="more-link-wrapper">
-		<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Continue Reading', 'highstake' ); ?></a>
+		<a href="<?php the_permalink(); ?>" class="more-link button"><?php esc_html_e( 'Read More', 'highstake' ); ?></a>
 	</span>
+
+	<?php highstake_social_share(); ?>
 
 </article><!-- #post-## -->
