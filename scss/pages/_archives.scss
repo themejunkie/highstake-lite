@@ -2,7 +2,11 @@
  * The archive and search page
  */
 .archive,
-.search {
+.search,
+.layout-2c-l-l,
+.layout-2c-r-l,
+.layout-1c-l,
+.layout-1c-n-l {
 
 	.entry {
 		@extend %clearfix;

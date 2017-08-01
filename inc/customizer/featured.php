@@ -19,22 +19,6 @@ function highstake_featured_customize_register( $wp_customize ) {
 		}
 	) );
 
-	// Register featured style setting
-	$wp_customize->add_setting( 'highstake_featured_style', array(
-		'default'           => 'fullwidth',
-		'sanitize_callback' => 'highstake_sanitize_featured_style',
-	) );
-	$wp_customize->add_control( 'highstake_featured_style', array(
-		'label'             => esc_html__( 'Style', 'highstake' ),
-		'section'           => 'highstake_featured',
-		'priority'          => 1,
-		'type'              => 'radio',
-		'choices'           => array(
-			'fullwidth' => esc_html__( 'Full Width', 'highstake' ),
-			'boxed'     => esc_html__( 'Boxed', 'highstake' )
-		)
-	) );
-
 	// Register featured type setting
 	$wp_customize->add_setting( 'highstake_featured_type', array(
 		'default'           => 'default',
@@ -43,12 +27,13 @@ function highstake_featured_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'highstake_featured_type', array(
 		'label'             => esc_html__( 'Type', 'highstake' ),
 		'section'           => 'highstake_featured',
-		'priority'          => 3,
+		'priority'          => 1,
 		'type'              => 'radio',
 		'choices'           => array(
 			'disable' => esc_html__( 'Disable', 'highstake' ),
 			'default' => esc_html__( 'Default', 'highstake' ),
-			'posts'   => esc_html__( 'Posts Slider', 'highstake' )
+			'posts'   => esc_html__( 'Posts Slider', 'highstake' ),
+			'custom'  => esc_html__( 'Custom Slider', 'highstake' ),
 		)
 	) );
 
@@ -127,11 +112,25 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'active_callback'   => 'highstake_is_featured_posts'
 	) );
 
+	// Register featured custom slider shortcode setting
+	$wp_customize->add_setting( 'highstake_featured_custom', array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_attr',
+	) );
+	$wp_customize->add_control( 'highstake_featured_custom', array(
+		'label'             => esc_html__( 'Shortcode', 'highstake' ),
+		'description'       => esc_html__( 'You can use any 3rd party slider that support shortcode, place the shortcode in the setting below.', 'highstake' ),
+		'section'           => 'highstake_featured',
+		'priority'          => 13,
+		'type'              => 'text',
+		'active_callback'   => 'highstake_is_featured_custom'
+	) );
+
 }
 add_action( 'customize_register', 'highstake_featured_customize_register' );
 
 /**
- * Active callback option
+ * Active callback option if featured is default
  */
 function highstake_is_featured_default() {
 
@@ -146,13 +145,28 @@ function highstake_is_featured_default() {
 }
 
 /**
- * Active callback option
+ * Active callback option if featured is posts
  */
 function highstake_is_featured_posts() {
 
 	$option = get_theme_mod( 'highstake_featured_type', 'default' );
 
 	if ( $option == 'posts' ) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+
+/**
+ * Active callback option if featured is custom
+ */
+function highstake_is_featured_custom() {
+
+	$option = get_theme_mod( 'highstake_featured_type', 'default' );
+
+	if ( $option == 'custom' ) {
 		return true;
 	} else {
 		return false;

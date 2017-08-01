@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+// Get the customizer data.
+$layout = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+
+get_header(); ?>
 
 	<div class="container">
 
@@ -9,7 +13,16 @@
 
 					<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php get_template_part( 'partials/post/content', get_post_format() ); ?>
+						<?php if (
+							$layout == '2c-l-l' ||
+							$layout == '2c-r-l' ||
+							$layout == '1c-l' ||
+							$layout == '1c-n-l'
+						) : ?>
+							<?php get_template_part( 'partials/content', 'archive' ); ?>
+						<?php else : ?>
+							<?php get_template_part( 'partials/post/content', get_post_format() ); ?>
+						<?php endif; ?>
 
 					<?php endwhile; ?>
 

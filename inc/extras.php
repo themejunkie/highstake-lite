@@ -56,10 +56,15 @@ function highstake_body_classes( $classes ) {
 			$classes[] = 'featured-disabled';
 		}
 
-		$featured_style = get_theme_mod( 'highstake_featured_style', 'fullwidth' );
-		if ( $featured_style == 'fullwidth' ) {
-			$classes[] = 'fullwidth-featured';
-		}
+	}
+
+	// Layout on home page.
+	if ( is_home() ) {
+		$blog_layouts = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+		$classes[] = 'layout-' . $blog_layouts;
+
+		$callout_type = get_theme_mod( 'highstake_callout_type', 'subscribe' );
+		$classes[] = 'callout-' . $callout_type;
 	}
 
 	return $classes;
@@ -215,6 +220,23 @@ function highstake_mod_theme_layout( $layout ) {
 		if ( 'default' === $post_layout ) {
 			$layout = '1c';
 		}
+	}
+
+	// Layout on home page.
+	if ( is_home() ) {
+		$archive_layouts = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+		$layout = $archive_layouts;
+
+		if ( $archive_layouts === '2c-l-l' ) {
+			$layout = '2c-l';
+		} elseif ( $archive_layouts === '2c-r-l' ) {
+			$layout = '2c-r';
+		} elseif ( $archive_layouts === '1c-l' ) {
+			$layout = '1c';
+		} elseif ( $archive_layouts === '1c-n-l' ) {
+			$layout = '1c-n';
+		}
+
 	}
 
 	return $layout;

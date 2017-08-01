@@ -104,6 +104,22 @@ h2.entry-title {
 	margin-bottom: 4rem;
 }
 
+.entry-content {
+
+	p:first-child:first-letter {
+		color: $black;
+		float: left;
+		font-family: Georgia;
+		font-size: 75px;
+		line-height: 60px;
+		padding-top: 7px;
+		padding-right: 8px;
+		padding-left: 3px;
+	}
+
+
+}
+
 .more-link-wrapper {
 	display: inline-block;
 

@@ -43,4 +43,20 @@
 
 		<?php get_template_part( 'partials/content', 'page-header' ); ?>
 
+		<?php
+			// Only show callout on home page
+			if ( is_home() ) {
+
+				// Get the data set in Customizer.
+				$callout = get_theme_mod( 'highstake_callout_type', 'subscribe' );
+
+				if ( $callout == 'subscribe' ) {
+					get_template_part( 'partials/callout/content', 'subscribe' );
+				} else {
+					get_template_part( 'partials/callout/content', 'posts' );
+				}
+
+			}
+		?>
+
 		<div id="content" class="site-content">

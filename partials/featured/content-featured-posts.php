@@ -37,37 +37,27 @@ $featured = new WP_Query( $query );
 
 		<?php while ( $featured->have_posts() ) : $featured->the_post(); ?>
 
-			<div <?php post_class(); ?>>
+			<?php $img = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'highstake-featured-image' ); ?>
 
-				<div class="post-thumbnail thumbnail">
-					<?php if ( has_post_thumbnail() ) : ?>
-						<a class="thumbnail-link" href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail( 'highstake-featured-image', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?>
-							<span class="overlay"></span>
-						</a>
-					<?php endif; ?>
+			<div data-jarallax='{"speed": 0.4}' <?php post_class( 'page-header jarallax' ); ?> style="background-image: url(<?php echo esc_url( $img[0] ) ?>)">
+				<div class="container">
 
-					<?php
-						$category = get_the_category( get_the_ID() );
-						if ( $category ) :
-					?>
-						<span class="cat-links">
+					<?php if ( 'post' == get_post_type() ) : ?>
+						<?php
+							$category = get_the_category( get_the_ID() );
+							if ( $category ) :
+						?>
+						<span class="cat-link">
 							<a href="<?php echo esc_url( get_category_link( $category[0]->term_id ) ); ?>"><?php echo esc_attr( $category[0]->name ); ?></a>
 						</span>
-					<?php endif; // End if category ?>
+						<?php endif; // End if categories ?>
+					<?php endif; ?>
+
+					<?php the_title( sprintf( '<h2 class="page-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+
+					<?php highstake_post_meta(); ?>
 
 				</div>
-
-				<div class="featured-content">
-
-					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-					<div class="featured-meta entry-meta">
-						<?php // featured_entry_meta(); ?>
-					</div>
-
-				</div>
-
 			</div>
 
 		<?php endwhile; ?>

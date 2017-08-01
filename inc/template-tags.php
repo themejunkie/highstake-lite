@@ -279,13 +279,13 @@ function highstake_related_posts() {
 
 	if ( $related->have_posts() ) : ?>
 
-		<div class="related-posts">
-			<h3 class="related-title"><?php esc_html_e( 'You might also like', 'highstake' ); ?></h3>
+		<div class="related-posts posts-in-grid">
+			<h3 class="related-title posts-in-grid-title"><?php esc_html_e( 'You might also like', 'highstake' ); ?></h3>
 			<ul>
 				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
 					<li>
 						<?php if ( has_post_thumbnail() ) : ?>
-							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'highstake-related-posts-image', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
+							<a class="thumbnail-link" href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'highstake-posts-in-grid', array( 'class' => 'entry-thumbnail', 'alt' => esc_attr( get_the_title() ) ) ); ?></a>
 						<?php endif; ?>
 						<?php if ( 'post' == get_post_type() ) : ?>
 							<?php
@@ -573,7 +573,7 @@ if ( ! function_exists( 'highstake_footer_text' ) ) :
 function highstake_footer_text() {
 
 	// Get the customizer data
-	$default = '&copy; Copyright ' . date( 'Y' ) . ' <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a> &middot; Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';
+	$default = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';
 	$footer_text = get_theme_mod( 'highstake_footer_credits', $default );
 
 	// Display the data

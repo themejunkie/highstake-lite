@@ -9,6 +9,8 @@
 			<?php get_template_part( 'partials/featured/content', 'featured' ); ?>
 		<?php elseif ( $featured == 'posts' ) : ?>
 			<?php get_template_part( 'partials/featured/content', 'featured-posts' ); ?>
+		<?php elseif ( $featured == 'custom' ) : ?>
+			<?php get_template_part( 'partials/featured/content', 'featured-custom' ); ?>
 		<?php endif; ?>
 	<?php endif; ?>
 

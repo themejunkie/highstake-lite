@@ -13,8 +13,10 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/footer.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/featured.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/callout.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/fonts.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/colors.php';
+require trailingslashit( get_template_directory() ) . 'inc/customizer/layouts.php';
 
 /**
  * Custom customizer functions.
@@ -176,20 +178,10 @@ function highstake_sanitize_footer_widget_column( $col ) {
 }
 
 /**
- * Sanitize the featured style value.
- */
-function highstake_sanitize_featured_style( $style ) {
-	if ( ! in_array( $style, array( 'fullwidth', 'boxed' ) ) ) {
-		$style = 'fullwidth';
-	}
-	return $style;
-}
-
-/**
  * Sanitize the featured type value.
  */
 function highstake_sanitize_featured_type( $type ) {
-	if ( ! in_array( $type, array( 'disable', 'default', 'posts' ) ) ) {
+	if ( ! in_array( $type, array( 'disable', 'default', 'posts', 'custom' ) ) ) {
 		$type = 'default';
 	}
 	return $type;
@@ -201,6 +193,37 @@ function highstake_sanitize_featured_type( $type ) {
 function highstake_sanitize_footer_content( $type ) {
 	if ( ! in_array( $type, array( 'disable', 'logo', 'custom' ) ) ) {
 		$type = 'logo';
+	}
+	return $type;
+}
+
+/**
+ * Sanitize blog layouts value.
+ */
+function highstake_sanitize_blog_layouts( $layout ) {
+	if ( ! in_array( $layout,
+			array(
+				'2c-l',
+				'2c-r',
+				'1c-n',
+				'2c-l-l',
+				'2c-r-l',
+				'1c-l',
+				'1c-n-l',
+			)
+		)
+	) {
+		$layout = 'default';
+	}
+	return $layout;
+}
+
+/**
+ * Sanitize the callout type value.
+ */
+function highstake_sanitize_callout_type( $type ) {
+	if ( ! in_array( $type, array( 'subscribe', 'posts' ) ) ) {
+		$type = 'subscribe';
 	}
 	return $type;
 }
