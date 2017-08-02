@@ -6,6 +6,15 @@
 		// Responsive video
 		$( '.hentry, .widget' ).fitVids();
 
+		/**
+		 * Mobile menu
+		 */
+		$( '#menu-primary-items' ).slicknav( {
+			label: '',
+			prependTo: '.menu-primary-container',
+			allowParentLinks: true
+		} );
+
 		// Posts slider
 		$( '.featured-posts' ).owlCarousel( {
 			items: 1,

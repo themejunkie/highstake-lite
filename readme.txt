@@ -7,15 +7,13 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-Highstake is a modern responsive business and corporate theme that helps you to create a strong–yet beautiful–online presence for your business.
+Highstake is a responsive and premium WordPress blog theme with a bold and black style.
 
 * Responsive layout.
-* Front Page Template.
-* Full Width Page Template
-* Full Width Narrow Page Template
-* Grid Page Template
-* Grid Sidebar Page Template
-* 6 Custom Widgets
+* Multiple featured option
+* Multiple blog layouts
+* Multiple post and page layouts
+* Sticky menu and sidebar
 * Jetpack.me compatibility for Infinite Scroll, Responsive Videos, Social Sharing, Related Posts.
 * The GPL v2.0 or later license. :) Use it to make something cool.
 
@@ -88,5 +86,5 @@ Image used in demo: https://unsplash.com/collections/312299/restaurant-and-cafe,
 
 == Changelog ==
 
-1.0.0 - Jan 10, 2017
+1.0.0 - Aug 01, 2017
 * Initial release

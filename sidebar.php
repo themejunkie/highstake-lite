@@ -5,7 +5,7 @@ if ( ! is_active_sidebar( 'primary' ) ) {
 }
 
 // Return early if user uses 1 column layout.
-if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c' ) ) ) {
+if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c', '1c-n' ) ) ) {
 	return;
 }
 ?>

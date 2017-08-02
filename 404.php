@@ -8,10 +8,10 @@
 				<section class="error-404 not-found">
 
 					<div class="page-content">
-						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'featured' ); ?></p>
+						<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'highstake' ); ?></p>
 						<ul>
-							<li><a href="javascript: history.go(-1);"><?php esc_html_e( 'Go to Previous Page', 'featured' ) ?></a></li>
-							<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Go to Home Page', 'featured' ) ?></a></li>
+							<li><a href="javascript: history.go(-1);"><?php esc_html_e( 'Go to Previous Page', 'highstake' ) ?></a></li>
+							<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Go to Home Page', 'highstake' ) ?></a></li>
 						</ul>
 					</div><!-- .page-content -->
 				</section><!-- .error-404 -->

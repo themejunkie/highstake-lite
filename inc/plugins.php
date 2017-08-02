@@ -27,6 +27,12 @@ function highstake_register_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'Mailchimp for WordPress',
+			'slug'     => 'mailchimp-for-wp',
+			'required' => false,
+		),
+
 	);
 
 	$config = array(

@@ -22,7 +22,6 @@
 
 				<?php if ( has_nav_menu ( 'primary' ) ) : ?>
 					<nav class="main-navigation" id="site-navigation">
-						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'highstake' ); ?></button>
 						<?php wp_nav_menu(
 							array(
 								'theme_location'  => 'primary',

@@ -16,12 +16,4 @@
 		} );
 	} );
 
-	// Footer background color
-	api( 'highstake_footer_bg', function ( value ) {
-		value.bind( function ( to ) {
-			to = to ? to : '#f5f5f5';
-			$( '.site-footer' ).css( 'background-color', to );
-		} );
-	} );
-
 } )( jQuery );

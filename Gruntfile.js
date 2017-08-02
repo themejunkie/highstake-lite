@@ -28,7 +28,8 @@ module.exports = function( grunt ) {
 					'jquery-scrolltofixed-min.js': 'ScrollToFixed/jquery-scrolltofixed-min.js',
 					'jquery.magnific-popup.js': 'magnific-popup/dist/jquery.magnific-popup.js',
 					'jarallax.js': 'jarallax/jarallax/jarallax.js',
-					'jarallax-video.js': 'jarallax/jarallax/jarallax-video.js'
+					'jarallax-video.js': 'jarallax/jarallax/jarallax-video.js',
+					'jquery.slicknav.js': 'slicknav/dist/jquery.slicknav.js'
 				}
 			},
 			js: {
@@ -48,6 +49,7 @@ module.exports = function( grunt ) {
 					'owl.carousel.css': 'owl.carousel/dist/assets/owl.carousel.css',
 					'owl.theme.default.css': 'owl.carousel/dist/assets/owl.theme.default.css',
 					'magnific-popup.css': 'magnific-popup/dist/magnific-popup.css',
+					'slicknav.css': 'slicknav/dist/slicknav.css',
 				}
 			},
 			fonts: {

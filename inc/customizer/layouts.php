@@ -34,14 +34,10 @@ function highstake_layouts_customize_register( $wp_customize ) {
 			'2c-r-l' => esc_html__( 'List left sidebar', 'highstake' ),
 			'1c-l'   => esc_html__( 'List no sidebar wide', 'highstake' ),
 			'1c-n-l' => esc_html__( 'List no sidebar narrow', 'highstake' ),
-			// 'grid-two-right-sidebar'    => esc_html__( 'Grid two columns right sidebar', 'highstake' ),
-			// 'grid-two-left-sidebar'     => esc_html__( 'Grid two columns left sidebar', 'highstake' ),
-			// 'grid-three'                => esc_html__( 'Grid three columns', 'highstake' ),
-			// 'grid-four'                 => esc_html__( 'Grid four columns', 'highstake' ),
-			// 'masonry-two-right-sidebar' => esc_html__( 'Masonry two columns right sidebar', 'highstake' ),
-			// 'masonry-two-left-sidebar'  => esc_html__( 'Masonry two columns left sidebar', 'highstake' ),
-			// 'masonry-three'             => esc_html__( 'Masonry three columns', 'highstake' ),
-			// 'masonry-four'              => esc_html__( 'Masonry four columns', 'highstake' ),
+			// '2c-g-l' => esc_html__( 'Grid two columns right sidebar', 'highstake' ),
+			// '2c-g-r' => esc_html__( 'Grid two columns left sidebar', 'highstake' ),
+			// '1c-g-3' => esc_html__( 'Grid three columns', 'highstake' ),
+			// '1c-g-4' => esc_html__( 'Grid four columns', 'highstake' ),
 		),
 	) );
 

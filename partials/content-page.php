@@ -12,7 +12,7 @@ $image = get_theme_mod( 'highstake_page_featured_image', 0 );
 		</a>
 	<?php endif; ?>
 
-	<div class="entry-content">
+	<div class="page-content">
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(

@@ -124,7 +124,7 @@
 
 	.subscribe-subtitle {
 		font-size: 1.6rem;
-		color: #3a8f70;
+		color: #555;
 		font-family: $montserrat;
 		margin-bottom: 2rem;
 	}
@@ -427,6 +427,10 @@
 		background-color: $green;
 		font-weight: 600;
 
+		&:visited {
+			color: $white;
+		}
+
 		&:hover {
 			background-color: $black;
 			color: $white;
@@ -697,6 +701,10 @@
 			font-size: 17px;
 			content: "\f2b4";
 			margin-right: 1rem;
+		}
+
+		&:visited {
+			color: $black;
 		}
 
 		&:hover {
@@ -1019,6 +1027,17 @@
 
 		}
 
+	}
+
+}
+
+/**
+ * Contact form 7
+ */
+.wpcf7-form {
+
+	textarea {
+		width: 100%;
 	}
 
 }

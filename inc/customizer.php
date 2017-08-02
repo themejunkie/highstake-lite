@@ -8,7 +8,6 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer/controls/c
 
 // Loads the customizer settings
 require trailingslashit( get_template_directory() ) . 'inc/customizer/general.php';
-require trailingslashit( get_template_directory() ) . 'inc/customizer/header.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/post.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/page.php';
 require trailingslashit( get_template_directory() ) . 'inc/customizer/footer.php';
@@ -112,6 +111,57 @@ function highstake_documentation_link() {
 add_action( 'customize_controls_enqueue_scripts', 'highstake_documentation_link' );
 
 /**
+ * Custom styles.
+ */
+function highstake_custom_css() {
+
+	// Set up empty variable.
+	$css = '';
+
+	// Get the customizer value.
+	$color           = get_theme_mod( 'highstake_accent_color', '#54e5b0' );
+	$heading_font    = get_theme_mod( 'highstake_heading_font_family', '\'Montserrat\', sans-serif' );
+	$body_font       = get_theme_mod( 'highstake_body_font_family', '\'Karla\', sans-serif' );
+
+	if ( $color != '#54e5b0' ) {
+		$css .= '
+		.button-primary, .menu-primary-items .sub-menu, .author-badge, .tag-links a:hover, .search-toggle:hover, .widget_tag_cloud a, .social-links, ::selection, .subscribe-box {
+			background-color: ' . sanitize_hex_color( $color ) . ';
+		}
+
+		a, a:visited, a:hover, .menu-primary-items a:hover, .site-branding a:hover, h2.entry-title a:hover, .page-title a:hover, .post-pagination .post-detail span, .entry-meta a:hover, .pagination .page-numbers.current, .pagination .page-numbers:hover, .info-right .to-top:hover, .page-header .cat-link a:hover, .page-header .entry-meta a:hover, .author-bio .name a:hover, .comment-avatar .name a:hover {
+			color: ' . sanitize_hex_color( $color ) . ';
+		}
+
+		 .widget_tabs .tabs-nav li.active a, blockquote, .menu-primary-items li:hover {
+			border-color: ' . sanitize_hex_color( $color ) . ';
+		}
+		';
+	}
+
+	if ( $heading_font != '\'Montserrat\', sans-serif' ) {
+		$css .= '
+			h1, h2, h3, h4, h5, h6, .entry-author {
+				font-family: ' . esc_attr( $heading_font ) . ';
+			}
+		';
+	}
+
+	if ( $body_font != '\'Karla\', sans-serif' ) {
+		$css .= '
+			body {
+				font-family: ' . esc_attr( $body_font ) . ';
+			}
+		';
+	}
+
+	// Print the custom style
+	wp_add_inline_style( 'highstake-style', $css );
+
+}
+add_action( 'wp_enqueue_scripts', 'highstake_custom_css' );
+
+/**
  * Sanitize the checkbox.
  *
  * @param boolean $input.
@@ -209,7 +259,7 @@ function highstake_sanitize_blog_layouts( $layout ) {
 				'2c-l-l',
 				'2c-r-l',
 				'1c-l',
-				'1c-n-l',
+				'1c-n-l'
 			)
 		)
 	) {

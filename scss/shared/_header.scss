@@ -45,6 +45,12 @@
 	right: 0;
 	top: 0;
 	padding: 2.8rem 1.9rem 2.7rem;
+	height: 7.5rem;
+
+	&:hover {
+		opacity: .9;
+		background-color: $green;
+	}
 
 	.fa {
 		color: $white;

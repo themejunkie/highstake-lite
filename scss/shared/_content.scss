@@ -67,6 +67,10 @@ h2.entry-title {
 	a {
 		color: $black;
 
+		&:visited {
+			color: $black;
+		}
+
 		&:hover {
 			color: $green;
 		}
