@@ -29,9 +29,12 @@
 
 .info-left {
 	text-align: center;
+	margin-bottom: 2rem;
+
 	@include susy-media(600px) {
 		@include span( 6 of 12 );
 		text-align: left;
+		margin-bottom: 0;
 	}
 }
 

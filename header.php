@@ -33,12 +33,23 @@
 				<?php endif; ?>
 
 				<button class="search-toggle button-primary">
-					<i class="fa fa-search"></i>
+					<i class="fa fa-search" aria-hidden="true"></i>
 				</button>
 
 			</div>
 
 		</header><!-- #masthead -->
+
+		<div class="searchbar">
+			<div class="container">
+				<form method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<input type="search" class="searchbar-field" placeholder="<?php echo esc_attr_x( 'Type keyword &hellip;', 'placeholder', 'highstake' ) ?>" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label', 'highstake' ) ?>" />
+				</form>
+				<button class="search-close">
+					<i class="fa fa-times-circle" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
 
 		<?php get_template_part( 'partials/content', 'page-header' ); ?>
 

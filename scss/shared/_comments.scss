@@ -1,5 +1,10 @@
 .comments-title {
 	margin-bottom: 3rem;
+	text-align: center;
+
+	@include susy-media(480px) {
+		text-align: left;
+	}
 }
 
 .comment-reply-title,
@@ -53,6 +58,11 @@
 
 .comment-avatar {
 	text-align: center;
+	margin-bottom: 1rem;
+
+	@include susy-media(480px) {
+		margin-bottom: 0;
+	}
 
 	.avatar {
 		border-radius: 50%;

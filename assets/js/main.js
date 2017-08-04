@@ -4,7 +4,17 @@
 	$( function () {
 
 		// Responsive video
-		$( '.hentry, .widget' ).fitVids();
+		$( '.entry, .widget' ).fitVids();
+
+		// Search bar
+		var $search = $( '.searchbar' );
+		$( '.search-toggle' ).on( 'click', function() {
+			$search.fadeToggle( 300 );
+			$( '.searchbar-field' ).focus();
+		});
+		$( '.search-close' ).on( 'click', function() {
+			$search.fadeToggle( 300 );
+		} );
 
 		/**
 		 * Mobile menu

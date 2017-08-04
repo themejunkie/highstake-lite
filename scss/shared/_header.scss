@@ -5,6 +5,7 @@
 	top: 0;
 	width: 100%;
 	z-index: 9;
+	min-height: 7.5rem;
 
 	.container {
 		position: relative;
@@ -12,7 +13,10 @@
 }
 
 .site-branding {
-	@include span(2 of 12);
+	float: left;
+	@include susy-media(800px) {
+		@include span(2 of 12);
+	}
 
 	.site-title {
 		font-size: 2.4rem;
@@ -42,10 +46,14 @@
  */
 .search-toggle {
 	position: absolute;
-	right: 0;
+	right: 4rem;
 	top: 0;
 	padding: 2.8rem 1.9rem 2.7rem;
 	height: 7.5rem;
+
+	@include susy-media(1170px) {
+		right: 0;
+	}
 
 	&:hover {
 		opacity: .9;

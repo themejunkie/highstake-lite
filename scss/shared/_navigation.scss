@@ -108,6 +108,7 @@
 	display: block;
 	padding: 0;
 	background-color: transparent;
+	line-height: 2.4rem;
 
 	@include susy-media(800px) {
 		display: none;
@@ -119,8 +120,41 @@
 		text-shadow: none;
 		border-radius: 0;
 		position: absolute;
-		right: 6rem;
-		top: 2rem;
+		right: 10rem;
+		top: 2.5rem;
+	}
+
+	.slicknav_nav {
+		padding-bottom: 2rem;
+		font-size: inherit;
+
+		.slicknav_row {
+
+			&:hover {
+				background: transparent;
+				border-radius: 0;
+			}
+
+		}
+
+		a {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+			padding-right: 0;
+
+			&:visited {
+				color: $white;
+			}
+
+			&:hover {
+				background: transparent;
+				border-radius: 0;
+				color: $green;
+			}
+
+		}
+
 	}
 
 }

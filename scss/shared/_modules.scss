@@ -1,4 +1,47 @@
 /**
+ * Search bar
+ */
+.searchbar {
+	position: absolute;
+	top: 0;
+	z-index: 9;
+	width: 100%;
+	display: none;
+
+	.container {
+		position: relative;
+	}
+
+	.searchbar-field {
+		background-color: $black;
+		width: 100%;
+		border: 0;
+		min-height: 7.5rem;
+		color: $white;
+
+		&:focus {
+			background-color: $black;
+		}
+	}
+
+	.search-close {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 4rem;
+		border: 0;
+		padding: 0;
+		background-color: transparent;
+		color: $white;
+		font-size: 2rem;
+
+		@include susy-media(1170px) {
+			right: 0;
+		}
+	}
+}
+
+/**
  * Featured area
  */
 .featured {
@@ -25,27 +68,50 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		justify-content: flex-end;
+		justify-content: center;
 		min-height: 45rem;
+
+		@include susy-media(480px) {
+			justify-content: flex-end;
+		}
 	}
 
 }
 
 .featured-default-text {
 	background-color: $white;
-	padding: 4rem 4rem;
-	width: 38.1rem;
-	height: 32.4rem;
+	padding: 3rem 3rem;
+	width: 30rem;
+	height: 28rem;
 	text-align: center;
+	font-size: 16px;
+
+	@include susy-media(600px) {
+		padding: 3rem 3rem;
+		width: 30rem;
+		height: 28rem;
+	}
+
+	@include susy-media(800px) {
+		width: 38.1rem;
+		height: 32.4rem;
+		padding: 4rem 4rem;
+		font-size: 18px;
+	}
 
 	small {
 		text-transform: uppercase;
 	}
 
 	h3 {
-		font-size: 48px;
+		font-size: 40px;
 		text-transform: uppercase;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
+
+		@include susy-media(800px) {
+			font-size: 48px;
+			margin-bottom: 3rem;
+		}
 	}
 
 	p {
@@ -99,7 +165,19 @@
 	margin-bottom: 10rem;
 
 	.container {
-		width: 60%;
+		width: 100%;
+
+		@include susy-media(920px) {
+			width: 80%;
+		}
+
+		@include susy-media(1120px) {
+			width: 70%;
+		}
+
+		@include susy-media(1200px) {
+			width: 60%;
+		}
 	}
 
 	.subscribe-icon {
@@ -232,14 +310,27 @@
 	margin-bottom: 5rem;
 
 	li {
+		margin-bottom: 5rem;
+		@include susy-media(600px) {
+			@include span(6 of 12);
+
+			&:nth-child(2n) {
+				@include last;
+			}
+		}
 
 		@include susy-media(768px) {
 			@include span(3 of 12);
+			margin-bottom: 0;
+
+			&:nth-child(2n) {
+				margin-right: gutter();
+				float: left;
+			}
 
 			&:nth-child(4n) {
 				@include last;
 			}
-
 		}
 
 	}
@@ -250,8 +341,18 @@
  * Post share
  */
 .post-share {
-	display: inline-block;
-	float: right;
+
+	.home & {
+		display: none;
+		@include susy-media(480px) {
+			display: inline-block;
+		}
+	}
+
+	@include susy-media(480px) {
+		display: inline-block;
+		float: right;
+	}
 
 	ul {
 		@extend %reset-list;
@@ -299,6 +400,11 @@
 	padding-top: 1.2rem;
 	clear: both;
 	font-family: $montserrat;
+	margin-bottom: 2rem;
+
+	@include susy-media(800px) {
+		margin-bottom: 0;
+	}
 
 	.page-numbers {
 		margin-right: 1.2rem;
@@ -374,6 +480,7 @@
 }
 
 .ad-widget {
+	text-align: center;
 
 	.widget-title {
 		font-size: 1rem;
@@ -821,10 +928,14 @@
 
 	.single &,
 	.home & {
-		min-height: 45rem;
+		min-height: 40rem;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+
+		@include susy-media(480px) {
+			min-height: 45rem;
+		}
 	}
 
 	.has-featured-image & {
@@ -852,10 +963,24 @@
 
 	.page-title {
 		margin: 0;
-		font-size: 4.2rem;
-		line-height: 4.8rem;
+		font-size: 2rem;
+		line-height: 2.8rem;
 		color: $white;
 		display: inline-block;
+
+		@include susy-media(480px) {
+			font-size: 3rem;
+			line-height: 4rem;
+		}
+
+		@include susy-media(600px) {
+			font-size: 3.8rem;
+			line-height: 4.8rem;
+		}
+
+		@include susy-media(700px) {
+			font-size: 4.2rem;
+		}
 
 		span {
 			background-color: $black;
@@ -871,8 +996,11 @@
 
 		.single &,
 		.home & {
-			width: 65%;
 			margin: 0 auto 2.5rem;
+
+			@include susy-media(920px) {
+				width: 65%;
+			}
 		}
 
 		.home & {
@@ -948,11 +1076,15 @@
 	}
 
 	.name {
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		margin-top: .5rem;
 		text-transform: uppercase;
 		font-family: $montserrat;
 		font-weight: 600;
+
+		@include susy-media(480px) {
+			font-size: 1.8rem;
+		}
 
 		a {
 			color: $black;
@@ -993,7 +1125,7 @@
 		margin-bottom: 5rem;
 		position: relative;
 
-		@include susy-media(768px) {
+		@include susy-media(700px) {
 			@include span( 4 of 8 );
 
 			&:nth-child(2n) {

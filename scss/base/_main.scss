@@ -16,6 +16,11 @@ body {
 	line-height: $base-line-height;
 	color: $body-font-color;
 	background: $body-bg-color;
+
+	@include susy-media(max-width 600px) {
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+	}
 }
 
 /**
