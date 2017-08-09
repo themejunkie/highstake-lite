@@ -118,11 +118,20 @@ add_filter( 'excerpt_more', 'highstake_excerpt_more' );
  */
 function highstake_custom_excerpt_length( $length ) {
 
-	if ( is_archive() || is_search() ) {
-		return 25;
+	// Set up empty variable.
+	$length = 50;
+
+	// Get the blog layouts.
+	$blog_layouts = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+	if ( is_home() && $blog_layouts == '2c-l-l' || $blog_layouts == '2c-r-l' || $blog_layouts == '1c-l' || $blog_layouts == '1c-n-l' ) {
+		$length = 25;
 	}
 
-	return 50;
+	if ( is_archive() || is_search() ) {
+		$length = 25;
+	}
+
+	return $length;
 }
 add_filter( 'excerpt_length', 'highstake_custom_excerpt_length', 999 );
 

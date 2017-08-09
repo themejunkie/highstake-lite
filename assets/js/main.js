@@ -8,11 +8,13 @@
 
 		// Search bar
 		var $search = $( '.searchbar' );
-		$( '.search-toggle' ).on( 'click', function() {
+		$( '.search-toggle' ).on( 'click', function( event ) {
+			event.preventDefault();
 			$search.fadeToggle( 300 );
 			$( '.searchbar-field' ).focus();
 		});
-		$( '.search-close' ).on( 'click', function() {
+		$( '.search-close' ).on( 'click', function( event ) {
+			event.preventDefault();
 			$search.fadeToggle( 300 );
 		} );
 

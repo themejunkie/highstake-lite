@@ -9,7 +9,11 @@
 
 					<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php get_template_part( 'partials/content', 'archive' ); ?>
+						<?php if ( $wp_query->current_post == 0 && !is_paged() ) : ?>
+							<?php get_template_part( 'partials/post/content', get_post_format() ); ?>
+						<?php else : ?>
+							<?php get_template_part( 'partials/content', 'archive' ); ?>
+						<?php endif; ?>
 
 					<?php endwhile; ?>
 

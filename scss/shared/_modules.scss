@@ -216,7 +216,7 @@
 		p {
 			display: inline-block;
 			margin-bottom: 0;
-			margin-right: 1.5rem;
+			margin-right: 1rem;
 		}
 
 		input[type="text"],
@@ -225,6 +225,7 @@
 			height: auto;
 			padding: .9rem .9rem;
 			font-size: 1.6rem;
+			max-width: 16rem;
 
 			&::-webkit-input-placeholder {
 				font-size: 1.3rem;
@@ -394,7 +395,7 @@
  */
 .pagination {
 	@extend %clearfix;
-	border-top: .1rem solid $black;
+	border-top: .2rem solid $black;
 	text-align: center;
 	text-transform: uppercase;
 	padding-top: 1.2rem;
@@ -407,32 +408,31 @@
 	}
 
 	.page-numbers {
-		margin-right: 1.2rem;
-		font-weight: 400;
+		margin-right: .5rem;
+		font-weight: 700;
 		color: $black;
+		border: .3rem solid $black;
+		display: inline-block;
+		min-width: 3.2rem;
+		height: 3.2rem;
+		text-align: center;
 
 		&:hover,
 		&.current {
-			color: $green;
+			background-color: $black;
+			color: $white;
 		}
 	}
 
 	.next {
 		float: right;
 		margin-right: 0;
+		padding: 0 1rem;
 	}
 
 	.prev {
 		float: left;
 		margin-right: 0;
-	}
-
-	.next,
-	.prev {
-		color: $black;
-		&:hover {
-			color: $green;
-		}
 	}
 
 }
