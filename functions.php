@@ -67,7 +67,7 @@ function highstake_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Declare image sizes.
-	add_image_size( 'highstake-featured-image', 1500, 450, true );
+	add_image_size( 'highstake-featured-image', 2000, 950, true );
 	add_image_size( 'highstake-post-featured-image', 760, 450, true );
 	add_image_size( 'highstake-archive-featured-image', 520, 400, true );
 	add_image_size( 'highstake-posts-in-grid', 720, 460, true );

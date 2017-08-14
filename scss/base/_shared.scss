@@ -248,3 +248,7 @@ table tr td:last-child {
 .gallery-columns-9 .gallery-caption {
 	display: none;
 }
+
+.clearfix {
+	@extend %clearfix;
+}

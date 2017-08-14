@@ -10,14 +10,16 @@
 
 	.site-content {
 
-		article:not(:first-child()) {
+		article:not(.default-blog-layout) {
 			@extend %clearfix;
 			border-bottom: 0;
 			padding-bottom: 0;
 			margin-bottom: 6.5rem;
 
 			.thumbnail-link {
-				@include span(3 of 8);
+				@include susy-media(600px) {
+					@include span(3 of 8);
+				}
 			}
 
 			.entry-header {
@@ -55,7 +57,9 @@
 	}
 
 	.entry-right {
-		@include span(5 of 8 last);
+		@include susy-media(600px) {
+			@include span(5 of 8 last);
+		}
 	}
 
 }

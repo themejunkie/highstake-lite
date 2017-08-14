@@ -125,11 +125,11 @@ function highstake_custom_css() {
 
 	if ( $color != '#54e5b0' ) {
 		$css .= '
-		.button-primary, .menu-primary-items .sub-menu, .author-badge, .tag-links a:hover, .search-toggle:hover, .widget_tag_cloud a, .social-links, ::selection, .subscribe-box {
+		.button-primary, .menu-primary-items .sub-menu, .author-badge, .tag-links a:hover, .search-toggle:hover, .widget_tag_cloud a, .social-links, .subscribe-box, .page-header {
 			background-color: ' . sanitize_hex_color( $color ) . ';
 		}
 
-		a, a:visited, a:hover, .menu-primary-items a:hover, .site-branding a:hover, h2.entry-title a:hover, .page-title a:hover, .post-pagination .post-detail span, .entry-meta a:hover, .pagination .page-numbers.current, .pagination .page-numbers:hover, .info-right .to-top:hover, .page-header .cat-link a:hover, .page-header .entry-meta a:hover, .author-bio .name a:hover, .comment-avatar .name a:hover {
+		a, a:visited, a:hover, .menu-primary-items a:hover, .site-branding a:hover, h2.entry-title a:hover, .page-title a:hover, .post-pagination .post-detail span, .entry-meta a:hover, .pagination .page-numbers.current, .pagination .page-numbers:hover, .info-right .to-top:hover, .page-header .cat-link a:hover, .page-header .entry-meta a:hover, .author-bio .name a:hover, .comment-avatar .name a:hover, .home .page-header .page-title a:hover, .posts-thumbnail-widget .post-title:hover, .slicknav_menu .slicknav_nav a:hover {
 			color: ' . sanitize_hex_color( $color ) . ';
 		}
 

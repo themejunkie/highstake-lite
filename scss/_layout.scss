@@ -33,7 +33,11 @@
 }
 
 .site-content {
-	margin-bottom: 14rem;
+	margin-bottom: 0;
+
+	@include susy-media(800px) {
+		margin-bottom: 14rem;
+	}
 }
 
 .content-area {

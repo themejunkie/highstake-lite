@@ -9,13 +9,23 @@
  */
 function highstake_import_files() {
 	return array(
+
 		array(
-			'import_file_name'             => 'Demo Highstake',
+			'import_file_name'             => 'Default Highstake',
 			'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/demo/dummy-data.xml',
 			'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'inc/demo/widgets.wie',
 			'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/demo/customizer.dat',
-			'import_preview_image_url'     => trailingslashit( get_template_directory() ) . 'screenshot.png'
+			'import_preview_image_url'     => trailingslashit( get_template_directory() ) . 'screenshot.jpg'
 		),
+
+		array(
+			'import_file_name'             => 'Fashion Highstake',
+			'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/demo/dummy-data-fashion.xml',
+			'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'inc/demo/widgets-fashion.wie',
+			'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/demo/customizer-fashion.dat',
+			'import_preview_image_url'     => trailingslashit( get_template_directory() ) . 'screenshot-fashion.jpg'
+		),
+
 	);
 }
 add_filter( 'pt-ocdi/import_files', 'highstake_import_files' );

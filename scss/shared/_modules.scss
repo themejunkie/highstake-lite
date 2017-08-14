@@ -184,6 +184,11 @@
 		float: left;
 		margin-right: $base-line-height;
 		width: 25%;
+		display: none;
+
+		@include susy-media(700px) {
+			display: inline-block;
+		}
 
 		.fa {
 			color: $white;
@@ -192,8 +197,10 @@
 	}
 
 	.subscribe-form-wrapper {
-		float: right;
-		width: 70%;
+		@include susy-media(700px) {
+			float: right;
+			width: 70%;
+		}
 	}
 
 	.subscribe-title {
@@ -215,8 +222,12 @@
 
 		p {
 			display: inline-block;
-			margin-bottom: 0;
+			margin-bottom: 1rem;
 			margin-right: 1rem;
+
+			@include susy-media(800px) {
+				margin-bottom: 0;
+			}
 		}
 
 		input[type="text"],
@@ -225,7 +236,11 @@
 			height: auto;
 			padding: .9rem .9rem;
 			font-size: 1.6rem;
-			max-width: 16rem;
+			max-width: 18rem;
+
+			@include susy-media(850px) {
+				max-width: 15rem;
+			}
 
 			&::-webkit-input-placeholder {
 				font-size: 1.3rem;
@@ -416,11 +431,15 @@
 		min-width: 3.2rem;
 		height: 3.2rem;
 		text-align: center;
+		margin-bottom: 1rem;
+		@include susy-media(375px) {
+			margin-bottom: 0;
+		}
 
 		&:hover,
 		&.current {
 			background-color: $black;
-			color: $white;
+			color: $white !important;
 		}
 	}
 
@@ -433,6 +452,7 @@
 	.prev {
 		float: left;
 		margin-right: 0;
+		padding: 0 1rem;
 	}
 
 }
@@ -440,6 +460,13 @@
 /**
  * Sidebar & Widgets
  */
+.widget-area {
+	margin-top: 7rem;
+	@include susy-media(800px) {
+		margin-top: 0;
+	}
+}
+
 .widget {
 	margin-bottom: 8rem;
 	font-size: 1.6rem;
@@ -500,22 +527,24 @@
 
 .widget_archive,
 .widget_categories {
-	@extend %clearfix;
+	@include susy-media(375px) {
+		@extend .clearfix;
 
-	li {
-		@extend %clearfix;
-		text-align: right;
-		float: left;
-		width: 45%;
-		margin-right: 5%;
+		li {
+			@extend .clearfix;
+			text-align: right;
+			float: left;
+			width: 45%;
+			margin-right: 5%;
 
-		&:nth-child(2n) {
-			margin-right: 0;
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
 		}
-	}
 
-	a {
-		float: left;
+		a {
+			float: left;
+		}
 	}
 }
 
@@ -572,10 +601,12 @@
 	}
 
 	.thumbnail-link {
-		float: left;
-		max-width: 8rem;
-		margin-right: $base-line-height / 2;
-		margin-bottom: 0;
+		@include susy-media(375px) {
+			float: left;
+			max-width: 8rem;
+			margin-right: $base-line-height / 2;
+			margin-bottom: 0;
+		}
 	}
 
 	.entry-thumbnail {
@@ -749,6 +780,10 @@
 		background-color: $black;
 		color: $white;
 		padding: 1.3rem 3rem;
+		font-size: 1.2rem;
+		@include susy-media(375px) {
+			font-size: inherit;
+		}
 
 		&:hover {
 			background-color: transparent;
