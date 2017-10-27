@@ -33,6 +33,18 @@ function highstake_register_plugins() {
 			'required' => false,
 		),
 
+		array(
+			'name'     => 'WooCommerce',
+			'slug'     => 'woocoomerce',
+			'required' => false,
+		),
+
+		array(
+			'name'     => 'Elementor Page Builder',
+			'slug'     => 'elementor',
+			'required' => false,
+		),
+
 	);
 
 	$config = array(
