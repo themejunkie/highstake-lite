@@ -2,7 +2,7 @@
 Contributors: Theme Junkie
 Requires at least: WordPress 4.6
 Tested up to: WordPress 4.8
-Version: 1.0.0
+Version: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,6 +85,14 @@ Source: https://github.com/TGMPA/TGM-Plugin-Activation
 Image used in demo: https://unsplash.com/collections/312299/restaurant-and-cafe, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+
+1.0.1 - Nov 14, 2017
+* Support newest Chrome browser
+	style.css
+	style.min.css
+* Update Jarallax code library
+	assets/js/plugins.min.js
+	assets/js/highstake.min.js
 
 1.0.0 - Aug 01, 2017
 * Initial release

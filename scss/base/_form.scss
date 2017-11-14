@@ -188,6 +188,7 @@ input[type="submit"],
 	text-transform: uppercase;
 	cursor: pointer;
 	transition: background-color linear 200ms;
+	border-radius: 0;
 
 	&:visited {
 		color: $black;

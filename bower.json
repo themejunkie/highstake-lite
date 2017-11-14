@@ -16,7 +16,7 @@
     "owl.carousel": "^2.2.1",
     "ScrollToFixed": "^1.0.8",
     "magnific-popup": "^1.1.0",
-    "jarallax": "^1.8.0",
+    "jarallax": "^1.9.0",
     "slicknav": "^1.0.10"
   }
 }
