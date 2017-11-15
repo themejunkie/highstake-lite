@@ -93,6 +93,8 @@ Image used in demo: https://unsplash.com/collections/312299/restaurant-and-cafe,
 * Update Jarallax code library
 	assets/js/plugins.min.js
 	assets/js/highstake.min.js
+* Fixed mobile menu issue
+	header.php
 
 1.0.0 - Aug 01, 2017
 * Initial release

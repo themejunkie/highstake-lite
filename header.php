@@ -24,6 +24,7 @@
 					<nav class="main-navigation" id="site-navigation">
 						<?php wp_nav_menu(
 							array(
+								'container_class' => 'menu-primary-container',
 								'theme_location'  => 'primary',
 								'menu_id'         => 'menu-primary-items',
 								'menu_class'      => 'menu-primary-items'

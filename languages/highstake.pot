@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Highstake 1.0.1\n"
 "Report-Msgid-Bugs-To: http://www.theme-junkie.com/forum/\n"
-"POT-Creation-Date: 2017-11-14 04:37:41+00:00\n"
+"POT-Creation-Date: 2017-11-15 04:10:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1223,12 +1223,12 @@ msgid_plural "%1$s Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: header.php:46 searchform.php:2
+#: header.php:47 searchform.php:2
 msgctxt "placeholder"
 msgid "Type keyword &hellip;"
 msgstr ""
 
-#: header.php:46 searchform.php:2
+#: header.php:47 searchform.php:2
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
