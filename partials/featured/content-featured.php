@@ -6,7 +6,7 @@ $text = get_theme_mod( 'highstake_featured_default_text' );
 if ( $img ) : ?>
 
 	<?php $img_src = wp_get_attachment_image_src( absint( $img ), 'full' ); ?>
-	<div data-jarallax='{"speed": 0.4}' class="featured featured-default jarallax" style="background-image: url(<?php echo esc_url( $img_src[0] ); ?>);">
+	<div data-jarallax data-speed="0.2" class="featured featured-default jarallax" style="background-image: url(<?php echo esc_url( $img_src[0] ); ?>);">
 
 		<div class="container">
 			<?php if ( $text ) : ?>

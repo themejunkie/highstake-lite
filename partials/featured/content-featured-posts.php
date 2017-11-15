@@ -39,7 +39,7 @@ $featured = new WP_Query( $query );
 
 			<?php $img = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'highstake-featured-image' ); ?>
 
-			<div data-jarallax='{"speed": 0.4}' <?php post_class( 'page-header jarallax' ); ?> style="background-image: url(<?php echo esc_url( $img[0] ) ?>)">
+			<div data-jarallax data-speed="0.2" <?php post_class( 'page-header jarallax' ); ?> style="background-image: url(<?php echo esc_url( $img[0] ) ?>)">
 				<div class="container">
 
 					<?php if ( 'post' == get_post_type() ) : ?>

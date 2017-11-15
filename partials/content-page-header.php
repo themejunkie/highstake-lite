@@ -45,7 +45,7 @@
 
 <?php if ( is_page() || is_single() ) : ?>
 
-	<div data-jarallax='{"speed": 0.4}' class="page-header jarallax">
+	<div data-jarallax data-speed="0.2" class="page-header jarallax">
 		<div class="container">
 
 			<?php if ( 'post' == get_post_type() ) : ?>
