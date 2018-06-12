@@ -7,7 +7,7 @@
  *
  * @package    Highstake
  * @author     Theme Junkie
- * @copyright  Copyright (c) 2017, Theme Junkie
+ * @copyright  Copyright (c) 2018, Theme Junkie
  * @license    http://www.gnu.org/licenses/gpl-2.0.html
  * @since      1.0.0
  */
@@ -267,3 +267,8 @@ require trailingslashit( get_template_directory() ) . 'inc/signature.php';
  */
 require trailingslashit( get_template_directory() ) . 'inc/extensions/theme-layouts.php';
 require trailingslashit( get_template_directory() ) . 'inc/extensions/hybrid-media-grabber.php';
+
+/**
+ * Demo importer.
+ */
+require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';

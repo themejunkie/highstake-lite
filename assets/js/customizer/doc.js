@@ -15,7 +15,6 @@
 				'background-color': '#2EA2CC',
 				'color': '#fff',
 				'text-transform': 'uppercase',
-				'margin-top': '6px',
 				'padding': '3px 6px',
 				'font-size': '9px',
 				'letter-spacing': '1px',
@@ -25,13 +24,8 @@
 			} );
 
 		setTimeout( function () {
-			$( '#accordion-section-themes h3' ).append( doc );
+			$( '#customize-info .accordion-section-title' ).append( doc );
 		}, 200 );
-
-		// Remove accordion click event
-		$( '.theme-doc-link' ).on( 'click', function ( e ) {
-			e.stopPropagation();
-		} );
 	}
 
 } )( jQuery );

@@ -24,7 +24,7 @@ function highstake_customize_functions( $wp_customize ) {
 
 	// Register new panel: Design
 	$wp_customize->add_panel( 'highstake_design', array(
-		'title'       => esc_html__( 'Design', 'highstake' ),
+		'title'       => esc_html__( 'Theme Design', 'highstake' ),
 		'description' => esc_html__( 'This panel is used for customizing the design of your site.', 'highstake' ),
 		'priority'    => 125,
 	) );
@@ -67,13 +67,9 @@ function highstake_customize_functions( $wp_customize ) {
 	$wp_customize->get_section( 'background_image' )->panel    = 'highstake_design';
 	$wp_customize->get_section( 'background_image' )->priority = 7;
 
-	// Move the Static Front Page section.
-	$wp_customize->get_section( 'static_front_page' )->panel    = 'highstake_design';
-	$wp_customize->get_section( 'static_front_page' )->priority = 9;
-
 	// Move the Additional CSS section.
 	$wp_customize->get_section( 'custom_css' )->panel    = 'highstake_design';
-	$wp_customize->get_section( 'custom_css' )->priority = 11;
+	$wp_customize->get_section( 'custom_css' )->priority = 9;
 
 	// Move background color to background image section.
 	$wp_customize->get_section( 'background_image' )->title = esc_html__( 'Background', 'highstake' );

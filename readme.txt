@@ -1,8 +1,8 @@
 === Highstake ===
 Contributors: Theme Junkie
-Requires at least: WordPress 4.6
-Tested up to: WordPress 4.8
-Version: 1.0.1
+Requires at least: WordPress 4.7
+Tested up to: WordPress 4.9.6
+Version: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ Highstake is a responsive and premium WordPress blog theme with a bold and black
 
 == Copyright ==
 
-Highstake WordPress Theme, Copyright 2017 https://www.theme-junkie.com/
+Highstake WordPress Theme, Copyright 2018 https://www.theme-junkie.com/
 Highstake is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -66,7 +66,7 @@ FitVids v1.1, Copyright 2013, Chris Coyier - http://css-tricks.com + Dave Rupert
 Licenses: WTFPL
 Source: https://github.com/davatron5000/FitVids.js/
 
-Slicknav v1.0.7, Copyright (c) 2017 Josh Cope
+Slicknav v1.0.7, Copyright (c) 2018 Josh Cope
 Licenses: MIT
 Source: http://slicknav.com
 
@@ -86,19 +86,5 @@ Image used in demo: https://unsplash.com/collections/312299/restaurant-and-cafe,
 
 == Changelog ==
 
-1.0.1 - Nov 14, 2017
-* Support newest Chrome browser
-	style.css
-	style.min.css
-* Update Jarallax code library
-	assets/js/plugins.min.js
-	assets/js/highstake.min.js
-* Fixed mobile menu issue
-	header.php
-* Fixed warning with the new Jarallax code library
-	partials/content-page-header.php
-	partials/featured/content-featured-posts.php
-	partials/featured/content-featured.php
-
-1.0.0 - Aug 01, 2017
+1.0.0 - June 12, 2018
 * Initial release

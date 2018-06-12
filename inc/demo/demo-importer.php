@@ -15,15 +15,8 @@ function highstake_import_files() {
 			'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/demo/dummy-data.xml',
 			'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'inc/demo/widgets.wie',
 			'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/demo/customizer.dat',
-			'import_preview_image_url'     => trailingslashit( get_template_directory() ) . 'screenshot.jpg'
-		),
-
-		array(
-			'import_file_name'             => 'Fashion Highstake',
-			'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/demo/dummy-data-fashion.xml',
-			'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'inc/demo/widgets-fashion.wie',
-			'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/demo/customizer-fashion.dat',
-			'import_preview_image_url'     => trailingslashit( get_template_directory() ) . 'screenshot-fashion.jpg'
+			'import_preview_image_url'     => trailingslashit( get_template_directory_uri() ) . 'screenshot.jpg',
+			'preview_url'                  => 'http://demo.theme-junkie.com/highstake/'
 		),
 
 	);
@@ -50,6 +43,7 @@ function highstake_after_import_setup() {
 
 	update_option( 'show_on_front', 'page' );
 	update_option( 'page_on_front', $front_page_id->ID );
+	update_option( 'posts_per_page', 5 );
 
 }
 add_action( 'pt-ocdi/after_import', 'highstake_after_import_setup' );

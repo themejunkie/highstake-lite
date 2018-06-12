@@ -1,11 +1,215 @@
 /*!
- * Name    : Video Worker (wrapper for Youtube, Vimeo and Local videos)
- * Version : 1.9.0
+ * Name    : Video Background Extension for Jarallax
+ * Version : 1.0.1
  * Author  : nK <https://nkdev.info>
  * GitHub  : https://github.com/nk-o/jarallax
  */
-;(function() {
-'use strict';
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var win;
+
+if (typeof window !== "undefined") {
+    win = window;
+} else if (typeof global !== "undefined") {
+    win = global;
+} else if (typeof self !== "undefined") {
+    win = self;
+} else {
+    win = {};
+}
+
+module.exports = win;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (callback) {
+
+	if (document.readyState === 'complete' || document.readyState === 'interactive') {
+		// Already ready or interactive, execute callback
+		callback.call();
+	} else if (document.attachEvent) {
+		// Old browsers
+		document.attachEvent('onreadystatechange', function () {
+			if (document.readyState === 'interactive') callback.call();
+		});
+	} else if (document.addEventListener) {
+		// Modern browsers
+		document.addEventListener('DOMContentLoaded', callback);
+	}
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var g;
+
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(9);
+
+/***/ }),
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(8);
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _videoWorker = __webpack_require__(3);
+
+var _videoWorker2 = _interopRequireDefault(_videoWorker);
+
+var _global = __webpack_require__(0);
+
+var _global2 = _interopRequireDefault(_global);
+
+var _liteReady = __webpack_require__(1);
+
+var _liteReady2 = _interopRequireDefault(_liteReady);
+
+var _jarallaxVideo = __webpack_require__(10);
+
+var _jarallaxVideo2 = _interopRequireDefault(_jarallaxVideo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// add video worker globally to fallback jarallax < 1.10 versions
+_global2.default.VideoWorker = _global2.default.VideoWorker || _videoWorker2.default;
+
+(0, _jarallaxVideo2.default)();
+
+// data-jarallax-video initialization
+(0, _liteReady2.default)(function () {
+    if (typeof jarallax !== 'undefined') {
+        jarallax(document.querySelectorAll('[data-jarallax-video]'));
+    }
+});
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -41,55 +245,44 @@ Deferred.prototype = {
     }
 };
 
-// init events
-function addEventListener(el, eventName, handler) {
-    if (el.addEventListener) {
-        el.addEventListener(eventName, handler);
-    } else {
-        el.attachEvent('on' + eventName, function () {
-            handler.call(el);
-        });
-    }
-}
-
 var ID = 0;
 var YoutubeAPIadded = 0;
 var VimeoAPIadded = 0;
 var loadingYoutubePlayer = 0;
 var loadingVimeoPlayer = 0;
-var loadingYoutubeDeffer = new Deferred();
-var loadingVimeoDeffer = new Deferred();
+var loadingYoutubeDefer = new Deferred();
+var loadingVimeoDefer = new Deferred();
 
 var VideoWorker = function () {
     function VideoWorker(url, options) {
         _classCallCheck(this, VideoWorker);
 
-        var _this = this;
+        var self = this;
 
-        _this.url = url;
+        self.url = url;
 
-        _this.options_default = {
-            autoplay: 1,
-            loop: 1,
-            mute: 1,
-            volume: 0,
-            controls: 0,
+        self.options_default = {
+            autoplay: false,
+            loop: false,
+            mute: false,
+            volume: 100,
+            showContols: true,
 
-            // start / end video time in ms
+            // start / end video time in seconds
             startTime: 0,
             endTime: 0
         };
 
-        _this.options = _this.extend({}, _this.options_default, options);
+        self.options = self.extend({}, self.options_default, options);
 
         // check URL
-        _this.videoID = _this.parseURL(url);
+        self.videoID = self.parseURL(url);
 
         // init
-        if (_this.videoID) {
-            _this.ID = ID++;
-            _this.loadAPI();
-            _this.init();
+        if (self.videoID) {
+            self.ID = ID++;
+            self.loadAPI();
+            self.init();
         }
     }
 
@@ -141,6 +334,7 @@ var VideoWorker = function () {
                     // eslint-disable-next-line no-useless-escape
                     var match = val.match(/^(mp4|webm|ogv|ogg)\:(.*)/);
                     if (match && match[1] && match[2]) {
+                        // eslint-disable-next-line prefer-destructuring
                         result[match[1] === 'ogv' ? 'ogg' : match[1]] = match[2];
                         ready = 1;
                     }
@@ -184,7 +378,7 @@ var VideoWorker = function () {
     }, {
         key: 'off',
         value: function off(name, callback) {
-            var _this2 = this;
+            var _this = this;
 
             if (!this.userEventsList || !this.userEventsList[name]) {
                 return;
@@ -195,7 +389,7 @@ var VideoWorker = function () {
             } else {
                 this.userEventsList[name].forEach(function (val, key) {
                     if (val === callback) {
-                        _this2.userEventsList[name][key] = false;
+                        _this.userEventsList[name][key] = false;
                     }
                 });
             }
@@ -203,14 +397,14 @@ var VideoWorker = function () {
     }, {
         key: 'fire',
         value: function fire(name) {
-            var _this3 = this;
+            var _this2 = this;
 
             var args = [].slice.call(arguments, 1);
             if (this.userEventsList && typeof this.userEventsList[name] !== 'undefined') {
                 this.userEventsList[name].forEach(function (val) {
                     // call with all arguments
                     if (val) {
-                        val.apply(_this3, args);
+                        val.apply(_this2, args);
                     }
                 });
             }
@@ -218,79 +412,187 @@ var VideoWorker = function () {
     }, {
         key: 'play',
         value: function play(start) {
-            var _this = this;
-            if (!_this.player) {
+            var self = this;
+            if (!self.player) {
                 return;
             }
 
-            if (_this.type === 'youtube' && _this.player.playVideo) {
+            if (self.type === 'youtube' && self.player.playVideo) {
                 if (typeof start !== 'undefined') {
-                    _this.player.seekTo(start || 0);
+                    self.player.seekTo(start || 0);
                 }
-                if (YT.PlayerState.PLAYING !== _this.player.getPlayerState()) {
-                    _this.player.playVideo();
+                if (YT.PlayerState.PLAYING !== self.player.getPlayerState()) {
+                    self.player.playVideo();
                 }
             }
 
-            if (_this.type === 'vimeo') {
+            if (self.type === 'vimeo') {
                 if (typeof start !== 'undefined') {
-                    _this.player.setCurrentTime(start);
+                    self.player.setCurrentTime(start);
                 }
-                _this.player.getPaused().then(function (paused) {
+                self.player.getPaused().then(function (paused) {
                     if (paused) {
-                        _this.player.play();
+                        self.player.play();
                     }
                 });
             }
 
-            if (_this.type === 'local') {
+            if (self.type === 'local') {
                 if (typeof start !== 'undefined') {
-                    _this.player.currentTime = start;
+                    self.player.currentTime = start;
                 }
-                if (_this.player.paused) {
-                    _this.player.play();
+                if (self.player.paused) {
+                    self.player.play();
                 }
             }
         }
     }, {
         key: 'pause',
         value: function pause() {
-            var _this = this;
-            if (!_this.player) {
+            var self = this;
+            if (!self.player) {
                 return;
             }
 
-            if (_this.type === 'youtube' && _this.player.pauseVideo) {
-                if (YT.PlayerState.PLAYING === _this.player.getPlayerState()) {
-                    _this.player.pauseVideo();
+            if (self.type === 'youtube' && self.player.pauseVideo) {
+                if (YT.PlayerState.PLAYING === self.player.getPlayerState()) {
+                    self.player.pauseVideo();
                 }
             }
 
-            if (_this.type === 'vimeo') {
-                _this.player.getPaused().then(function (paused) {
+            if (self.type === 'vimeo') {
+                self.player.getPaused().then(function (paused) {
                     if (!paused) {
-                        _this.player.pause();
+                        self.player.pause();
                     }
                 });
             }
 
-            if (_this.type === 'local') {
-                if (!_this.player.paused) {
-                    _this.player.pause();
+            if (self.type === 'local') {
+                if (!self.player.paused) {
+                    self.player.pause();
                 }
+            }
+        }
+    }, {
+        key: 'mute',
+        value: function mute() {
+            var self = this;
+            if (!self.player) {
+                return;
+            }
+
+            if (self.type === 'youtube' && self.player.mute) {
+                self.player.mute();
+            }
+
+            if (self.type === 'vimeo' && self.player.setVolume) {
+                self.player.setVolume(0);
+            }
+
+            if (self.type === 'local') {
+                self.$video.muted = true;
+            }
+        }
+    }, {
+        key: 'unmute',
+        value: function unmute() {
+            var self = this;
+            if (!self.player) {
+                return;
+            }
+
+            if (self.type === 'youtube' && self.player.mute) {
+                self.player.unMute();
+            }
+
+            if (self.type === 'vimeo' && self.player.setVolume) {
+                self.player.setVolume(self.options.volume);
+            }
+
+            if (self.type === 'local') {
+                self.$video.muted = false;
+            }
+        }
+    }, {
+        key: 'setVolume',
+        value: function setVolume() {
+            var volume = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+            var self = this;
+            if (!self.player || !volume) {
+                return;
+            }
+
+            if (self.type === 'youtube' && self.player.setVolume) {
+                self.player.setVolume(volume);
+            }
+
+            if (self.type === 'vimeo' && self.player.setVolume) {
+                self.player.setVolume(volume);
+            }
+
+            if (self.type === 'local') {
+                self.$video.volume = volume / 100;
+            }
+        }
+    }, {
+        key: 'getVolume',
+        value: function getVolume(callback) {
+            var self = this;
+            if (!self.player) {
+                callback(false);
+                return;
+            }
+
+            if (self.type === 'youtube' && self.player.getVolume) {
+                callback(self.player.getVolume());
+            }
+
+            if (self.type === 'vimeo' && self.player.getVolume) {
+                self.player.getVolume().then(function (volume) {
+                    callback(volume);
+                });
+            }
+
+            if (self.type === 'local') {
+                callback(self.$video.volume * 100);
+            }
+        }
+    }, {
+        key: 'getMuted',
+        value: function getMuted(callback) {
+            var self = this;
+            if (!self.player) {
+                callback(null);
+                return;
+            }
+
+            if (self.type === 'youtube' && self.player.isMuted) {
+                callback(self.player.isMuted());
+            }
+
+            if (self.type === 'vimeo' && self.player.getVolume) {
+                self.player.getVolume().then(function (volume) {
+                    callback(!!volume);
+                });
+            }
+
+            if (self.type === 'local') {
+                callback(self.$video.muted);
             }
         }
     }, {
         key: 'getImageURL',
         value: function getImageURL(callback) {
-            var _this = this;
+            var self = this;
 
-            if (_this.videoImage) {
-                callback(_this.videoImage);
+            if (self.videoImage) {
+                callback(self.videoImage);
                 return;
             }
 
-            if (_this.type === 'youtube') {
+            if (self.type === 'youtube') {
                 var availableSizes = ['maxresdefault', 'sddefault', 'hqdefault', '0'];
                 var step = 0;
 
@@ -299,27 +601,27 @@ var VideoWorker = function () {
                     // if no thumbnail, youtube add their own image with width = 120px
                     if ((this.naturalWidth || this.width) !== 120 || step === availableSizes.length - 1) {
                         // ok
-                        _this.videoImage = 'https://img.youtube.com/vi/' + _this.videoID + '/' + availableSizes[step] + '.jpg';
-                        callback(_this.videoImage);
+                        self.videoImage = 'https://img.youtube.com/vi/' + self.videoID + '/' + availableSizes[step] + '.jpg';
+                        callback(self.videoImage);
                     } else {
                         // try another size
                         step++;
-                        this.src = 'https://img.youtube.com/vi/' + _this.videoID + '/' + availableSizes[step] + '.jpg';
+                        this.src = 'https://img.youtube.com/vi/' + self.videoID + '/' + availableSizes[step] + '.jpg';
                     }
                 };
-                tempImg.src = 'https://img.youtube.com/vi/' + _this.videoID + '/' + availableSizes[step] + '.jpg';
+                tempImg.src = 'https://img.youtube.com/vi/' + self.videoID + '/' + availableSizes[step] + '.jpg';
             }
 
-            if (_this.type === 'vimeo') {
+            if (self.type === 'vimeo') {
                 var request = new XMLHttpRequest();
-                request.open('GET', 'https://vimeo.com/api/v2/video/' + _this.videoID + '.json', true);
+                request.open('GET', 'https://vimeo.com/api/v2/video/' + self.videoID + '.json', true);
                 request.onreadystatechange = function () {
                     if (this.readyState === 4) {
                         if (this.status >= 200 && this.status < 400) {
                             // Success!
                             var response = JSON.parse(this.responseText);
-                            _this.videoImage = response[0].thumbnail_large;
-                            callback(_this.videoImage);
+                            self.videoImage = response[0].thumbnail_large;
+                            callback(self.videoImage);
                         } else {
                             // Error :(
                         }
@@ -329,200 +631,227 @@ var VideoWorker = function () {
                 request = null;
             }
         }
+
+        // fallback to the old version.
+
     }, {
         key: 'getIframe',
         value: function getIframe(callback) {
-            var _this = this;
+            this.getVideo(callback);
+        }
+    }, {
+        key: 'getVideo',
+        value: function getVideo(callback) {
+            var self = this;
 
-            // return generated iframe
-            if (_this.$iframe) {
-                callback(_this.$iframe);
+            // return generated video block
+            if (self.$video) {
+                callback(self.$video);
                 return;
             }
 
-            // generate new iframe
-            _this.onAPIready(function () {
+            // generate new video block
+            self.onAPIready(function () {
                 var hiddenDiv = void 0;
-                if (!_this.$iframe) {
+                if (!self.$video) {
                     hiddenDiv = document.createElement('div');
                     hiddenDiv.style.display = 'none';
                 }
 
                 // Youtube
-                if (_this.type === 'youtube') {
-                    _this.playerOptions = {};
-                    _this.playerOptions.videoId = _this.videoID;
-                    _this.playerOptions.playerVars = {
+                if (self.type === 'youtube') {
+                    self.playerOptions = {};
+                    self.playerOptions.videoId = self.videoID;
+                    self.playerOptions.playerVars = {
                         autohide: 1,
                         rel: 0,
-                        autoplay: 0
+                        autoplay: 0,
+                        // autoplay enable on mobile devices
+                        playsinline: 1
                     };
 
                     // hide controls
-                    if (!_this.options.controls) {
-                        _this.playerOptions.playerVars.iv_load_policy = 3;
-                        _this.playerOptions.playerVars.modestbranding = 1;
-                        _this.playerOptions.playerVars.controls = 0;
-                        _this.playerOptions.playerVars.showinfo = 0;
-                        _this.playerOptions.playerVars.disablekb = 1;
+                    if (!self.options.showContols) {
+                        self.playerOptions.playerVars.iv_load_policy = 3;
+                        self.playerOptions.playerVars.modestbranding = 1;
+                        self.playerOptions.playerVars.controls = 0;
+                        self.playerOptions.playerVars.showinfo = 0;
+                        self.playerOptions.playerVars.disablekb = 1;
                     }
 
                     // events
                     var ytStarted = void 0;
                     var ytProgressInterval = void 0;
-                    _this.playerOptions.events = {
+                    self.playerOptions.events = {
                         onReady: function onReady(e) {
                             // mute
-                            if (_this.options.mute) {
+                            if (self.options.mute) {
                                 e.target.mute();
-                            } else if (_this.options.volume) {
-                                e.target.setVolume(_this.options.volume);
+                            } else if (self.options.volume) {
+                                e.target.setVolume(self.options.volume);
                             }
 
                             // autoplay
-                            if (_this.options.autoplay) {
-                                _this.play(_this.options.startTime);
+                            if (self.options.autoplay) {
+                                self.play(self.options.startTime);
                             }
-                            _this.fire('ready', e);
+                            self.fire('ready', e);
+
+                            // volumechange
+                            setInterval(function () {
+                                self.getVolume(function (volume) {
+                                    if (self.options.volume !== volume) {
+                                        self.options.volume = volume;
+                                        self.fire('volumechange', e);
+                                    }
+                                });
+                            }, 150);
                         },
                         onStateChange: function onStateChange(e) {
                             // loop
-                            if (_this.options.loop && e.data === YT.PlayerState.ENDED) {
-                                _this.play(_this.options.startTime);
+                            if (self.options.loop && e.data === YT.PlayerState.ENDED) {
+                                self.play(self.options.startTime);
                             }
                             if (!ytStarted && e.data === YT.PlayerState.PLAYING) {
                                 ytStarted = 1;
-                                _this.fire('started', e);
+                                self.fire('started', e);
                             }
                             if (e.data === YT.PlayerState.PLAYING) {
-                                _this.fire('play', e);
+                                self.fire('play', e);
                             }
                             if (e.data === YT.PlayerState.PAUSED) {
-                                _this.fire('pause', e);
+                                self.fire('pause', e);
                             }
                             if (e.data === YT.PlayerState.ENDED) {
-                                _this.fire('end', e);
+                                self.fire('ended', e);
                             }
 
-                            // check for end of video and play again or stop
-                            if (_this.options.endTime) {
-                                if (e.data === YT.PlayerState.PLAYING) {
-                                    ytProgressInterval = setInterval(function () {
-                                        if (_this.options.endTime && _this.player.getCurrentTime() >= _this.options.endTime) {
-                                            if (_this.options.loop) {
-                                                _this.play(_this.options.startTime);
-                                            } else {
-                                                _this.pause();
-                                            }
+                            // progress check
+                            if (e.data === YT.PlayerState.PLAYING) {
+                                ytProgressInterval = setInterval(function () {
+                                    self.fire('timeupdate', e);
+
+                                    // check for end of video and play again or stop
+                                    if (self.options.endTime && self.player.getCurrentTime() >= self.options.endTime) {
+                                        if (self.options.loop) {
+                                            self.play(self.options.startTime);
+                                        } else {
+                                            self.pause();
                                         }
-                                    }, 150);
-                                } else {
-                                    clearInterval(ytProgressInterval);
-                                }
+                                    }
+                                }, 150);
+                            } else {
+                                clearInterval(ytProgressInterval);
                             }
                         }
                     };
 
-                    var firstInit = !_this.$iframe;
+                    var firstInit = !self.$video;
                     if (firstInit) {
                         var div = document.createElement('div');
-                        div.setAttribute('id', _this.playerID);
+                        div.setAttribute('id', self.playerID);
                         hiddenDiv.appendChild(div);
                         document.body.appendChild(hiddenDiv);
                     }
-                    _this.player = _this.player || new window.YT.Player(_this.playerID, _this.playerOptions);
+                    self.player = self.player || new window.YT.Player(self.playerID, self.playerOptions);
                     if (firstInit) {
-                        _this.$iframe = document.getElementById(_this.playerID);
+                        self.$video = document.getElementById(self.playerID);
 
                         // get video width and height
-                        _this.videoWidth = parseInt(_this.$iframe.getAttribute('width'), 10) || 1280;
-                        _this.videoHeight = parseInt(_this.$iframe.getAttribute('height'), 10) || 720;
+                        self.videoWidth = parseInt(self.$video.getAttribute('width'), 10) || 1280;
+                        self.videoHeight = parseInt(self.$video.getAttribute('height'), 10) || 720;
                     }
                 }
 
                 // Vimeo
-                if (_this.type === 'vimeo') {
-                    _this.playerOptions = '';
+                if (self.type === 'vimeo') {
+                    self.playerOptions = '';
 
-                    _this.playerOptions += 'player_id=' + _this.playerID;
-                    _this.playerOptions += '&autopause=0';
+                    self.playerOptions += 'player_id=' + self.playerID;
+                    self.playerOptions += '&autopause=0';
+                    self.playerOptions += '&transparent=0';
 
                     // hide controls
-                    if (!_this.options.controls) {
-                        _this.playerOptions += '&badge=0&byline=0&portrait=0&title=0';
+                    if (!self.options.showContols) {
+                        self.playerOptions += '&badge=0&byline=0&portrait=0&title=0';
                     }
 
                     // autoplay
-                    _this.playerOptions += '&autoplay=' + (_this.options.autoplay ? '1' : '0');
+                    self.playerOptions += '&autoplay=' + (self.options.autoplay ? '1' : '0');
 
                     // loop
-                    _this.playerOptions += '&loop=' + (_this.options.loop ? 1 : 0);
+                    self.playerOptions += '&loop=' + (self.options.loop ? 1 : 0);
 
-                    if (!_this.$iframe) {
-                        _this.$iframe = document.createElement('iframe');
-                        _this.$iframe.setAttribute('id', _this.playerID);
-                        _this.$iframe.setAttribute('src', 'https://player.vimeo.com/video/' + _this.videoID + '?' + _this.playerOptions);
-                        _this.$iframe.setAttribute('frameborder', '0');
-                        hiddenDiv.appendChild(_this.$iframe);
+                    if (!self.$video) {
+                        self.$video = document.createElement('iframe');
+                        self.$video.setAttribute('id', self.playerID);
+                        self.$video.setAttribute('src', 'https://player.vimeo.com/video/' + self.videoID + '?' + self.playerOptions);
+                        self.$video.setAttribute('frameborder', '0');
+                        hiddenDiv.appendChild(self.$video);
                         document.body.appendChild(hiddenDiv);
                     }
 
-                    _this.player = _this.player || new Vimeo.Player(_this.$iframe);
+                    self.player = self.player || new Vimeo.Player(self.$video);
 
                     // get video width and height
-                    _this.player.getVideoWidth().then(function (width) {
-                        _this.videoWidth = width || 1280;
+                    self.player.getVideoWidth().then(function (width) {
+                        self.videoWidth = width || 1280;
                     });
-                    _this.player.getVideoHeight().then(function (height) {
-                        _this.videoHeight = height || 720;
+                    self.player.getVideoHeight().then(function (height) {
+                        self.videoHeight = height || 720;
                     });
 
                     // set current time for autoplay
-                    if (_this.options.startTime && _this.options.autoplay) {
-                        _this.player.setCurrentTime(_this.options.startTime);
+                    if (self.options.startTime && self.options.autoplay) {
+                        self.player.setCurrentTime(self.options.startTime);
                     }
 
                     // mute
-                    if (_this.options.mute) {
-                        _this.player.setVolume(0);
-                    } else if (_this.options.volume) {
-                        _this.player.setVolume(_this.options.volume);
+                    if (self.options.mute) {
+                        self.player.setVolume(0);
+                    } else if (self.options.volume) {
+                        self.player.setVolume(self.options.volume);
                     }
 
                     var vmStarted = void 0;
-                    _this.player.on('timeupdate', function (e) {
+                    self.player.on('timeupdate', function (e) {
                         if (!vmStarted) {
-                            _this.fire('started', e);
+                            self.fire('started', e);
+                            vmStarted = 1;
                         }
-                        vmStarted = 1;
+
+                        self.fire('timeupdate', e);
 
                         // check for end of video and play again or stop
-                        if (_this.options.endTime) {
-                            if (_this.options.endTime && e.seconds >= _this.options.endTime) {
-                                if (_this.options.loop) {
-                                    _this.play(_this.options.startTime);
+                        if (self.options.endTime) {
+                            if (self.options.endTime && e.seconds >= self.options.endTime) {
+                                if (self.options.loop) {
+                                    self.play(self.options.startTime);
                                 } else {
-                                    _this.pause();
+                                    self.pause();
                                 }
                             }
                         }
                     });
-                    _this.player.on('play', function (e) {
-                        _this.fire('play', e);
+                    self.player.on('play', function (e) {
+                        self.fire('play', e);
 
                         // check for the start time and start with it
-                        if (_this.options.startTime && e.seconds === 0) {
-                            _this.play(_this.options.startTime);
+                        if (self.options.startTime && e.seconds === 0) {
+                            self.play(self.options.startTime);
                         }
                     });
-                    _this.player.on('pause', function (e) {
-                        _this.fire('pause', e);
+                    self.player.on('pause', function (e) {
+                        self.fire('pause', e);
                     });
-                    _this.player.on('ended', function (e) {
-                        _this.fire('end', e);
+                    self.player.on('ended', function (e) {
+                        self.fire('ended', e);
                     });
-                    _this.player.on('loaded', function (e) {
-                        _this.fire('ready', e);
+                    self.player.on('loaded', function (e) {
+                        self.fire('ready', e);
+                    });
+                    self.player.on('volumechange', function (e) {
+                        self.fire('volumechange', e);
                     });
                 }
 
@@ -533,89 +862,101 @@ var VideoWorker = function () {
                     source.type = type;
                     element.appendChild(source);
                 }
-                if (_this.type === 'local') {
-                    if (!_this.$iframe) {
-                        _this.$iframe = document.createElement('video');
+                if (self.type === 'local') {
+                    if (!self.$video) {
+                        self.$video = document.createElement('video');
 
                         // mute
-                        if (_this.options.mute) {
-                            _this.$iframe.muted = true;
-                        } else if (_this.$iframe.volume) {
-                            _this.$iframe.volume = _this.options.volume / 100;
+                        if (self.options.mute) {
+                            self.$video.muted = true;
+                        } else if (self.$video.volume) {
+                            self.$video.volume = self.options.volume / 100;
                         }
 
                         // loop
-                        if (_this.options.loop) {
-                            _this.$iframe.loop = true;
+                        if (self.options.loop) {
+                            self.$video.loop = true;
                         }
 
-                        _this.$iframe.setAttribute('id', _this.playerID);
-                        hiddenDiv.appendChild(_this.$iframe);
+                        // autoplay enable on mobile devices
+                        self.$video.setAttribute('playsinline', '');
+                        self.$video.setAttribute('webkit-playsinline', '');
+
+                        self.$video.setAttribute('id', self.playerID);
+                        hiddenDiv.appendChild(self.$video);
                         document.body.appendChild(hiddenDiv);
 
-                        Object.keys(_this.videoID).forEach(function (key) {
-                            addSourceToLocal(_this.$iframe, _this.videoID[key], 'video/' + key);
+                        Object.keys(self.videoID).forEach(function (key) {
+                            addSourceToLocal(self.$video, self.videoID[key], 'video/' + key);
                         });
                     }
 
-                    _this.player = _this.player || _this.$iframe;
+                    self.player = self.player || self.$video;
 
                     var locStarted = void 0;
-                    addEventListener(_this.player, 'playing', function (e) {
+                    self.player.addEventListener('playing', function (e) {
                         if (!locStarted) {
-                            _this.fire('started', e);
+                            self.fire('started', e);
                         }
                         locStarted = 1;
                     });
-                    addEventListener(_this.player, 'timeupdate', function () {
+                    self.player.addEventListener('timeupdate', function (e) {
+                        self.fire('timeupdate', e);
+
                         // check for end of video and play again or stop
-                        if (_this.options.endTime) {
-                            if (_this.options.endTime && this.currentTime >= _this.options.endTime) {
-                                if (_this.options.loop) {
-                                    _this.play(_this.options.startTime);
+                        if (self.options.endTime) {
+                            if (self.options.endTime && this.currentTime >= self.options.endTime) {
+                                if (self.options.loop) {
+                                    self.play(self.options.startTime);
                                 } else {
-                                    _this.pause();
+                                    self.pause();
                                 }
                             }
                         }
                     });
-                    addEventListener(_this.player, 'play', function (e) {
-                        _this.fire('play', e);
+                    self.player.addEventListener('play', function (e) {
+                        self.fire('play', e);
                     });
-                    addEventListener(_this.player, 'pause', function (e) {
-                        _this.fire('pause', e);
+                    self.player.addEventListener('pause', function (e) {
+                        self.fire('pause', e);
                     });
-                    addEventListener(_this.player, 'ended', function (e) {
-                        _this.fire('end', e);
+                    self.player.addEventListener('ended', function (e) {
+                        self.fire('ended', e);
                     });
-                    addEventListener(_this.player, 'loadedmetadata', function () {
+                    self.player.addEventListener('loadedmetadata', function () {
                         // get video width and height
-                        _this.videoWidth = this.videoWidth || 1280;
-                        _this.videoHeight = this.videoHeight || 720;
+                        self.videoWidth = this.videoWidth || 1280;
+                        self.videoHeight = this.videoHeight || 720;
 
-                        _this.fire('ready');
+                        self.fire('ready');
 
                         // autoplay
-                        if (_this.options.autoplay) {
-                            _this.play(_this.options.startTime);
+                        if (self.options.autoplay) {
+                            self.play(self.options.startTime);
                         }
+                    });
+                    self.player.addEventListener('volumechange', function (e) {
+                        self.getVolume(function (volume) {
+                            self.options.volume = volume;
+                        });
+                        self.fire('volumechange', e);
                     });
                 }
 
-                callback(_this.$iframe);
+                callback(self.$video);
             });
         }
     }, {
         key: 'init',
         value: function init() {
-            var _this = this;
+            var self = this;
 
-            _this.playerID = 'VideoWorker-' + _this.ID;
+            self.playerID = 'VideoWorker-' + self.ID;
         }
     }, {
         key: 'loadAPI',
         value: function loadAPI() {
-            var _this = this;
+            var self = this;
 
             if (YoutubeAPIadded && VimeoAPIadded) {
                 return;
@@ -624,13 +965,13 @@ var VideoWorker = function () {
             var src = '';
 
             // load Youtube API
-            if (_this.type === 'youtube' && !YoutubeAPIadded) {
+            if (self.type === 'youtube' && !YoutubeAPIadded) {
                 YoutubeAPIadded = 1;
                 src = 'https://www.youtube.com/iframe_api';
             }
 
             // load Vimeo API
-            if (_this.type === 'vimeo' && !VimeoAPIadded) {
+            if (self.type === 'vimeo' && !VimeoAPIadded) {
                 VimeoAPIadded = 1;
                 src = 'https://player.vimeo.com/api/player.js';
             }
@@ -652,10 +993,10 @@ var VideoWorker = function () {
     }, {
         key: 'onAPIready',
         value: function onAPIready(callback) {
-            var _this = this;
+            var self = this;
 
             // Youtube
-            if (_this.type === 'youtube') {
+            if (self.type === 'youtube') {
                 // Listen for global YT player callback
                 if ((typeof YT === 'undefined' || YT.loaded === 0) && !loadingYoutubePlayer) {
                     // Prevents Ready event from being called twice
@@ -664,40 +1005,40 @@ var VideoWorker = function () {
                     // Creates deferred so, other players know when to wait.
                     window.onYouTubeIframeAPIReady = function () {
                         window.onYouTubeIframeAPIReady = null;
-                        loadingYoutubeDeffer.resolve('done');
+                        loadingYoutubeDefer.resolve('done');
                         callback();
                     };
                 } else if ((typeof YT === 'undefined' ? 'undefined' : _typeof(YT)) === 'object' && YT.loaded === 1) {
                     callback();
                 } else {
-                    loadingYoutubeDeffer.done(function () {
+                    loadingYoutubeDefer.done(function () {
                         callback();
                     });
                 }
             }
 
             // Vimeo
-            if (_this.type === 'vimeo') {
+            if (self.type === 'vimeo') {
                 if (typeof Vimeo === 'undefined' && !loadingVimeoPlayer) {
                     loadingVimeoPlayer = 1;
                     var vimeoInterval = setInterval(function () {
                         if (typeof Vimeo !== 'undefined') {
                             clearInterval(vimeoInterval);
-                            loadingVimeoDeffer.resolve('done');
+                            loadingVimeoDefer.resolve('done');
                             callback();
                         }
                     }, 20);
                 } else if (typeof Vimeo !== 'undefined') {
                     callback();
                 } else {
-                    loadingVimeoDeffer.done(function () {
+                    loadingVimeoDefer.done(function () {
                         callback();
                     });
                 }
             }
 
             // Local
-            if (_this.type === 'local') {
+            if (self.type === 'local') {
                 callback();
             }
         }
@@ -706,15 +1047,33 @@ var VideoWorker = function () {
     return VideoWorker;
 }();
 
-window.VideoWorker = VideoWorker;
+exports.default = VideoWorker;
 
-/*!
- * Name    : Video Background Extension for Jarallax
- * Version : 1.0.0
- * Author  : nK http://nkdev.info
- * GitHub  : https://github.com/nk-o/jarallax
- */
-(function () {
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = jarallaxVideo;
+
+var _videoWorker = __webpack_require__(3);
+
+var _videoWorker2 = _interopRequireDefault(_videoWorker);
+
+var _global = __webpack_require__(0);
+
+var _global2 = _interopRequireDefault(_global);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function jarallaxVideo() {
+    var jarallax = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _global2.default.jarallax;
+
     if (typeof jarallax === 'undefined') {
         return;
     }
@@ -724,15 +1083,15 @@ window.VideoWorker = VideoWorker;
     // append video after init Jarallax
     var defInit = Jarallax.prototype.init;
     Jarallax.prototype.init = function () {
-        var _this = this;
+        var self = this;
 
-        defInit.apply(_this);
+        defInit.apply(self);
 
-        if (_this.video) {
-            _this.video.getIframe(function (iframe) {
-                var $parent = iframe.parentNode;
-                _this.css(iframe, {
-                    position: _this.image.position,
+        if (self.video && !self.options.disableVideo()) {
+            self.video.getVideo(function (video) {
+                var $parent = video.parentNode;
+                self.css(video, {
+                    position: self.image.position,
                     top: '0px',
                     left: '0px',
                     right: '0px',
@@ -744,10 +1103,10 @@ window.VideoWorker = VideoWorker;
                     margin: 0,
                     zIndex: -1
                 });
-                _this.$video = iframe;
-                _this.image.$container.appendChild(iframe);
+                self.$video = video;
+                self.image.$container.appendChild(video);
 
-                // remove parent iframe element (created by VideoWorker)
+                // remove parent video element (created by VideoWorker)
                 $parent.parentNode.removeChild($parent);
             });
         }
@@ -756,19 +1115,19 @@ window.VideoWorker = VideoWorker;
     // cover video
     var defCoverImage = Jarallax.prototype.coverImage;
     Jarallax.prototype.coverImage = function () {
-        var _this = this;
-        var imageData = defCoverImage.apply(_this);
-        var node = _this.image.$item.nodeName;
+        var self = this;
+        var imageData = defCoverImage.apply(self);
+        var node = self.image.$item ? self.image.$item.nodeName : false;
 
-        if (imageData && _this.video && (node === 'IFRAME' || node === 'VIDEO')) {
+        if (imageData && self.video && node && (node === 'IFRAME' || node === 'VIDEO')) {
             var h = imageData.image.height;
-            var w = h * _this.image.width / _this.image.height;
+            var w = h * self.image.width / self.image.height;
             var ml = (imageData.container.width - w) / 2;
             var mt = imageData.image.marginTop;
 
             if (imageData.container.width > w) {
                 w = imageData.container.width;
-                h = w * _this.image.height / _this.image.width;
+                h = w * self.image.height / self.image.width;
                 ml = 0;
                 mt += (imageData.image.height - h) / 2;
             }
@@ -779,7 +1138,7 @@ window.VideoWorker = VideoWorker;
                 mt -= 200;
             }
 
-            _this.css(_this.$video, {
+            self.css(self.$video, {
                 width: w + 'px',
                 marginLeft: ml + 'px',
                 height: h + 'px',
@@ -793,15 +1152,15 @@ window.VideoWorker = VideoWorker;
     // init video
     var defInitImg = Jarallax.prototype.initImg;
     Jarallax.prototype.initImg = function () {
-        var _this = this;
-        var defaultResult = defInitImg.apply(_this);
+        var self = this;
+        var defaultResult = defInitImg.apply(self);
 
-        if (!_this.options.videoSrc) {
-            _this.options.videoSrc = _this.$item.getAttribute('data-jarallax-video') || null;
+        if (!self.options.videoSrc) {
+            self.options.videoSrc = self.$item.getAttribute('data-jarallax-video') || null;
         }
 
-        if (_this.options.videoSrc) {
-            _this.defaultInitImgResult = defaultResult;
+        if (self.options.videoSrc) {
+            self.defaultInitImgResult = defaultResult;
             return true;
         }
 
@@ -810,33 +1169,36 @@ window.VideoWorker = VideoWorker;
 
     var defCanInitParallax = Jarallax.prototype.canInitParallax;
     Jarallax.prototype.canInitParallax = function () {
-        var _this = this;
-        var defaultResult = defCanInitParallax.apply(_this);
+        var self = this;
+        var defaultResult = defCanInitParallax.apply(self);
 
-        if (!_this.options.videoSrc) {
+        if (!self.options.videoSrc) {
             return defaultResult;
         }
 
-        var video = new VideoWorker(_this.options.videoSrc, {
-            startTime: _this.options.videoStartTime || 0,
-            endTime: _this.options.videoEndTime || 0,
-            mute: _this.options.videoVolume ? 0 : 1,
-            volume: _this.options.videoVolume || 0
+        var video = new _videoWorker2.default(self.options.videoSrc, {
+            autoplay: true,
+            loop: true,
+            showContols: false,
+            startTime: self.options.videoStartTime || 0,
+            endTime: self.options.videoEndTime || 0,
+            mute: self.options.videoVolume ? 0 : 1,
+            volume: self.options.videoVolume || 0
         });
 
         if (video.isValid()) {
             // if parallax will not be inited, we can add thumbnail on background.
             if (!defaultResult) {
-                if (!_this.defaultInitImgResult) {
+                if (!self.defaultInitImgResult) {
                     video.getImageURL(function (url) {
                         // save default user styles
-                        var curStyle = _this.$item.getAttribute('style');
+                        var curStyle = self.$item.getAttribute('style');
                         if (curStyle) {
-                            _this.$item.setAttribute('data-jarallax-original-styles', curStyle);
+                            self.$item.setAttribute('data-jarallax-original-styles', curStyle);
                         }
 
                         // set new background
-                        _this.css(_this.$item, {
+                        self.css(self.$item, {
                             'background-image': 'url("' + url + '")',
                             'background-position': 'center',
                             'background-size': 'cover'
@@ -846,14 +1208,12 @@ window.VideoWorker = VideoWorker;
 
                 // init video
             } else {
-                _this.image.useImgTag = true;
-
                 video.on('ready', function () {
-                    if (_this.options.videoPlayOnlyVisible) {
-                        var oldOnScroll = _this.onScroll;
-                        _this.onScroll = function () {
-                            oldOnScroll.apply(_this);
-                            if (_this.isVisible()) {
+                    if (self.options.videoPlayOnlyVisible) {
+                        var oldOnScroll = self.onScroll;
+                        self.onScroll = function () {
+                            oldOnScroll.apply(self);
+                            if (self.isVisible()) {
                                 video.play();
                             } else {
                                 video.pause();
@@ -865,39 +1225,39 @@ window.VideoWorker = VideoWorker;
                 });
 
                 video.on('started', function () {
-                    _this.image.$default_item = _this.image.$item;
-                    _this.image.$item = _this.$video;
+                    self.image.$default_item = self.image.$item;
+                    self.image.$item = self.$video;
 
                     // set video width and height
-                    _this.image.width = _this.video.videoWidth || 1280;
-                    _this.image.height = _this.video.videoHeight || 720;
-                    _this.options.imgWidth = _this.image.width;
-                    _this.options.imgHeight = _this.image.height;
-                    _this.coverImage();
-                    _this.clipContainer();
-                    _this.onScroll();
+                    self.image.width = self.video.videoWidth || 1280;
+                    self.image.height = self.video.videoHeight || 720;
+                    self.options.imgWidth = self.image.width;
+                    self.options.imgHeight = self.image.height;
+                    self.coverImage();
+                    self.clipContainer();
+                    self.onScroll();
 
                     // hide image
-                    if (_this.image.$default_item) {
-                        _this.image.$default_item.style.display = 'none';
+                    if (self.image.$default_item) {
+                        self.image.$default_item.style.display = 'none';
                     }
                 });
 
-                _this.video = video;
+                self.video = video;
 
                 // set image if not exists
-                if (!_this.defaultInitImgResult) {
+                if (!self.defaultInitImgResult) {
                     if (video.type !== 'local') {
                         video.getImageURL(function (url) {
-                            _this.image.src = url;
-                            _this.init();
+                            self.image.src = url;
+                            self.init();
                         });
 
                         return false;
                     }
 
                     // set empty image on local video if not defined
-                    _this.image.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+                    self.image.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
                     return true;
                 }
             }
@@ -909,19 +1269,16 @@ window.VideoWorker = VideoWorker;
     // Destroy video parallax
     var defDestroy = Jarallax.prototype.destroy;
     Jarallax.prototype.destroy = function () {
-        var _this = this;
+        var self = this;
 
-        if (_this.image.$default_item) {
-            _this.image.$item = _this.image.$default_item;
-            delete _this.image.$default_item;
+        if (self.image.$default_item) {
+            self.image.$item = self.image.$default_item;
+            delete self.image.$default_item;
         }
 
-        defDestroy.apply(_this);
+        defDestroy.apply(self);
     };
+}
 
-    // data-jarallax-video initialization
-    addEventListener(window, 'DOMContentLoaded', function () {
-        jarallax(document.querySelectorAll('[data-jarallax-video]'));
-    });
-})();
-}());
+/***/ })
+/******/ ]);
