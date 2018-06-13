@@ -13,7 +13,7 @@ function highstake_callout_customize_register( $wp_customize ) {
 		'title'       => esc_html__( 'Callout', 'highstake' ),
 		'description' => esc_html__( 'This area called Callout, it appears at the bottom of the Featured area.', 'highstake' ),
 		'panel'       => 'highstake_options',
-		'priority'    => 15,
+		'priority'    => 11,
 		'active_callback' => function() {
 			return is_home() || is_front_page();
 		}

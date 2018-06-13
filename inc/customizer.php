@@ -54,15 +54,6 @@ function highstake_customize_functions( $wp_customize ) {
 	$wp_customize->get_section( 'colors' )->panel    = 'highstake_design';
 	$wp_customize->get_section( 'colors' )->priority = 1;
 
-	// Move the Theme Layout
-	$wp_customize->get_section( 'layout' )->panel    = 'highstake_design';
-	$wp_customize->get_section( 'layout' )->title    = esc_html__( 'Layouts', 'highstake' );
-	$wp_customize->get_section( 'layout' )->priority = 5;
-	$wp_customize->get_control( 'theme-layout-control' )->priority = 1;
-	$wp_customize->get_control( 'theme-layout-control' )->active_callback = function() {
-		return is_page() || is_single();
-	};
-
 	// Move the Background Image section.
 	$wp_customize->get_section( 'background_image' )->panel    = 'highstake_design';
 	$wp_customize->get_section( 'background_image' )->priority = 7;

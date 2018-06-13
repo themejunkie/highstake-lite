@@ -13,7 +13,7 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'title'       => esc_html__( 'Featured', 'highstake' ),
 		'description' => esc_html__( 'This area called Featured, it appears at the top of the home page.', 'highstake' ),
 		'panel'       => 'highstake_options',
-		'priority'    => 13,
+		'priority'    => 9,
 		'active_callback' => function() {
 			return is_home() || is_front_page();
 		}

@@ -22,10 +22,7 @@ module.exports = function( grunt ) {
 				},
 				files: {
 					'jquery.fitvids.js': 'fitvids/jquery.fitvids.js',
-					'theia-sticky-sidebar.js': 'theia-sticky-sidebar/dist/theia-sticky-sidebar.js',
-					'ResizeSensor.js': 'theia-sticky-sidebar/dist/ResizeSensor.js',
 					'owl.carousel.js': 'owl.carousel/dist/owl.carousel.js',
-					'jquery-scrolltofixed-min.js': 'ScrollToFixed/jquery-scrolltofixed-min.js',
 					'jquery.magnific-popup.js': 'magnific-popup/dist/jquery.magnific-popup.js',
 					'jarallax.js': 'jarallax/dist/jarallax.js',
 					'jarallax-video.js': 'jarallax/dist/jarallax-video.js',

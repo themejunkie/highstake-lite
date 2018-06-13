@@ -12,7 +12,7 @@ function highstake_footer_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'highstake_footer' , array(
 		'title'    => esc_html__( 'Footer', 'highstake' ),
 		'panel'    => 'highstake_options',
-		'priority' => 11
+		'priority' => 13
 	) );
 
 	// Register footer content setting

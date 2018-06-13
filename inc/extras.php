@@ -163,25 +163,6 @@ function highstake_page_sidebar_plugin() {
 add_action( 'init', 'highstake_page_sidebar_plugin' );
 
 /**
- * Register custom contact info fields.
- *
- * @since  1.0.0
- * @param  array $contactmethods
- * @return array
- */
-function highstake_contact_info_fields( $contactmethods ) {
-	$contactmethods['twitter']     = esc_html__( 'Twitter URL', 'highstake' );
-	$contactmethods['facebook']    = esc_html__( 'Facebook URL', 'highstake' );
-	$contactmethods['gplus']       = esc_html__( 'Google Plus URL', 'highstake' );
-	$contactmethods['instagram']   = esc_html__( 'Instagram URL', 'highstake' );
-	$contactmethods['pinterest']   = esc_html__( 'Pinterest URL', 'highstake' );
-	$contactmethods['linkedin']    = esc_html__( 'Linkedin URL', 'highstake' );
-
-	return $contactmethods;
-}
-add_filter( 'user_contactmethods', 'highstake_contact_info_fields' );
-
-/**
  * Extend archive title
  *
  * @since  1.0.0
@@ -263,15 +244,3 @@ function highstake_search_filter($query) {
 	}
 }
 add_action( 'pre_get_posts', 'highstake_search_filter' );
-
-/**
- * Disable Subtitles in home and archive views.
- */
-function highstake_subtitles_mod_supported_views() {
-
-	if ( is_home() || is_front_page() || is_archive() || is_search() ) {
-		return false;
-	}
-
-}
-add_filter( 'subtitle_view_supported', 'highstake_subtitles_mod_supported_views' );

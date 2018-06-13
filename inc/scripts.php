@@ -62,28 +62,3 @@ function highstake_enqueue() {
 
 }
 add_action( 'wp_enqueue_scripts', 'highstake_enqueue' );
-
-/**
- * Enable sticky sidebar
- */
-function highstake_sticky_sidebar() {
-
-	// Get the customizer data
-	$enable = get_theme_mod( 'highstake_sticky_sidebar', 1 );
-
-	if ( $enable ) {
-		?>
-		<script type="text/javascript">
-			( function( $ ) {
-				$( function() {
-					$( '.widget-area' ).theiaStickySidebar( {
-						additionalMarginTop: 100
-					} );
-				} );
-			}( jQuery ) );
-		</script>
-		<?php
-	}
-
-}
-add_action( 'wp_footer', 'highstake_sticky_sidebar', 15 );

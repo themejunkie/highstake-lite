@@ -10,13 +10,10 @@ function highstake_post_customize_register( $wp_customize ) {
 
 	// Register new section: Post
 	$wp_customize->add_section( 'highstake_post' , array(
-		'title'       => esc_html__( 'Post', 'highstake' ),
+		'title'       => esc_html__( 'Posts', 'highstake' ),
 		'description' => esc_html__( 'These options is used for customizing the single post.', 'highstake' ),
 		'panel'       => 'highstake_options',
-		'priority'    => 5,
-		'active_callback' => function() {
-			return is_single();
-		}
+		'priority'    => 5
 	) );
 
 	// Register Post comment manager setting

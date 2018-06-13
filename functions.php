@@ -117,7 +117,7 @@ function highstake_theme_setup() {
 			'2c-l' => esc_html__( '2 Columns: Content / Sidebar', 'highstake' ),
 			'2c-r' => esc_html__( '2 Columns: Sidebar / Content', 'highstake' )
 		),
-		array( 'customize' => true, 'default' => '2c-l' )
+		array( 'customize' => false, 'default' => '2c-l' )
 	);
 
 	// This theme uses its own gallery styles.
@@ -138,29 +138,9 @@ add_action( 'after_setup_theme', 'highstake_theme_setup' );
  */
 function highstake_widgets_init() {
 
-	// Register ad widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-ads.php';
-	register_widget( 'Highstake_Ads_Widget' );
-
-	// Register Facebook widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-facebook.php';
-	register_widget( 'Highstake_Facebook_Widget' );
-
 	// Register recent posts thumbnail widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-recent.php';
 	register_widget( 'Highstake_Recent_Widget' );
-
-	// Register popular posts thumbnail widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-popular.php';
-	register_widget( 'Highstake_Popular_Widget' );
-
-	// Register random posts thumbnail widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-random.php';
-	register_widget( 'Highstake_Random_Widget' );
-
-	// Register twitter widget.
-	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-twitter.php';
-	register_widget( 'Highstake_Twitter_Widget' );
 
 	// Register social widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-social.php';
@@ -201,28 +181,32 @@ add_action( 'widgets_init', 'highstake_sidebars_init' );
 function highstake_fonts_url() {
 
 	// Get the customizer data
-	$heading_font   = get_theme_mod( 'highstake_heading_font', 'Montserrat:400,400i,600,600i' );
 	$body_font      = get_theme_mod( 'highstake_body_font', 'Karla:400,400i,700,700i' );
+	$heading_font   = get_theme_mod( 'highstake_heading_font', 'Montserrat:400,400i,600,600i' );
 
 	// Important variable
 	$fonts_url = '';
 	$fonts     = array();
 
-	if ( $heading_font ) {
-		$fonts[]   = esc_attr( str_replace( '+', ' ', $heading_font ) );
-	}
-
 	if ( $body_font ) {
 		$fonts[]   = esc_attr( str_replace( '+', ' ', $body_font ) );
 	}
 
-	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-		), 'https://fonts.googleapis.com/css' );
+	if ( $heading_font && ( $body_font != $heading_font ) ) {
+		$fonts[]   = esc_attr( str_replace( '+', ' ', $heading_font ) );
 	}
 
-	return $fonts_url;
+	if ( $fonts ) {
+
+		$query_args = array(
+			'family' => urlencode( implode( '|', $fonts ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+
+	return esc_url_raw( $fonts_url );
 }
 
 /**
@@ -254,11 +238,6 @@ require trailingslashit( get_template_directory() ) . 'inc/customizer.php';
  * Page header.
  */
 require trailingslashit( get_template_directory() ) . 'inc/header.php';
-
-/**
- * Signature.
- */
-require trailingslashit( get_template_directory() ) . 'inc/signature.php';
 
 /**
  * We use some part of Hybrid Core to extends our themes.

@@ -2,11 +2,11 @@
 /*!
  * Theme Name: Highstake
  * Theme URI: http://www.theme-junkie.com/themes/highstake
- * Description: Highstake is a Premium WordPress blog theme with a bold and black style.
+ * Description: Level up your WordPress website with Highstake, a stunning WordPress theme for online writers and marketers. Highstake is fully responsive, 1-click demo import, has multiple featured content, multiple blog layouts, choose between full width, boxed or framed container, social and newsletter integrations, and much more! Demo: http://demo.theme-junkie.com/highstake/
  * Version: 1.0.0
  * Author: Theme Junkie
  * Author URI: http://www.theme-junkie.com/
- * Tags: two-columns, right-sidebar, custom-background, custom-menu, editor-style, threaded-comments, translation-ready
+ * Tags: two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, featured-image-header, featured-images, post-formats, theme-options, threaded-comments, translation-ready, blog
  * Text Domain: highstake
  *
  * License: GNU General Public License v2.0 or later
@@ -48,7 +48,7 @@
 /*------------------------------------*
 	$NORMALIZE
 *------------------------------------*/
-@import "../bower_components/normalize.css/normalize";
+@import "base/normalize";
 
 /*------------------------------------*
 	$LAYOUTS

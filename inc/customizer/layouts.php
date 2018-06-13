@@ -33,11 +33,7 @@ function highstake_layouts_customize_register( $wp_customize ) {
 			'2c-l-l' => esc_html__( 'List right sidebar', 'highstake' ),
 			'2c-r-l' => esc_html__( 'List left sidebar', 'highstake' ),
 			'1c-l'   => esc_html__( 'List no sidebar wide', 'highstake' ),
-			'1c-n-l' => esc_html__( 'List no sidebar narrow', 'highstake' ),
-			// '2c-g-l' => esc_html__( 'Grid two columns right sidebar', 'highstake' ),
-			// '2c-g-r' => esc_html__( 'Grid two columns left sidebar', 'highstake' ),
-			// '1c-g-3' => esc_html__( 'Grid three columns', 'highstake' ),
-			// '1c-g-4' => esc_html__( 'Grid four columns', 'highstake' ),
+			'1c-n-l' => esc_html__( 'List no sidebar narrow', 'highstake' )
 		),
 	) );
 
