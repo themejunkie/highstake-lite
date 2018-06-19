@@ -62,28 +62,6 @@ function highstake_footer_customize_register( $wp_customize ) {
 		'active_callback'   => 'highstake_is_footer_custom_content'
 	) );
 
-	// Register Footer Credits setting
-	$wp_customize->add_setting( 'highstake_footer_credits', array(
-		'sanitize_callback' => 'highstake_sanitize_textarea',
-		'default'           => '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>',
-		'transport'         => 'postMessage',
-	) );
-	$wp_customize->add_control( 'highstake_footer_credits', array(
-		'label'             => esc_html__( 'Footer Text', 'highstake' ),
-		'section'           => 'highstake_footer',
-		'priority'          => 7,
-		'type'              => 'textarea'
-	) );
-	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial( 'highstake_footer_credits', array(
-			'selector'         => '.copyright',
-			'settings'         => array( 'highstake_footer_credits' ),
-			'render_callback'  => function() {
-				return highstake_sanitize_textarea( get_theme_mod( 'highstake_footer_credits' ) );
-			}
-		) );
-	}
-
 }
 add_action( 'customize_register', 'highstake_footer_customize_register' );
 

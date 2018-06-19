@@ -52,18 +52,6 @@ function highstake_post_customize_register( $wp_customize ) {
 		'type'              => 'checkbox'
 	) );
 
-	// Register Post Share setting
-	$wp_customize->add_setting( 'highstake_post_share', array(
-		'default'           => 1,
-		'sanitize_callback' => 'highstake_sanitize_checkbox',
-	) );
-	$wp_customize->add_control( 'highstake_post_share', array(
-		'label'             => esc_html__( 'Show share buttons', 'highstake' ),
-		'section'           => 'highstake_post',
-		'priority'          => 7,
-		'type'              => 'checkbox'
-	) );
-
 	// Register Related Posts setting
 	$wp_customize->add_setting( 'highstake_related_posts', array(
 		'default'           => 1,

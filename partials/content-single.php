@@ -25,8 +25,6 @@
 			</span>
 		<?php endif; ?>
 
-		<?php highstake_social_share(); ?>
-
 	</footer>
 
 </article><!-- #post-## -->

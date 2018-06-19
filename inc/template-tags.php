@@ -130,33 +130,6 @@ endif;
 add_action( 'edit_category', 'highstake_category_transient_flusher' );
 add_action( 'save_post',     'highstake_category_transient_flusher' );
 
-if ( ! function_exists( 'highstake_social_share' ) ) :
-/**
- * Social share.
- *
- * @since 1.0.0
- */
-function highstake_social_share() {
-
-	// Get the data set in customizer
-	$share = get_theme_mod( 'highstake_post_share', 1 );
-
-	if ( $share === 0 ) {
-		return;
-	}
-	?>
-		<div class="post-share">
-			<ul>
-				<li class="twitter"><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode( esc_attr( get_the_title( get_the_ID() ) ) ); ?>&amp;url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="fa fa-twitter"></i><span class="screen-reader-text">Twitter</span></a></li>
-				<li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="fa fa-facebook"></i><span class="screen-reader-text">Facebook</span></a></li>
-				<li class="google-plus"><a href="https://plus.google.com/share?url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>" target="_blank"><i class="fa fa-google-plus"></i><span class="screen-reader-text">Google+</span></a></li>
-				<li class="pinterest"><a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&amp;media=<?php echo urlencode( wp_get_attachment_url( get_post_thumbnail_id( get_the_ID() ) ) ); ?>" target="_blank"><i class="fa fa-pinterest"></i><span class="screen-reader-text">Pinterest</span></a></li>
-			</ul>
-		</div>
-	<?php
-}
-endif;
-
 if ( ! function_exists( 'highstake_post_author_box' ) ) :
 /**
  * Author post informations.
@@ -573,8 +546,7 @@ if ( ! function_exists( 'highstake_footer_text' ) ) :
 function highstake_footer_text() {
 
 	// Get the customizer data
-	$default = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';
-	$footer_text = get_theme_mod( 'highstake_footer_credits', $default );
+	$footer_text = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';
 
 	// Display the data
 	echo '<p class="copyright">' . wp_kses_post( $footer_text ) . '</p>';

@@ -36,6 +36,4 @@
 		<a href="<?php the_permalink(); ?>" class="more-link button"><?php esc_html_e( 'Read More', 'highstake' ); ?></a>
 	</span>
 
-	<?php highstake_social_share(); ?>
-
 </article><!-- #post-## -->
