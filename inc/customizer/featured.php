@@ -10,8 +10,8 @@ function highstake_featured_customize_register( $wp_customize ) {
 
 	// Register new section: Featured
 	$wp_customize->add_section( 'highstake_featured' , array(
-		'title'       => esc_html__( 'Featured', 'highstake' ),
-		'description' => esc_html__( 'This area called Featured, it appears at the top of the home page.', 'highstake' ),
+		'title'       => esc_html__( 'Featured', 'highstake-lite' ),
+		'description' => esc_html__( 'This area called Featured, it appears at the top of the home page.', 'highstake-lite' ),
 		'panel'       => 'highstake_options',
 		'priority'    => 9,
 		'active_callback' => function() {
@@ -25,15 +25,15 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'highstake_sanitize_featured_type',
 	) );
 	$wp_customize->add_control( 'highstake_featured_type', array(
-		'label'             => esc_html__( 'Type', 'highstake' ),
+		'label'             => esc_html__( 'Type', 'highstake-lite' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 1,
 		'type'              => 'radio',
 		'choices'           => array(
-			'disable' => esc_html__( 'Disable', 'highstake' ),
-			'default' => esc_html__( 'Default', 'highstake' ),
-			'posts'   => esc_html__( 'Posts Slider', 'highstake' ),
-			'custom'  => esc_html__( 'Custom Slider', 'highstake' ),
+			'disable' => esc_html__( 'Disable', 'highstake-lite' ),
+			'default' => esc_html__( 'Default', 'highstake-lite' ),
+			'posts'   => esc_html__( 'Posts Slider', 'highstake-lite' ),
+			'custom'  => esc_html__( 'Custom Slider', 'highstake-lite' ),
 		)
 	) );
 
@@ -43,7 +43,7 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'absint'
 	) );
 	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control( $wp_customize, 'highstake_featured_default_img', array(
-		'label'             => esc_html__( 'Image', 'highstake' ),
+		'label'             => esc_html__( 'Image', 'highstake-lite' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 3,
 		'flex_width'        => true,
@@ -59,7 +59,7 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'highstake_sanitize_textarea',
 	) );
 	$wp_customize->add_control( 'highstake_featured_default_text', array(
-		'label'             => esc_html__( 'Text', 'highstake' ),
+		'label'             => esc_html__( 'Text', 'highstake-lite' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 5,
 		'type'              => 'textarea',
@@ -72,9 +72,9 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_attr'
 	) );
 	$wp_customize->add_control( new Highstake_Custom_Text( $wp_customize, 'highstake_featured_posts_info', array(
-		'label'             => esc_html__( 'Featured Posts', 'highstake' ),
-		'description'       => sprintf( __( 'Use a <a href="%1$s">tag</a> to feature your posts. If no posts match the tag, <a href="%2$s">sticky posts</a> will be displayed instead.', 'highstake' ),
-				esc_url( add_query_arg( 'tag', _x( 'featured', 'featured content default tag slug', 'highstake' ), admin_url( 'edit.php' ) ) ),
+		'label'             => esc_html__( 'Featured Posts', 'highstake-lite' ),
+		'description'       => sprintf( __( 'Use a <a href="%1$s">tag</a> to feature your posts. If no posts match the tag, <a href="%2$s">sticky posts</a> will be displayed instead.', 'highstake-lite' ),
+				esc_url( add_query_arg( 'tag', _x( 'featured', 'featured content default tag slug', 'highstake-lite' ), admin_url( 'edit.php' ) ) ),
 				admin_url( 'edit.php?show_sticky=1' )
 			),
 		'section'           => 'highstake_featured',
@@ -88,7 +88,7 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_attr',
 	) );
 	$wp_customize->add_control( 'highstake_featured_posts_tag', array(
-		'label'             => esc_html__( 'Tag name', 'highstake' ),
+		'label'             => esc_html__( 'Tag name', 'highstake-lite' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 9,
 		'type'              => 'text',
@@ -101,7 +101,7 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'absint',
 	) );
 	$wp_customize->add_control( 'highstake_featured_posts_number', array(
-		'label'             => esc_html__( 'Number of posts', 'highstake' ),
+		'label'             => esc_html__( 'Number of posts', 'highstake-lite' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 11,
 		'type'              => 'number',
@@ -118,8 +118,8 @@ function highstake_featured_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_attr',
 	) );
 	$wp_customize->add_control( 'highstake_featured_custom', array(
-		'label'             => esc_html__( 'Shortcode', 'highstake' ),
-		'description'       => esc_html__( 'You can use any 3rd party slider that support shortcode, place the shortcode in the setting below.', 'highstake' ),
+		'label'             => esc_html__( 'Shortcode', 'highstake-lite' ),
+		'description'       => esc_html__( 'You can use any 3rd party slider that support shortcode, place the shortcode in the setting below.', 'highstake-lite' ),
 		'section'           => 'highstake_featured',
 		'priority'          => 13,
 		'type'              => 'text',

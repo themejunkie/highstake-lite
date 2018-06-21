@@ -20,13 +20,13 @@ class Highstake_Social_Widget extends WP_Widget {
 		// Set up the widget options.
 		$widget_options = array(
 			'classname'   => 'widget-highstake-social widget_social_icons',
-			'description' => esc_html__( 'Display your social media icons.', 'highstake' )
+			'description' => esc_html__( 'Display your social media icons.', 'highstake-lite' )
 		);
 
 		// Create the widget.
 		parent::__construct(
 			'highstake-social',                        // $this->id_base
-			esc_html__( '&raquo; Social Icons', 'highstake' ), // $this->name
+			esc_html__( '&raquo; Social Icons', 'highstake-lite' ), // $this->name
 			$widget_options                           // $this->widget_options
 		);
 	}
@@ -127,7 +127,7 @@ class Highstake_Social_Widget extends WP_Widget {
 
 		// Default value.
 		$defaults = array(
-			'title'      => esc_html__( 'Follow us', 'highstake' ),
+			'title'      => esc_html__( 'Follow us', 'highstake-lite' ),
 			'facebook'   => '',
 			'twitter'    => '',
 			'gplus'      => '',
@@ -147,91 +147,91 @@ class Highstake_Social_Widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
-				<?php esc_html_e( 'Title', 'highstake' ); ?>
+				<?php esc_html_e( 'Title', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'facebook' ); ?>">
-				<?php esc_html_e( 'Facebook', 'highstake' ); ?>
+				<?php esc_html_e( 'Facebook', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" value="<?php echo esc_url( $instance['facebook'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'twitter' ); ?>">
-				<?php esc_html_e( 'Twitter', 'highstake' ); ?>
+				<?php esc_html_e( 'Twitter', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'twitter' ); ?>" name="<?php echo $this->get_field_name( 'twitter' ); ?>" value="<?php echo esc_url( $instance['twitter'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'gplus' ); ?>">
-				<?php esc_html_e( 'Google Plus', 'highstake' ); ?>
+				<?php esc_html_e( 'Google Plus', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'gplus' ); ?>" name="<?php echo $this->get_field_name( 'gplus' ); ?>" value="<?php echo esc_url( $instance['gplus'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'pinterest' ); ?>">
-				<?php esc_html_e( 'Pinterest', 'highstake' ); ?>
+				<?php esc_html_e( 'Pinterest', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'pinterest' ); ?>" name="<?php echo $this->get_field_name( 'pinterest' ); ?>" value="<?php echo esc_url( $instance['pinterest'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'linkedin' ); ?>">
-				<?php esc_html_e( 'LinkedIn', 'highstake' ); ?>
+				<?php esc_html_e( 'LinkedIn', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'linkedin' ); ?>" name="<?php echo $this->get_field_name( 'linkedin' ); ?>" value="<?php echo esc_url( $instance['linkedin'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'instagram' ); ?>">
-				<?php esc_html_e( 'Instagram', 'highstake' ); ?>
+				<?php esc_html_e( 'Instagram', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'instagram' ); ?>" name="<?php echo $this->get_field_name( 'instagram' ); ?>" value="<?php echo esc_url( $instance['instagram'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'behance' ); ?>">
-				<?php esc_html_e( 'Behance', 'highstake' ); ?>
+				<?php esc_html_e( 'Behance', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'behance' ); ?>" name="<?php echo $this->get_field_name( 'behance' ); ?>" value="<?php echo esc_url( $instance['behance'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'dribbble' ); ?>">
-				<?php esc_html_e( 'Dribbble', 'highstake' ); ?>
+				<?php esc_html_e( 'Dribbble', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'dribbble' ); ?>" name="<?php echo $this->get_field_name( 'dribbble' ); ?>" value="<?php echo esc_url( $instance['dribbble'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'github' ); ?>">
-				<?php esc_html_e( 'Github', 'highstake' ); ?>
+				<?php esc_html_e( 'Github', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'github' ); ?>" name="<?php echo $this->get_field_name( 'github' ); ?>" value="<?php echo esc_url( $instance['github'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'codepen' ); ?>">
-				<?php esc_html_e( 'Codepen', 'highstake' ); ?>
+				<?php esc_html_e( 'Codepen', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'codepen' ); ?>" name="<?php echo $this->get_field_name( 'codepen' ); ?>" value="<?php echo esc_url( $instance['codepen'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'tumblr' ); ?>">
-				<?php esc_html_e( 'Tumblr', 'highstake' ); ?>
+				<?php esc_html_e( 'Tumblr', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'tumblr' ); ?>" name="<?php echo $this->get_field_name( 'tumblr' ); ?>" value="<?php echo esc_url( $instance['tumblr'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'rss' ); ?>">
-				<?php esc_html_e( 'RSS Feed', 'highstake' ); ?>
+				<?php esc_html_e( 'RSS Feed', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'rss' ); ?>" name="<?php echo $this->get_field_name( 'rss' ); ?>" value="<?php echo esc_url( $instance['rss'] ); ?>" placeholder="<?php echo  esc_attr( 'http://' ); ?>" />
 		</p>

@@ -57,11 +57,11 @@ function highstake_post_meta() {
 		<?php if ( is_single() ) : ?>
 			<span class="entry-author">
 				<?php $author_id = get_queried_object()->post_author; ?>
-				<?php printf( esc_html__( 'by %s', 'highstake' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( $author_id ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $author_id ) ) . '</a>' ) ?>
+				<?php printf( esc_html__( 'by %s', 'highstake-lite' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( $author_id ) ) . '">' . esc_html( get_the_author_meta( 'display_name', $author_id ) ) . '</a>' ) ?>
 			</span>
 		<?php else : ?>
 			<span class="entry-author">
-				<?php printf( esc_html__( 'by %s', 'highstake' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>' ) ?>
+				<?php printf( esc_html__( 'by %s', 'highstake-lite' ), '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>' ) ?>
 			</span>
 		<?php endif; ?>
 
@@ -69,7 +69,7 @@ function highstake_post_meta() {
 
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 			<span class="entry-comment">
-				<?php comments_popup_link( __( '0 Comment', 'highstake' ), __( '1 Comment', 'highstake' ), __( '% Comments', 'highstake' ) ); ?>
+				<?php comments_popup_link( __( '0 Comment', 'highstake-lite' ), __( '1 Comment', 'highstake-lite' ), __( '% Comments', 'highstake-lite' ) ); ?>
 			</span>
 		<?php endif; ?>
 
@@ -253,7 +253,7 @@ function highstake_related_posts() {
 	if ( $related->have_posts() ) : ?>
 
 		<div class="related-posts posts-in-grid">
-			<h3 class="related-title posts-in-grid-title"><?php esc_html_e( 'You might also like', 'highstake' ); ?></h3>
+			<h3 class="related-title posts-in-grid-title"><?php esc_html_e( 'You might also like', 'highstake-lite' ); ?></h3>
 			<ul>
 				<?php while ( $related->have_posts() ) : $related->the_post(); ?>
 					<li>
@@ -301,7 +301,7 @@ function highstake_comment( $comment, $args, $depth ) {
 	?>
 	<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment-container">
-			<p><?php esc_html_e( 'Pingback:', 'highstake' ); ?> <span><?php comment_author_link(); ?></span> <?php edit_comment_link( esc_html__( '(Edit)', 'highstake' ), '<span class="edit-link">', '</span>' ); ?></p>
+			<p><?php esc_html_e( 'Pingback:', 'highstake-lite' ); ?> <span><?php comment_author_link(); ?></span> <?php edit_comment_link( esc_html__( '(Edit)', 'highstake-lite' ), '<span class="edit-link">', '</span>' ); ?></p>
 		</article>
 	<?php
 			break;
@@ -324,13 +324,13 @@ function highstake_comment( $comment, $args, $depth ) {
 						<?php
 							$edit_comment_link = '';
 							if ( get_edit_comment_link() )
-								$edit_comment_link = sprintf( esc_html__( '&middot; %1$sEdit%2$s', 'highstake' ), '<a href="' . get_edit_comment_link() . '" title="' . esc_attr__( 'Edit Comment', 'highstake' ) . '">', '</a>' );
+								$edit_comment_link = sprintf( esc_html__( '&middot; %1$sEdit%2$s', 'highstake-lite' ), '<a href="' . get_edit_comment_link() . '" title="' . esc_attr__( 'Edit Comment', 'highstake-lite' ) . '">', '</a>' );
 
 							printf( '<span class="date"><a href="%1$s"><time datetime="%2$s">%3$s</time></a> %4$s</span>',
 								esc_url( get_comment_link( $comment->comment_ID ) ),
 								get_comment_time( 'c' ),
 								/* translators: 1: date, 2: time */
-								sprintf( esc_html__( '%1$s at %2$s', 'highstake' ), get_comment_date(), get_comment_time() ),
+								sprintf( esc_html__( '%1$s at %2$s', 'highstake-lite' ), get_comment_date(), get_comment_time() ),
 								$edit_comment_link
 							);
 						?>
@@ -338,11 +338,11 @@ function highstake_comment( $comment, $args, $depth ) {
 
 					<div class="comment-content comment-entry">
 						<?php if ( '0' == $comment->comment_approved ) : ?>
-							<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'highstake' ); ?></p>
+							<p class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'highstake-lite' ); ?></p>
 						<?php endif; ?>
 						<?php comment_text(); ?>
 						<span class="reply">
-							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => wp_kses_post( __( '<i class="fa fa-reply"></i> Reply', 'highstake' ) ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+							<?php comment_reply_link( array_merge( $args, array( 'reply_text' => wp_kses_post( __( '<i class="fa fa-reply"></i> Reply', 'highstake-lite' ) ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 						</span><!-- .reply -->
 					</div><!-- .comment-content -->
 
@@ -371,7 +371,7 @@ function highstake_comment_author_badge() {
 	$classes = get_comment_class();
 
 	if ( in_array( 'bypostauthor', $classes ) ) {
-		$output = '<span class="author-badge">' . esc_html__( 'Author', 'highstake' ) . '</span>';
+		$output = '<span class="author-badge">' . esc_html__( 'Author', 'highstake-lite' ) . '</span>';
 	}
 
 	// Display the badge
@@ -524,7 +524,7 @@ function highstake_get_post_format_link_url( $url = '', $post = null ) {
 	?>
 		<h2 class="entry-title">
 			<a href="<?php echo esc_url( $url ); ?>">
-				<?php if ( get_the_title() && ( esc_html__( '(Untitled)', 'highstake' ) != get_the_title() ) ) { ?>
+				<?php if ( get_the_title() && ( esc_html__( '(Untitled)', 'highstake-lite' ) != get_the_title() ) ) { ?>
 					<?php the_title(); ?>
 				<?php } else { ?>
 					<?php echo esc_attr( $url ); ?>

@@ -47,7 +47,7 @@ if ( ! function_exists( 'highstake_theme_setup' ) ) :
 function highstake_theme_setup() {
 
 	// Make the theme available for translation.
-	load_theme_textdomain( 'highstake', trailingslashit( get_template_directory() ) . 'languages' );
+	load_theme_textdomain( 'highstake-lite', trailingslashit( get_template_directory() ) . 'languages' );
 
 	// Add custom stylesheet file to the TinyMCE visual editor.
 	add_editor_style( array( 'assets/css/editor-style.css', highstake_fonts_url() ) );
@@ -76,8 +76,8 @@ function highstake_theme_setup() {
 	// Register custom navigation menu.
 	register_nav_menus(
 		array(
-			'primary'  => esc_html__( 'Primary Location', 'highstake' ),
-			'social'   => esc_html__( 'Social Links' , 'highstake' ),
+			'primary'  => esc_html__( 'Primary Location', 'highstake-lite' ),
+			'social'   => esc_html__( 'Social Links' , 'highstake-lite' ),
 		)
 	);
 
@@ -112,10 +112,10 @@ function highstake_theme_setup() {
 	// Enable theme-layouts extensions.
 	add_theme_support( 'theme-layouts',
 		array(
-			'1c'   => esc_html__( '1 Column Wide (Full Width)', 'highstake' ),
-			'1c-n' => esc_html__( '1 Column Narrow (Full Width)', 'highstake' ),
-			'2c-l' => esc_html__( '2 Columns: Content / Sidebar', 'highstake' ),
-			'2c-r' => esc_html__( '2 Columns: Sidebar / Content', 'highstake' )
+			'1c'   => esc_html__( '1 Column Wide (Full Width)', 'highstake-lite' ),
+			'1c-n' => esc_html__( '1 Column Narrow (Full Width)', 'highstake-lite' ),
+			'2c-l' => esc_html__( '2 Columns: Content / Sidebar', 'highstake-lite' ),
+			'2c-r' => esc_html__( '2 Columns: Sidebar / Content', 'highstake-lite' )
 		),
 		array( 'customize' => false, 'default' => '2c-l' )
 	);
@@ -159,9 +159,9 @@ function highstake_sidebars_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Primary Sidebar', 'highstake' ),
+			'name'          => esc_html__( 'Primary Sidebar', 'highstake-lite' ),
 			'id'            => 'primary',
-			'description'   => esc_html__( 'Main sidebar that appears on the right.', 'highstake' ),
+			'description'   => esc_html__( 'Main sidebar that appears on the right.', 'highstake-lite' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',

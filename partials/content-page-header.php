@@ -30,7 +30,7 @@
 <?php if ( is_search() ) : ?>
 	<div class="page-header">
 		<div class="container">
-			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'highstake' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'highstake-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 		</div>
 	</div><!-- .page-header -->
 <?php endif; ?>
@@ -38,7 +38,7 @@
 <?php if ( is_404() ) : ?>
 	<div class="page-header">
 		<div class="container">
-			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'highstake' ); ?></h1>
+			<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'highstake-lite' ); ?></h1>
 		</div>
 	</div><!-- .page-header -->
 <?php endif; ?>

@@ -10,8 +10,8 @@ function highstake_fonts_customize_register( $wp_customize ) {
 
 	// Register new section: Fonts
 	$wp_customize->add_section( 'highstake_fonts' , array(
-		'title'       => esc_html__( 'Fonts', 'highstake' ),
-		'description' => esc_html__( 'These options is used for customizing the fonts. The Google Fonts can be found here: https://fonts.google.com/.', 'highstake' ),
+		'title'       => esc_html__( 'Fonts', 'highstake-lite' ),
+		'description' => esc_html__( 'These options is used for customizing the fonts. The Google Fonts can be found here: https://fonts.google.com/.', 'highstake-lite' ),
 		'panel'       => 'highstake_design',
 		'priority'    => 3
 	) );
@@ -21,7 +21,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_attr'
 	) );
 	$wp_customize->add_control( new Highstake_Custom_Text( $wp_customize, 'highstake_heading_font_title', array(
-		'label'             => esc_html__( 'Heading', 'highstake' ),
+		'label'             => esc_html__( 'Heading', 'highstake-lite' ),
 		'section'           => 'highstake_fonts',
 		'priority'          => 2
 	) ) );
@@ -32,7 +32,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_heading_font', array(
-		'description'       => esc_html__( 'Font name/style/sets', 'highstake' ),
+		'description'       => esc_html__( 'Font name/style/sets', 'highstake-lite' ),
 		'section'           => 'highstake_fonts',
 		'priority'          => 3,
 		'type'              => 'text'
@@ -44,7 +44,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_heading_font_family', array(
-		'description'       => esc_html__( 'Font family', 'highstake' ),
+		'description'       => esc_html__( 'Font family', 'highstake-lite' ),
 		'section'           => 'highstake_fonts',
 		'priority'          => 4,
 		'type'              => 'text'
@@ -55,7 +55,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'esc_attr'
 	) );
 	$wp_customize->add_control( new Highstake_Custom_Text( $wp_customize, 'highstake_body_font_title', array(
-		'label'             => esc_html__( 'Body', 'highstake' ),
+		'label'             => esc_html__( 'Body', 'highstake-lite' ),
 		'section'           => 'highstake_fonts',
 		'priority'          => 5
 	) ) );
@@ -66,7 +66,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_body_font', array(
-		'description'       => esc_html__( 'Font name/style/sets', 'highstake' ),
+		'description'       => esc_html__( 'Font name/style/sets', 'highstake-lite' ),
 		'section'           => 'highstake_fonts',
 		'priority'          => 6,
 		'type'              => 'text'
@@ -78,7 +78,7 @@ function highstake_fonts_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'wp_kses_post',
 	) );
 	$wp_customize->add_control( 'highstake_body_font_family', array(
-		'description'       => esc_html__( 'Font family', 'highstake' ),
+		'description'       => esc_html__( 'Font family', 'highstake-lite' ),
 		'section'           => 'highstake_fonts',
 		'priority'          => 7,
 		'type'              => 'text'

@@ -1,4 +1,4 @@
-=== Highstake ===
+=== Highstake Lite ===
 Contributors: Theme Junkie
 Requires at least: WordPress 4.7
 Tested up to: WordPress 4.9.6
@@ -7,7 +7,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-Level up your WordPress website with Highstake, a stunning WordPress theme for online writers and marketers. Highstake is fully responsive, has 1-click demo import, multiple featured content blocks, multiple blog layout templates, and lets you choose between full-width, boxed or framed containers. It also includes social and newsletter integrations, and much more! You can see a demo at http://demo.theme-junkie.com/highstake/
+Level up your WordPress website with Highstake Lite, a stunning WordPress theme for online writers and marketers. Highstake Lite is fully responsive, has 1-click demo import, multiple featured content blocks, multiple blog layout templates, and lets you choose between full-width, boxed or framed containers. It also includes social and newsletter integrations, and much more! You can see a demo at http://demo.theme-junkie.com/highstake/
 
 * Responsive layout.
 * Multiple featured option

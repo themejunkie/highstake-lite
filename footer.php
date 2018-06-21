@@ -47,7 +47,7 @@
 					</div>
 
 					<div class="info-right">
-						<a class="to-top" href="#page"><?php esc_html_e( 'Back to top', 'highstake' ); ?><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+						<a class="to-top" href="#page"><?php esc_html_e( 'Back to top', 'highstake-lite' ); ?><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
 					</div>
 
 				</div>

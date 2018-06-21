@@ -24,15 +24,15 @@ function highstake_customize_functions( $wp_customize ) {
 
 	// Register new panel: Design
 	$wp_customize->add_panel( 'highstake_design', array(
-		'title'       => esc_html__( 'Theme Design', 'highstake' ),
-		'description' => esc_html__( 'This panel is used for customizing the design of your site.', 'highstake' ),
+		'title'       => esc_html__( 'Theme Design', 'highstake-lite' ),
+		'description' => esc_html__( 'This panel is used for customizing the design of your site.', 'highstake-lite' ),
 		'priority'    => 125,
 	) );
 
 	// Register new panel: Theme Options
 	$wp_customize->add_panel( 'highstake_options', array(
-		'title'       => esc_html__( 'Theme Options', 'highstake' ),
-		'description' => esc_html__( 'This panel is used for customizing the Highstake theme.', 'highstake' ),
+		'title'       => esc_html__( 'Theme Options', 'highstake-lite' ),
+		'description' => esc_html__( 'This panel is used for customizing the Highstake theme.', 'highstake-lite' ),
 		'priority'    => 130,
 	) );
 
@@ -63,7 +63,7 @@ function highstake_customize_functions( $wp_customize ) {
 	$wp_customize->get_section( 'custom_css' )->priority = 9;
 
 	// Move background color to background image section.
-	$wp_customize->get_section( 'background_image' )->title = esc_html__( 'Background', 'highstake' );
+	$wp_customize->get_section( 'background_image' )->title = esc_html__( 'Background', 'highstake-lite' );
 	$wp_customize->get_control( 'background_color' )->section = 'background_image';
 
 
@@ -90,7 +90,7 @@ function highstake_documentation_link() {
 	wp_localize_script( 'highstake-doc', 'prefixL10n',
 		array(
 			'prefixURL'   => esc_url( 'http://docs.theme-junkie.com/highstake/' ),
-			'prefixLabel' => esc_html__( 'Documentation', 'highstake' ),
+			'prefixLabel' => esc_html__( 'Documentation', 'highstake-lite' ),
 		)
 	);
 

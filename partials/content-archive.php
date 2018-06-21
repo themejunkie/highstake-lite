@@ -30,7 +30,7 @@
 		</div>
 
 		<span class="more-link-wrapper">
-			<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Read More &raquo;', 'highstake' ); ?></a>
+			<a href="<?php the_permalink(); ?>" class="more-link"><?php esc_html_e( 'Read More &raquo;', 'highstake-lite' ); ?></a>
 		</span>
 
 	</div>

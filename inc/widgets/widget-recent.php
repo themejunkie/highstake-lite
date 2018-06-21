@@ -20,13 +20,13 @@ class Highstake_Recent_Widget extends WP_Widget {
 		// Set up the widget options.
 		$widget_options = array(
 			'classname'   => 'widget-highstake-recent posts-thumbnail-widget',
-			'description' => esc_html__( 'Display recent posts with thumbnails.', 'highstake' )
+			'description' => esc_html__( 'Display recent posts with thumbnails.', 'highstake-lite' )
 		);
 
 		// Create the widget.
 		parent::__construct(
 			'highstake-recent',                                   // $this->id_base
-			esc_html__( '&raquo; Recent Posts Thumbnails', 'highstake' ), // $this->name
+			esc_html__( '&raquo; Recent Posts Thumbnails', 'highstake-lite' ), // $this->name
 			$widget_options                                      // $this->widget_options
 		);
 
@@ -115,7 +115,7 @@ class Highstake_Recent_Widget extends WP_Widget {
 
 		// Default value.
 		$defaults = array(
-			'title'     => esc_html__( 'Recent Posts', 'highstake' ),
+			'title'     => esc_html__( 'Recent Posts', 'highstake-lite' ),
 			'limit'     => 5
 		);
 
@@ -124,14 +124,14 @@ class Highstake_Recent_Widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>">
-				<?php esc_html_e( 'Title', 'highstake' ); ?>
+				<?php esc_html_e( 'Title', 'highstake-lite' ); ?>
 			</label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" />
 		</p>
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'limit' ); ?>">
-				<?php esc_html_e( 'Number of posts to show', 'highstake' ); ?>
+				<?php esc_html_e( 'Number of posts to show', 'highstake-lite' ); ?>
 			</label>
 			<input class="small-text" id="<?php echo $this->get_field_id( 'limit' ); ?>" name="<?php echo $this->get_field_name( 'limit' ); ?>" type="number" step="1" min="0" value="<?php echo (int)( $instance['limit'] ); ?>" />
 		</p>

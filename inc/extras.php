@@ -169,15 +169,15 @@ add_action( 'init', 'highstake_page_sidebar_plugin' );
  */
 function highstake_extend_archive_title( $title ) {
 	if ( is_category() ) {
-		$title = sprintf( esc_html__( 'posts in %s category', 'highstake' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+		$title = sprintf( esc_html__( 'posts in %s category', 'highstake-lite' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 	} elseif ( is_tag() ) {
-		$title = sprintf( esc_html__( 'posts in %s tag', 'highstake' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+		$title = sprintf( esc_html__( 'posts in %s tag', 'highstake-lite' ), '<span>' . single_tag_title( '', false ) . '</span>' );
 	} elseif ( is_author() ) {
-		$title = sprintf( esc_html__( 'posts by %s', 'highstake' ), '<span>' . get_the_author() . '</span>' );
+		$title = sprintf( esc_html__( 'posts by %s', 'highstake-lite' ), '<span>' . get_the_author() . '</span>' );
 	} elseif ( is_search() ) {
-		$title = sprintf( esc_html__( 'Search Results for: %s', 'highstake' ), '<span>' . get_search_query() . '</span>' );
+		$title = sprintf( esc_html__( 'Search Results for: %s', 'highstake-lite' ), '<span>' . get_search_query() . '</span>' );
 	} else {
-		$title = esc_html__( 'Latest News', 'highstake' );
+		$title = esc_html__( 'Latest News', 'highstake-lite' );
 	}
 	return $title;
 }

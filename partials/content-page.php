@@ -9,12 +9,12 @@ $title = get_theme_mod( 'highstake_page_title', 1 );
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'highstake' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'highstake-lite' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
-	<?php edit_post_link( esc_html__( 'Edit', 'highstake' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer>' ); ?>
+	<?php edit_post_link( esc_html__( 'Edit', 'highstake-lite' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer>' ); ?>
 
 </article><!-- #post-## -->

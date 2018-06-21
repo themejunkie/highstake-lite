@@ -42,7 +42,7 @@ function highstake_enqueue() {
 		wp_enqueue_style( 'highstake-style', trailingslashit( get_template_directory_uri() ) . 'style.min.css' );
 
 		// Load custom js plugins.
-		wp_enqueue_script( 'highstake-scripts', trailingslashit( get_template_directory_uri() ) . 'assets/js/highstake.min.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'highstake-scripts', trailingslashit( get_template_directory_uri() ) . 'assets/js/highstake-lite.min.js', array( 'jquery' ), null, true );
 
 	}
 

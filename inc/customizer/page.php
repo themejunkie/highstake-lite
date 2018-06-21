@@ -10,7 +10,7 @@ function highstake_page_customize_register( $wp_customize ) {
 
 	// Register new section: Page
 	$wp_customize->add_section( 'highstake_page' , array(
-		'title'    => esc_html__( 'Pages', 'highstake' ),
+		'title'    => esc_html__( 'Pages', 'highstake-lite' ),
 		'panel'    => 'highstake_options',
 		'priority' => 7
 	) );
@@ -21,7 +21,7 @@ function highstake_page_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'highstake_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'highstake_page_comment', array(
-		'label'             => esc_html__( 'Enable comment on Pages', 'highstake' ),
+		'label'             => esc_html__( 'Enable comment on Pages', 'highstake-lite' ),
 		'section'           => 'highstake_page',
 		'priority'          => 1,
 		'type'              => 'checkbox'
@@ -33,7 +33,7 @@ function highstake_page_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'highstake_sanitize_checkbox',
 	) );
 	$wp_customize->add_control( 'highstake_page_title', array(
-		'label'             => esc_html__( 'Show page title', 'highstake' ),
+		'label'             => esc_html__( 'Show page title', 'highstake-lite' ),
 		'section'           => 'highstake_page',
 		'priority'          => 3,
 		'type'              => 'checkbox'

@@ -9,9 +9,9 @@
 		global $wp_query;
 		if ( $wp_query->max_num_pages > 1 ) : ?>
 			<nav class="navigation pagination traditional-pagination" role="navigation">
-				<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'highstake' ) ?></h2>
-				<div class="nav-previous next"><?php next_posts_link( esc_html__( 'Older posts &raquo;', 'highstake' ) ); ?></div>
-				<div class="nav-next prev"><?php previous_posts_link( esc_html__( '&laquo; Newer posts', 'highstake' ) ); ?></div>
+				<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'highstake-lite' ) ?></h2>
+				<div class="nav-previous next"><?php next_posts_link( esc_html__( 'Older posts &raquo;', 'highstake-lite' ) ); ?></div>
+				<div class="nav-next prev"><?php previous_posts_link( esc_html__( '&laquo; Newer posts', 'highstake-lite' ) ); ?></div>
 			</nav>
 		<?php endif; ?>
 	<?php endif; ?>
