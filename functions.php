@@ -19,16 +19,16 @@
  *
  * @global int $content_width
  */
-function highstake_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'highstake_content_width', 760 );
+function highstake_lite_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'highstake_lite_content_width', 760 );
 }
-add_action( 'after_setup_theme', 'highstake_content_width', 0 );
+add_action( 'after_setup_theme', 'highstake_lite_content_width', 0 );
 
 /**
  * Set new content width if user uses 1 column layout.
  */
-if ( ! function_exists( 'highstake_secondary_content_width' ) ) :
-	function highstake_secondary_content_width() {
+if ( ! function_exists( 'highstake_lite_secondary_content_width' ) ) :
+	function highstake_lite_secondary_content_width() {
 		global $content_width;
 
 		if ( in_array( get_theme_mod( 'theme_layout' ), array( '1c' ) ) ) {
@@ -36,21 +36,21 @@ if ( ! function_exists( 'highstake_secondary_content_width' ) ) :
 		}
 	}
 endif;
-add_action( 'template_redirect', 'highstake_secondary_content_width' );
+add_action( 'template_redirect', 'highstake_lite_secondary_content_width' );
 
-if ( ! function_exists( 'highstake_theme_setup' ) ) :
+if ( ! function_exists( 'highstake_lite_theme_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * @since  1.0.0
  */
-function highstake_theme_setup() {
+function highstake_lite_theme_setup() {
 
 	// Make the theme available for translation.
 	load_theme_textdomain( 'highstake-lite', trailingslashit( get_template_directory() ) . 'languages' );
 
 	// Add custom stylesheet file to the TinyMCE visual editor.
-	add_editor_style( array( 'assets/css/editor-style.css', highstake_fonts_url() ) );
+	add_editor_style( array( 'assets/css/editor-style.css', highstake_lite_fonts_url() ) );
 
 	// Add RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
@@ -98,7 +98,7 @@ function highstake_theme_setup() {
 	) );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'highstake_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'highstake_lite_custom_background_args', array(
 		'default-color' => 'f5f5f5'
 	) ) );
 
@@ -127,8 +127,8 @@ function highstake_theme_setup() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
 }
-endif; // highstake_theme_setup
-add_action( 'after_setup_theme', 'highstake_theme_setup' );
+endif; // highstake_lite_theme_setup
+add_action( 'after_setup_theme', 'highstake_lite_theme_setup' );
 
 /**
  * Registers custom widgets.
@@ -136,7 +136,7 @@ add_action( 'after_setup_theme', 'highstake_theme_setup' );
  * @since 1.0.0
  * @link  http://codex.wordpress.org/Function_Reference/register_widget
  */
-function highstake_widgets_init() {
+function highstake_lite_widgets_init() {
 
 	// Register recent posts thumbnail widget.
 	require trailingslashit( get_template_directory() ) . 'inc/widgets/widget-recent.php';
@@ -147,7 +147,7 @@ function highstake_widgets_init() {
 	register_widget( 'Highstake_Social_Widget' );
 
 }
-add_action( 'widgets_init', 'highstake_widgets_init' );
+add_action( 'widgets_init', 'highstake_lite_widgets_init' );
 
 /**
  * Registers widget areas and custom widgets.
@@ -155,7 +155,7 @@ add_action( 'widgets_init', 'highstake_widgets_init' );
  * @since 1.0.0
  * @link  http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function highstake_sidebars_init() {
+function highstake_lite_sidebars_init() {
 
 	register_sidebar(
 		array(
@@ -170,7 +170,7 @@ function highstake_sidebars_init() {
 	);
 
 }
-add_action( 'widgets_init', 'highstake_sidebars_init' );
+add_action( 'widgets_init', 'highstake_lite_sidebars_init' );
 
 /**
  * Register Google fonts.
@@ -178,11 +178,11 @@ add_action( 'widgets_init', 'highstake_sidebars_init' );
  * @since  1.0.0
  * @return string
  */
-function highstake_fonts_url() {
+function highstake_lite_fonts_url() {
 
 	// Get the customizer data
-	$body_font      = get_theme_mod( 'highstake_body_font', 'Karla:400,400i,700,700i' );
-	$heading_font   = get_theme_mod( 'highstake_heading_font', 'Montserrat:400,400i,600,600i' );
+	$body_font      = get_theme_mod( 'highstake_lite_body_font', 'Karla:400,400i,700,700i' );
+	$heading_font   = get_theme_mod( 'highstake_lite_heading_font', 'Montserrat:400,400i,600,600i' );
 
 	// Important variable
 	$fonts_url = '';

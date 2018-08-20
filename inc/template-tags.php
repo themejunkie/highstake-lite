@@ -10,7 +10,7 @@
  * @since      1.0.0
  */
 
-if ( ! function_exists( 'highstake_site_branding' ) ) :
+if ( ! function_exists( 'highstake_lite_site_branding' ) ) :
 /**
  * Site branding for the site.
  *
@@ -19,7 +19,7 @@ if ( ! function_exists( 'highstake_site_branding' ) ) :
  *
  * @since  1.0.0
  */
-function highstake_site_branding() {
+function highstake_lite_site_branding() {
 
 	// Get the log.
 	$logo_id  = get_theme_mod( 'custom_logo' );
@@ -45,11 +45,11 @@ function highstake_site_branding() {
 }
 endif;
 
-if ( ! function_exists( 'highstake_post_meta' ) ) :
+if ( ! function_exists( 'highstake_lite_post_meta' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function highstake_post_meta() {
+function highstake_lite_post_meta() {
 	?>
 
 	<div class="entry-meta">
@@ -79,15 +79,15 @@ function highstake_post_meta() {
 }
 endif;
 
-if ( ! function_exists( 'highstake_categorized_blog' ) ) :
+if ( ! function_exists( 'highstake_lite_categorized_blog' ) ) :
 /**
  * Returns true if a blog has more than 1 category.
  *
  * @since  1.0.0
  * @return bool
  */
-function highstake_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'highstake_categories' ) ) ) {
+function highstake_lite_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'highstake_lite_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -100,46 +100,46 @@ function highstake_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'highstake_categories', $all_the_cool_cats );
+		set_transient( 'highstake_lite_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so highstake_categorized_blog should return true.
+		// This blog has more than 1 category so highstake_lite_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so highstake_categorized_blog should return false.
+		// This blog has only 1 category so highstake_lite_categorized_blog should return false.
 		return false;
 	}
 }
 endif;
 
-if ( ! function_exists( 'highstake_category_transient_flusher' ) ) :
+if ( ! function_exists( 'highstake_lite_category_transient_flusher' ) ) :
 /**
- * Flush out the transients used in highstake_categorized_blog.
+ * Flush out the transients used in highstake_lite_categorized_blog.
  *
  * @since 1.0.0
  */
-function highstake_category_transient_flusher() {
+function highstake_lite_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'highstake_categories' );
+	delete_transient( 'highstake_lite_categories' );
 }
 endif;
-add_action( 'edit_category', 'highstake_category_transient_flusher' );
-add_action( 'save_post',     'highstake_category_transient_flusher' );
+add_action( 'edit_category', 'highstake_lite_category_transient_flusher' );
+add_action( 'save_post',     'highstake_lite_category_transient_flusher' );
 
-if ( ! function_exists( 'highstake_post_author_box' ) ) :
+if ( ! function_exists( 'highstake_lite_post_author_box' ) ) :
 /**
  * Author post informations.
  *
  * @since  1.0.0
  */
-function highstake_post_author_box() {
+function highstake_lite_post_author_box() {
 
 	// Get the data set in customizer
-	$enable = get_theme_mod( 'highstake_author_box', 1 );
+	$enable = get_theme_mod( 'highstake_lite_author_box', 1 );
 
 	// Disable if user choose it.
 	if ( $enable === 0 ) {
@@ -166,7 +166,7 @@ function highstake_post_author_box() {
 ?>
 
 	<div class="author-bio clearfix">
-		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'highstake_author_bio_avatar_size', 120 ), '', strip_tags( get_the_author() ) ); ?>
+		<?php echo get_avatar( is_email( get_the_author_meta( 'user_email' ) ), apply_filters( 'highstake_lite_author_bio_avatar_size', 120 ), '', strip_tags( get_the_author() ) ); ?>
 		<div class="description">
 
 			<h3 class="author-title name">
@@ -205,16 +205,16 @@ function highstake_post_author_box() {
 }
 endif;
 
-if ( ! function_exists( 'highstake_related_posts' ) ) :
+if ( ! function_exists( 'highstake_lite_related_posts' ) ) :
 /**
  * Related posts.
  *
  * @since  1.0.0
  */
-function highstake_related_posts() {
+function highstake_lite_related_posts() {
 
 	// Get the data set in customizer
-	$enable  = get_theme_mod( 'highstake_related_posts', 1 );
+	$enable  = get_theme_mod( 'highstake_lite_related_posts', 1 );
 
 	// Disable if user choose it.
 	if ( $enable === 0 ) {
@@ -245,7 +245,7 @@ function highstake_related_posts() {
 	);
 
 	// Allow dev to filter the query.
-	$args = apply_filters( 'highstake_related_posts_args', $query );
+	$args = apply_filters( 'highstake_lite_related_posts_args', $query );
 
 	// The post query
 	$related = new WP_Query( $args );
@@ -284,7 +284,7 @@ function highstake_related_posts() {
 }
 endif;
 
-if ( ! function_exists( 'highstake_comment' ) ) :
+if ( ! function_exists( 'highstake_lite_comment' ) ) :
 /**
  * Template for comments and pingbacks.
  *
@@ -292,7 +292,7 @@ if ( ! function_exists( 'highstake_comment' ) ) :
  *
  * @since  1.0.0
  */
-function highstake_comment( $comment, $args, $depth ) {
+function highstake_lite_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
@@ -312,9 +312,9 @@ function highstake_comment( $comment, $args, $depth ) {
 		<article id="comment-<?php comment_ID(); ?>" class="comment-container">
 
 			<div class="comment-avatar">
-				<?php echo get_avatar( $comment, apply_filters( 'highstake_comment_avatar_size', 80 ) ); ?>
+				<?php echo get_avatar( $comment, apply_filters( 'highstake_lite_comment_avatar_size', 80 ) ); ?>
 				<span class="name"><span itemprop="name"><?php echo get_comment_author_link(); ?></span></span>
-				<?php echo highstake_comment_author_badge(); ?>
+				<?php echo highstake_lite_comment_author_badge(); ?>
 			</div>
 
 			<div class="comment-body">
@@ -356,13 +356,13 @@ function highstake_comment( $comment, $args, $depth ) {
 }
 endif;
 
-if ( ! function_exists( 'highstake_comment_author_badge' ) ) :
+if ( ! function_exists( 'highstake_lite_comment_author_badge' ) ) :
 /**
  * Custom badge for post author comment
  *
  * @since  1.0.0
  */
-function highstake_comment_author_badge() {
+function highstake_lite_comment_author_badge() {
 
 	// Set up empty variable
 	$output = '';
@@ -375,11 +375,11 @@ function highstake_comment_author_badge() {
 	}
 
 	// Display the badge
-	return apply_filters( 'highstake_comment_author_badge', $output );
+	return apply_filters( 'highstake_lite_comment_author_badge', $output );
 }
 endif;
 
-if ( ! function_exists( 'highstake_get_format_gallery' ) ) :
+if ( ! function_exists( 'highstake_lite_get_format_gallery' ) ) :
 /**
  * Get the [gallery] shortcode from the post content and display it on index page. It require
  * gallery ids [gallery ids=1,2,3,4] to display it as thumbnail slideshow. If no ids exist it
@@ -394,7 +394,7 @@ if ( ! function_exists( 'highstake_get_format_gallery' ) ) :
  * @uses   get_children() to get the attached images if no [gallery] found in the post content.
  * @return string
  */
-function highstake_get_format_gallery() {
+function highstake_lite_get_format_gallery() {
 
 	// Set up placeholders
 	$slider = '';
@@ -464,7 +464,7 @@ function highstake_get_format_gallery() {
 		);
 
 		// Retrieves attachments from the post.
-		$attachments = get_children( apply_filters( 'highstake_gallery_format_args', $defaults ) );
+		$attachments = get_children( apply_filters( 'highstake_lite_gallery_format_args', $defaults ) );
 
 		// Check if attachments exist.
 		if ( $attachments ) {
@@ -497,7 +497,7 @@ function highstake_get_format_gallery() {
 }
 endif;
 
-if ( ! function_exists( 'highstake_get_post_format_link_url' ) ) :
+if ( ! function_exists( 'highstake_lite_get_post_format_link_url' ) ) :
 /**
  * Forked from hybrid_get_the_post_format_url.
  * Filters 'get_the_post_format_url' to make for a more robust and back-compatible function.  If WP did
@@ -506,7 +506,7 @@ if ( ! function_exists( 'highstake_get_post_format_link_url' ) ) :
  *
  * @since 1.0.0
  */
-function highstake_get_post_format_link_url( $url = '', $post = null ) {
+function highstake_lite_get_post_format_link_url( $url = '', $post = null ) {
 
 	if ( empty( $url ) ) {
 
@@ -537,13 +537,13 @@ function highstake_get_post_format_link_url( $url = '', $post = null ) {
 }
 endif;
 
-if ( ! function_exists( 'highstake_footer_text' ) ) :
+if ( ! function_exists( 'highstake_lite_footer_text' ) ) :
 /**
  * Footer Text
  *
  * @since  1.0.0
  */
-function highstake_footer_text() {
+function highstake_lite_footer_text() {
 
 	// Get the customizer data
 	$footer_text = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';

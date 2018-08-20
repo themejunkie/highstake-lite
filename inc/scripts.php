@@ -16,13 +16,13 @@
  * @link  http://codex.wordpress.org/Function_Reference/wp_enqueue_script
  * @link  http://codex.wordpress.org/Function_Reference/wp_enqueue_style
  */
-function highstake_enqueue() {
+function highstake_lite_enqueue() {
 
 	// Load plugins stylesheet
 	wp_enqueue_style( 'highstake-plugins-style', trailingslashit( get_template_directory_uri() ) . 'assets/css/plugins.min.css' );
 
 	// Fonts
-	wp_enqueue_style( 'highstake-fonts', highstake_fonts_url() );
+	wp_enqueue_style( 'highstake-fonts', highstake_lite_fonts_url() );
 
 	// if WP_DEBUG and/or SCRIPT_DEBUG turned on, load the unminified styles & script.
 	if ( ! is_child_theme() && WP_DEBUG || SCRIPT_DEBUG ) {
@@ -57,8 +57,8 @@ function highstake_enqueue() {
 	}
 
 	// Loads HTML5 Shiv
-	wp_enqueue_script( 'highstake-html5', trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js', array( 'jquery' ), null, false );
-	wp_script_add_data( 'highstake-html5', 'conditional', 'lte IE 9' );
+	wp_enqueue_script( 'jquery-html5', trailingslashit( get_template_directory_uri() ) . 'assets/js/html5shiv.min.js', array( 'jquery' ), null, false );
+	wp_script_add_data( 'jquery-html5', 'conditional', 'lte IE 9' );
 
 }
-add_action( 'wp_enqueue_scripts', 'highstake_enqueue' );
+add_action( 'wp_enqueue_scripts', 'highstake_lite_enqueue' );

@@ -1,6 +1,6 @@
 <?php
 // Get the customizer data
-$title = get_theme_mod( 'highstake_callout_posts_title', 'Editor\'s Choice' );
+$title = get_theme_mod( 'highstake_lite_callout_posts_title', 'Editor\'s Choice' );
 
 // Main post query
 $query = array(
@@ -10,7 +10,7 @@ $query = array(
 );
 
 // Get the tag id
-$name = get_theme_mod( 'highstake_callout_posts_tag', 'editor choice' );
+$name = get_theme_mod( 'highstake_lite_callout_posts_tag', 'editor choice' );
 if ( $name ) {
 	$term = get_term_by( 'name', $name, 'post_tag' );
 
@@ -21,7 +21,7 @@ if ( $name ) {
 }
 
 // Allow dev to filter the query.
-$query = apply_filters( 'highstake_callout_posts_args', $query );
+$query = apply_filters( 'highstake_lite_callout_posts_args', $query );
 
 $callout = new WP_Query( $query );
 ?>

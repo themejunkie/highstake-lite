@@ -17,7 +17,7 @@ require trailingslashit( get_template_directory() ) . 'inc/extensions/class-tgm-
  *
  * @since  1.0.0
  */
-function highstake_register_plugins() {
+function highstake_lite_register_plugins() {
 
 	$plugins = array(
 
@@ -49,4 +49,4 @@ function highstake_register_plugins() {
 	tgmpa( $plugins, $config );
 
 }
-add_action( 'tgmpa_register', 'highstake_register_plugins' );
+add_action( 'tgmpa_register', 'highstake_lite_register_plugins' );

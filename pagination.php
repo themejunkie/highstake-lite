@@ -1,7 +1,7 @@
 <?php if ( is_home() || is_archive() || is_search() ) : // If viewing the blog, an archive, or search results. ?>
 
 	<?php
-		$type = get_theme_mod( 'highstake_posts_pagination', 'number' );
+		$type = get_theme_mod( 'highstake_lite_posts_pagination', 'number' );
 		if ( $type == 'number' ) :
 	?>
 		<?php the_posts_pagination(); ?>

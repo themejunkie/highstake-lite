@@ -19,9 +19,9 @@
 			<?php endif; ?>
 
 			<?php
-				$footer_content = get_theme_mod( 'highstake_footer_content', 'logo' );
-				$logo_id        = get_theme_mod( 'highstake_footer_logo' );
-				$custom         = get_theme_mod( 'highstake_footer_custom_content' );
+				$footer_content = get_theme_mod( 'highstake_lite_footer_content', 'logo' );
+				$logo_id        = get_theme_mod( 'highstake_lite_footer_logo' );
+				$custom         = get_theme_mod( 'highstake_lite_footer_custom_content' );
 			?>
 			<?php if ( $footer_content != 'disable' ) : ?>
 				<div class="footer-custom-content">
@@ -43,7 +43,7 @@
 				<div class="container">
 
 					<div class="info-left">
-						<?php highstake_footer_text(); ?>
+						<?php highstake_lite_footer_text(); ?>
 					</div>
 
 					<div class="info-right">

@@ -11,7 +11,7 @@
 
 					<?php
 						// Get data set in customizer
-						$comment = get_theme_mod( 'highstake_page_comment', 1 );
+						$comment = get_theme_mod( 'highstake_lite_page_comment', 1 );
 
 						// Check if comment enable on customizer
 						if ( $comment ) :

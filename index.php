@@ -1,6 +1,6 @@
 <?php
 // Get the customizer data.
-$layout = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+$layout = get_theme_mod( 'highstake_lite_blog_layouts', '2c-l' );
 
 get_header(); ?>
 

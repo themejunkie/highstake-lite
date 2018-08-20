@@ -6,23 +6,23 @@
 /**
  * Register the customizer.
  */
-function highstake_general_customize_register( $wp_customize ) {
+function highstake_lite_general_customize_register( $wp_customize ) {
 
 	// Register new section: General
-	$wp_customize->add_section( 'highstake_general' , array(
+	$wp_customize->add_section( 'highstake_lite_general' , array(
 		'title'    => esc_html__( 'General', 'highstake-lite' ),
-		'panel'    => 'highstake_options',
+		'panel'    => 'highstake_lite_options',
 		'priority' => 1
 	) );
 
 	// Register container setting
-	$wp_customize->add_setting( 'highstake_container_style', array(
+	$wp_customize->add_setting( 'highstake_lite_container_style', array(
 		'default'           => 'fullwidth',
-		'sanitize_callback' => 'highstake_sanitize_container_style',
+		'sanitize_callback' => 'highstake_lite_sanitize_container_style',
 	) );
-	$wp_customize->add_control( 'highstake_container_style', array(
+	$wp_customize->add_control( 'highstake_lite_container_style', array(
 		'label'             => esc_html__( 'Container', 'highstake-lite' ),
-		'section'           => 'highstake_general',
+		'section'           => 'highstake_lite_general',
 		'priority'          => 1,
 		'type'              => 'radio',
 		'choices'           => array(
@@ -33,13 +33,13 @@ function highstake_general_customize_register( $wp_customize ) {
 	) );
 
 	// Register pagination setting
-	$wp_customize->add_setting( 'highstake_posts_pagination', array(
+	$wp_customize->add_setting( 'highstake_lite_posts_pagination', array(
 		'default'           => 'number',
-		'sanitize_callback' => 'highstake_sanitize_posts_pagination',
+		'sanitize_callback' => 'highstake_lite_sanitize_posts_pagination',
 	) );
-	$wp_customize->add_control( 'highstake_posts_pagination', array(
+	$wp_customize->add_control( 'highstake_lite_posts_pagination', array(
 		'label'             => esc_html__( 'Pagination type', 'highstake-lite' ),
-		'section'           => 'highstake_general',
+		'section'           => 'highstake_lite_general',
 		'priority'          => 3,
 		'type'              => 'radio',
 		'choices'           => array(
@@ -49,4 +49,4 @@ function highstake_general_customize_register( $wp_customize ) {
 	) );
 
 }
-add_action( 'customize_register', 'highstake_general_customize_register' );
+add_action( 'customize_register', 'highstake_lite_general_customize_register' );

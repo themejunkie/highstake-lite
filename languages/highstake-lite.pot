@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Highstake Lite 1.0.0\n"
+"Project-Id-Version: Highstake Lite 1.0.1\n"
 "Report-Msgid-Bugs-To: http://www.theme-junkie.com/forum/\n"
-"POT-Creation-Date: 2018-06-21 04:38:59+00:00\n"
+"POT-Creation-Date: 2018-08-20 03:57:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -738,23 +738,23 @@ msgstr ""
 msgid "Global Layout"
 msgstr ""
 
-#: inc/extras.php:172
+#: inc/extras.php:181
 msgid "posts in %s category"
 msgstr ""
 
-#: inc/extras.php:174
+#: inc/extras.php:183
 msgid "posts in %s tag"
 msgstr ""
 
-#: inc/extras.php:176
+#: inc/extras.php:185
 msgid "posts by %s"
 msgstr ""
 
-#: inc/extras.php:178 partials/content-page-header.php:33
+#: inc/extras.php:187 partials/content-page-header.php:33
 msgid "Search Results for: %s"
 msgstr ""
 
-#: inc/extras.php:180
+#: inc/extras.php:189
 msgid "Latest News"
 msgstr ""
 
@@ -954,10 +954,10 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"Level up your WordPress website with Highstake, a stunning WordPress theme "
-"for online writers and marketers. Highstake is fully responsive, has "
-"1-click demo import, multiple featured content blocks, multiple blog layout "
-"templates, and lets you choose between full-width, boxed or framed "
+"Level up your WordPress website with Highstake Lite, a stunning WordPress "
+"theme for online writers and marketers. Highstake Lite is fully responsive, "
+"has 1-click demo import, multiple featured content blocks, multiple blog "
+"layout templates, and lets you choose between full-width, boxed or framed "
 "containers. It also includes social and newsletter integrations, and much "
 "more! You can see a demo at http://demo.theme-junkie.com/highstake/"
 msgstr ""

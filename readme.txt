@@ -1,8 +1,8 @@
 === Highstake Lite ===
 Contributors: Theme Junkie
 Requires at least: WordPress 4.7
-Tested up to: WordPress 4.9.6
-Version: 1.0.0
+Tested up to: WordPress 4.9.8
+Version: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,8 +30,8 @@ Level up your WordPress website with Highstake Lite, a stunning WordPress theme 
 
 == Copyright ==
 
-Highstake WordPress Theme, Copyright 2018 https://www.theme-junkie.com/
-Highstake is distributed under the terms of the GNU GPL
+Highstake Lite WordPress Theme, Copyright 2018 https://www.theme-junkie.com/
+Highstake Lite is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -77,9 +77,12 @@ TGM-Plugin-Activation, Copyright (c) 2011, Thomas Griffin
 Licenses: GPL v2
 Source: https://github.com/TGMPA/TGM-Plugin-Activation
 
-Image used in demo: https://unsplash.com/, licensed under Creative Commons Zero(http://creativecommons.org/publicdomain/zero/1.0/)
+Image used in demo: https://pexels.com/, https://www.pexels.com/photo-license/
 
 == Changelog ==
+
+1.0.1 - Aug 20, 2018
+* Fixed minor issue per Theme Reviewer review.
 
 1.0.0 - June 12, 2018
 * Initial release

@@ -1,6 +1,6 @@
 <?php
 // Get the customizer value.
-$title = get_theme_mod( 'highstake_page_title', 1 );
+$title = get_theme_mod( 'highstake_lite_page_title', 1 );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

@@ -1,8 +1,8 @@
 <?php
 // Get the data set in Customizer.
-$title     = get_theme_mod( 'highstake_subscribe_title' );
-$subtitle  = get_theme_mod( 'highstake_subscribe_subtitle' );
-$shortcode = get_theme_mod( 'highstake_subscribe_shortcode' );
+$title     = get_theme_mod( 'highstake_lite_subscribe_title' );
+$subtitle  = get_theme_mod( 'highstake_lite_subscribe_subtitle' );
+$shortcode = get_theme_mod( 'highstake_lite_subscribe_shortcode' );
 
 // Only show if has shortcode
 if ( !$shortcode ) {

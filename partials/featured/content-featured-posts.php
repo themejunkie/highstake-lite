@@ -1,9 +1,9 @@
 <?php
 // Get the customizer data
-$number = get_theme_mod( 'highstake_featured_posts_number', 3 );
+$number = get_theme_mod( 'highstake_lite_featured_posts_number', 3 );
 
 // Get the tag id
-$name = get_theme_mod( 'highstake_featured_posts_tag', 'featured' );
+$name = get_theme_mod( 'highstake_lite_featured_posts_tag', 'featured' );
 if ( $name ) {
 	$term = get_term_by( 'name', $name, 'post_tag' );
 }
@@ -26,7 +26,7 @@ if ( $term ) {
 }
 
 // Allow dev to filter the query.
-$query = apply_filters( 'highstake_featured_posts_args', $query );
+$query = apply_filters( 'highstake_lite_featured_posts_args', $query );
 
 $featured = new WP_Query( $query );
 ?>
@@ -55,7 +55,7 @@ $featured = new WP_Query( $query );
 
 					<?php the_title( sprintf( '<h2 class="page-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-					<?php highstake_post_meta(); ?>
+					<?php highstake_lite_post_meta(); ?>
 
 				</div>
 			</div>

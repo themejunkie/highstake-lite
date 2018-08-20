@@ -2,7 +2,7 @@
 
 	<?php
 		// Get the data set in customizer
-		$featured = get_theme_mod( 'highstake_featured_type', 'default' );
+		$featured = get_theme_mod( 'highstake_lite_featured_type', 'default' );
 		if ( $featured != 'disable' ) :
 	?>
 		<?php if ( $featured == 'default' ) : ?>
@@ -62,7 +62,7 @@
 			<h1 class="page-title"><?php the_title(); ?></h1>
 
 			<?php if ( 'post' == get_post_type() ) : ?>
-				<?php highstake_post_meta(); ?>
+				<?php highstake_lite_post_meta(); ?>
 			<?php endif; ?>
 
 		</div>

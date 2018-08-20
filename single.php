@@ -9,13 +9,13 @@
 
 					<?php get_template_part( 'partials/content', 'single' ); ?>
 
-					<?php highstake_post_author_box(); // Display the author box. ?>
+					<?php highstake_lite_post_author_box(); // Display the author box. ?>
 
-					<?php highstake_related_posts(); // Display the related posts. ?>
+					<?php highstake_lite_related_posts(); // Display the related posts. ?>
 
 					<?php
 						// Get data set in customizer
-						$comment = get_theme_mod( 'highstake_post_comment', 1 );
+						$comment = get_theme_mod( 'highstake_lite_post_comment', 1 );
 
 						// Check if comment enable on customizer
 						if ( $comment ) :

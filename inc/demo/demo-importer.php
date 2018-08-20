@@ -7,7 +7,7 @@
 /**
  * Define demo file
  */
-function highstake_import_files() {
+function highstake_lite_import_files() {
 	return array(
 
 		array(
@@ -21,12 +21,12 @@ function highstake_import_files() {
 
 	);
 }
-add_filter( 'pt-ocdi/import_files', 'highstake_import_files' );
+add_filter( 'pt-ocdi/import_files', 'highstake_lite_import_files' );
 
 /**
  * After import function
  */
-function highstake_after_import_setup() {
+function highstake_lite_after_import_setup() {
 
 	// Assign menus to their locations.
 	$primary = get_term_by( 'name', 'Primary', 'nav_menu' );
@@ -41,4 +41,4 @@ function highstake_after_import_setup() {
 	update_option( 'posts_per_page', 5 );
 
 }
-add_action( 'pt-ocdi/after_import', 'highstake_after_import_setup' );
+add_action( 'pt-ocdi/after_import', 'highstake_lite_after_import_setup' );

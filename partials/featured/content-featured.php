@@ -1,7 +1,7 @@
 <?php
 // Get the data set in customizer
-$img  = get_theme_mod( 'highstake_featured_default_img' );
-$text = get_theme_mod( 'highstake_featured_default_text' );
+$img  = get_theme_mod( 'highstake_lite_featured_default_img' );
+$text = get_theme_mod( 'highstake_lite_featured_default_text' );
 
 if ( $img ) : ?>
 

@@ -14,12 +14,12 @@
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function highstake_pingback_header() {
+function highstake_lite_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', bloginfo( 'pingback_url' ), '">';
 	}
 }
-add_action( 'wp_head', 'highstake_pingback_header' );
+add_action( 'wp_head', 'highstake_lite_pingback_header' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -28,7 +28,7 @@ add_action( 'wp_head', 'highstake_pingback_header' );
  * @param  array $classes Classes for the body element.
  * @return array
  */
-function highstake_body_classes( $classes ) {
+function highstake_lite_body_classes( $classes ) {
 
 	// Adds a class of multi-author to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
@@ -36,7 +36,7 @@ function highstake_body_classes( $classes ) {
 	}
 
 	// Adds a class for the container style.
-	$container = get_theme_mod( 'highstake_container_style', 'fullwidth' );
+	$container = get_theme_mod( 'highstake_lite_container_style', 'fullwidth' );
 	if ( $container == 'fullwidth' ) {
 		$classes[] = 'full-width-container';
 	} elseif ( $container == 'boxed' ) {
@@ -51,7 +51,7 @@ function highstake_body_classes( $classes ) {
 
 	if ( is_home() || is_front_page() ) {
 
-		$featured_type = get_theme_mod( 'highstake_featured_type', 'default' );
+		$featured_type = get_theme_mod( 'highstake_lite_featured_type', 'default' );
 		if ( $featured_type == 'disable' ) {
 			$classes[] = 'featured-disabled';
 		}
@@ -60,16 +60,16 @@ function highstake_body_classes( $classes ) {
 
 	// Layout on home page.
 	if ( is_home() ) {
-		$blog_layouts = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+		$blog_layouts = get_theme_mod( 'highstake_lite_blog_layouts', '2c-l' );
 		$classes[] = 'layout-' . $blog_layouts;
 
-		$callout_type = get_theme_mod( 'highstake_callout_type', 'subscribe' );
+		$callout_type = get_theme_mod( 'highstake_lite_callout_type', 'subscribe' );
 		$classes[] = 'callout-' . $callout_type;
 	}
 
 	return $classes;
 }
-add_filter( 'body_class', 'highstake_body_classes' );
+add_filter( 'body_class', 'highstake_lite_body_classes' );
 
 /**
  * Adds custom classes to the array of post classes.
@@ -78,7 +78,7 @@ add_filter( 'body_class', 'highstake_body_classes' );
  * @param  array $classes Classes for the post element.
  * @return array
  */
-function highstake_post_classes( $classes ) {
+function highstake_lite_post_classes( $classes ) {
 
 	// Adds a class if a post hasn't a thumbnail.
 	if ( ! has_post_thumbnail() ) {
@@ -90,16 +90,16 @@ function highstake_post_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'post_class', 'highstake_post_classes' );
+add_filter( 'post_class', 'highstake_lite_post_classes' );
 
 /**
  * Remove 'hentry' from post_class()
  */
-function highstake_remove_hentry( $class ) {
+function highstake_lite_remove_hentry( $class ) {
 	$class = array_diff( $class, array( 'hentry' ) );
 	return $class;
 }
-add_filter( 'post_class', 'highstake_remove_hentry' );
+add_filter( 'post_class', 'highstake_lite_remove_hentry' );
 
 /**
  * Change the excerpt more string.
@@ -108,21 +108,30 @@ add_filter( 'post_class', 'highstake_remove_hentry' );
  * @param  string  $more
  * @return string
  */
-function highstake_excerpt_more( $more ) {
+function highstake_lite_excerpt_more( $more ) {
+
+	if ( is_admin() ) {
+		return;
+	}
+
 	return '&hellip;';
 }
-add_filter( 'excerpt_more', 'highstake_excerpt_more' );
+add_filter( 'excerpt_more', 'highstake_lite_excerpt_more' );
 
 /**
  * Filter the except length to 20 words.
  */
-function highstake_custom_excerpt_length( $length ) {
+function highstake_lite_custom_excerpt_length( $length ) {
+
+	if ( is_admin() ) {
+		return;
+	}
 
 	// Set up empty variable.
 	$length = 50;
 
 	// Get the blog layouts.
-	$blog_layouts = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+	$blog_layouts = get_theme_mod( 'highstake_lite_blog_layouts', '2c-l' );
 	if ( is_home() && $blog_layouts == '2c-l-l' || $blog_layouts == '2c-r-l' || $blog_layouts == '1c-l' || $blog_layouts == '1c-n-l' ) {
 		$length = 25;
 	}
@@ -133,14 +142,14 @@ function highstake_custom_excerpt_length( $length ) {
 
 	return $length;
 }
-add_filter( 'excerpt_length', 'highstake_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'highstake_lite_custom_excerpt_length', 999 );
 
 /**
  * Remove theme-layouts meta box on attachment and bbPress post type.
  *
  * @since 1.0.0
  */
-function highstake_remove_theme_layout_metabox() {
+function highstake_lite_remove_theme_layout_metabox() {
 	remove_post_type_support( 'attachment', 'theme-layouts' );
 
 	// bbPress
@@ -148,26 +157,26 @@ function highstake_remove_theme_layout_metabox() {
 	remove_post_type_support( 'topic', 'theme-layouts' );
 	remove_post_type_support( 'reply', 'theme-layouts' );
 }
-add_action( 'init', 'highstake_remove_theme_layout_metabox', 11 );
+add_action( 'init', 'highstake_lite_remove_theme_layout_metabox', 11 );
 
 /**
  * Add post type 'post' support for the Simple Page Sidebars plugin.
  *
  * @since  1.0.0
  */
-function highstake_page_sidebar_plugin() {
+function highstake_lite_page_sidebar_plugin() {
 	if ( class_exists( 'Simple_Page_Sidebars' ) ) {
 		add_post_type_support( 'post', 'simple-page-sidebars' );
 	}
 }
-add_action( 'init', 'highstake_page_sidebar_plugin' );
+add_action( 'init', 'highstake_lite_page_sidebar_plugin' );
 
 /**
  * Extend archive title
  *
  * @since  1.0.0
  */
-function highstake_extend_archive_title( $title ) {
+function highstake_lite_extend_archive_title( $title ) {
 	if ( is_category() ) {
 		$title = sprintf( esc_html__( 'posts in %s category', 'highstake-lite' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 	} elseif ( is_tag() ) {
@@ -181,28 +190,28 @@ function highstake_extend_archive_title( $title ) {
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'highstake_extend_archive_title' );
+add_filter( 'get_the_archive_title', 'highstake_lite_extend_archive_title' );
 
 /**
  * Customize tag cloud widget
  *
  * @since  1.0.0
  */
-function highstake_customize_tag_cloud( $args ) {
+function highstake_lite_customize_tag_cloud( $args ) {
 	$args['largest']  = 12;
 	$args['smallest'] = 12;
 	$args['unit']     = 'px';
 	$args['number']   = 20;
 	return $args;
 }
-add_filter( 'widget_tag_cloud_args', 'highstake_customize_tag_cloud' );
+add_filter( 'widget_tag_cloud_args', 'highstake_lite_customize_tag_cloud' );
 
 /**
  * Modifies the theme layout on attachment pages.
  *
  * @since  1.0.0
  */
-function highstake_mod_theme_layout( $layout ) {
+function highstake_lite_mod_theme_layout( $layout ) {
 
 	// Change the layout to Full Width on Attachment page.
 	if ( is_attachment() && wp_attachment_is_image() ) {
@@ -214,7 +223,7 @@ function highstake_mod_theme_layout( $layout ) {
 
 	// Layout on home page.
 	if ( is_home() ) {
-		$archive_layouts = get_theme_mod( 'highstake_blog_layouts', '2c-l' );
+		$archive_layouts = get_theme_mod( 'highstake_lite_blog_layouts', '2c-l' );
 		$layout = $archive_layouts;
 
 		if ( $archive_layouts === '2c-l-l' ) {
@@ -231,16 +240,16 @@ function highstake_mod_theme_layout( $layout ) {
 
 	return $layout;
 }
-add_filter( 'theme_mod_theme_layout', 'highstake_mod_theme_layout', 15 );
+add_filter( 'theme_mod_theme_layout', 'highstake_lite_mod_theme_layout', 15 );
 
 /**
  * Limit search to post
  */
-function highstake_search_filter($query) {
+function highstake_lite_search_filter($query) {
 	if ( !is_admin() && $query->is_main_query() ) {
 		if ( $query->is_search ) {
 			$query->set( 'post_type', 'post' );
 		}
 	}
 }
-add_action( 'pre_get_posts', 'highstake_search_filter' );
+add_action( 'pre_get_posts', 'highstake_lite_search_filter' );

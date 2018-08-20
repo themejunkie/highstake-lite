@@ -18,7 +18,7 @@
 
 			<div class="container">
 
-				<?php highstake_site_branding(); ?>
+				<?php highstake_lite_site_branding(); ?>
 
 				<?php if ( has_nav_menu ( 'primary' ) ) : ?>
 					<nav class="main-navigation" id="site-navigation">
@@ -59,7 +59,7 @@
 			if ( is_home() ) {
 
 				// Get the data set in Customizer.
-				$callout = get_theme_mod( 'highstake_callout_type', 'subscribe' );
+				$callout = get_theme_mod( 'highstake_lite_callout_type', 'subscribe' );
 
 				if ( $callout == 'subscribe' ) {
 					get_template_part( 'partials/callout/content', 'subscribe' );

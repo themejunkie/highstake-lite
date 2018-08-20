@@ -12,7 +12,7 @@
 /**
  * Set featured image as page header background.
  */
-function highstake_page_header_bg() {
+function highstake_lite_page_header_bg() {
 
 	// Show only on post and page
 	if ( !is_single() && !is_page() ) {
@@ -38,4 +38,4 @@ function highstake_page_header_bg() {
 	endif;
 
 }
-add_action( 'wp_enqueue_scripts', 'highstake_page_header_bg' );
+add_action( 'wp_enqueue_scripts', 'highstake_lite_page_header_bg' );
