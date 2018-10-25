@@ -293,7 +293,7 @@ if ( ! function_exists( 'highstake_lite_comment' ) ) :
  * @since  1.0.0
  */
 function highstake_lite_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
+
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
@@ -545,8 +545,12 @@ if ( ! function_exists( 'highstake_lite_footer_text' ) ) :
  */
 function highstake_lite_footer_text() {
 
-	// Get the customizer data
-	$footer_text = '&copy; Copyright ' . date( 'Y' ) . ' - <a href="' . esc_url( home_url() ) . '">' . esc_attr( get_bloginfo( 'name' ) ) . '</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>';
+	$footer_text = sprintf(
+		__( '&copy; Copyright %1$s - <a href="%2$s">%3$s</a>. All Rights Reserved. <br /> Designed and Developed by <a href="http://www.theme-junkie.com/">Theme Junkie</a>', 'highstake-lite' ),
+		esc_attr( get_the_date( 'Y' ) ),
+		esc_url( get_home_url() ),
+		esc_attr( get_bloginfo( 'name' ) )
+	);
 
 	// Display the data
 	echo '<p class="copyright">' . wp_kses_post( $footer_text ) . '</p>';

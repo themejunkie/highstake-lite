@@ -102,18 +102,18 @@ class Highstake_Social_Widget extends WP_Widget {
 		$instance = $new_instance;
 
 		$instance['title']      = strip_tags( $new_instance['title'] );
-		$instance['facebook']   = esc_url( $new_instance['facebook'] );
-		$instance['twitter']    = esc_url( $new_instance['twitter'] );
-		$instance['gplus']      = esc_url( $new_instance['gplus'] );
-		$instance['pinterest']  = esc_url( $new_instance['pinterest'] );
-		$instance['linkedin']   = esc_url( $new_instance['linkedin'] );
-		$instance['instagram']  = esc_url( $new_instance['instagram'] );
-		$instance['behance']    = esc_url( $new_instance['behance'] );
-		$instance['dribbble']   = esc_url( $new_instance['dribbble'] );
-		$instance['github']     = esc_url( $new_instance['github'] );
-		$instance['codepen']    = esc_url( $new_instance['codepen'] );
-		$instance['tumblr']     = esc_url( $new_instance['tumblr'] );
-		$instance['rss']        = esc_url( $new_instance['rss'] );
+		$instance['facebook']   = esc_url_raw( $new_instance['facebook'] );
+		$instance['twitter']    = esc_url_raw( $new_instance['twitter'] );
+		$instance['gplus']      = esc_url_raw( $new_instance['gplus'] );
+		$instance['pinterest']  = esc_url_raw( $new_instance['pinterest'] );
+		$instance['linkedin']   = esc_url_raw( $new_instance['linkedin'] );
+		$instance['instagram']  = esc_url_raw( $new_instance['instagram'] );
+		$instance['behance']    = esc_url_raw( $new_instance['behance'] );
+		$instance['dribbble']   = esc_url_raw( $new_instance['dribbble'] );
+		$instance['github']     = esc_url_raw( $new_instance['github'] );
+		$instance['codepen']    = esc_url_raw( $new_instance['codepen'] );
+		$instance['tumblr']     = esc_url_raw( $new_instance['tumblr'] );
+		$instance['rss']        = esc_url_raw( $new_instance['rss'] );
 
 		return $instance;
 	}

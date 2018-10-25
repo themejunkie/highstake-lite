@@ -77,9 +77,14 @@ TGM-Plugin-Activation, Copyright (c) 2011, Thomas Griffin
 Licenses: GPL v2
 Source: https://github.com/TGMPA/TGM-Plugin-Activation
 
-Image used in demo: https://pexels.com/, https://www.pexels.com/photo-license/
+Bundled header image in screenshot.jpg, Copyright Negative Space
+License: CC0 License
+Source: https://www.pexels.com/photo/beverage-black-coffee-business-chart-33972/
 
 == Changelog ==
+
+1.0.2 - Oct 25, 2018
+* Fixed minor issue per Theme Reviewer review.
 
 1.0.1 - Aug 20, 2018
 * Fixed minor issue per Theme Reviewer review.

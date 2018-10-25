@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Highstake Lite 1.0.1\n"
+"Project-Id-Version: Highstake Lite 1.0.2\n"
 "Report-Msgid-Bugs-To: http://www.theme-junkie.com/forum/\n"
-"POT-Creation-Date: 2018-08-20 03:57:51+00:00\n"
+"POT-Creation-Date: 2018-10-25 10:57:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,23 +37,23 @@ msgstr ""
 msgid "Go to Home Page"
 msgstr ""
 
-#: comments.php:26 comments.php:38
+#: comments.php:42 comments.php:54
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:27 comments.php:39
+#: comments.php:43 comments.php:55
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:28 comments.php:40
+#: comments.php:44 comments.php:56
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:50
+#: comments.php:66
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:57
+#: comments.php:73
 msgid "Post Comment"
 msgstr ""
 
@@ -377,10 +377,6 @@ msgstr ""
 
 #: inc/customizer.php:66
 msgid "Background"
-msgstr ""
-
-#: inc/customizer.php:93
-msgid "Documentation"
 msgstr ""
 
 #: inc/extensions/class-tgm-plugin-activation.php:327
@@ -815,6 +811,13 @@ msgstr ""
 msgid "(Untitled)"
 msgstr ""
 
+#: inc/template-tags.php:549
+msgid ""
+"&copy; Copyright %1$s - <a href=\"%2$s\">%3$s</a>. All Rights Reserved. <br "
+"/> Designed and Developed by <a href=\"http://www.theme-junkie.com/\">Theme "
+"Junkie</a>"
+msgstr ""
+
 #: inc/widgets/widget-recent.php:23
 msgid "Display recent posts with thumbnails."
 msgstr ""
@@ -970,10 +973,17 @@ msgstr ""
 msgid "http://www.theme-junkie.com/"
 msgstr ""
 
-#: comments.php:19
+#: comments.php:22
+#. translators: %s: post title
 msgctxt "comments title"
-msgid "1 Comments"
-msgid_plural "%1$s Comments"
+msgid "One Comment to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:26
+#. translators: 1: number of comments, 2: post title
+msgctxt "comments title"
+msgid "%1$s Comment to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments to &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 

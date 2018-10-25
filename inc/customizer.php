@@ -79,25 +79,6 @@ function highstake_lite_customize_preview_js() {
 add_action( 'customize_preview_init', 'highstake_lite_customize_preview_js' );
 
 /**
- * Display theme documentation on customizer page.
- */
-function highstake_lite_documentation_link() {
-
-	// Enqueue the script
-	wp_enqueue_script( 'highstake-doc', get_template_directory_uri() . '/assets/js/customizer/doc.js', array(), '1.0.0', true );
-
-	// Localize the script
-	wp_localize_script( 'highstake-doc', 'prefixL10n',
-		array(
-			'prefixURL'   => esc_url( 'http://docs.theme-junkie.com/highstake/' ),
-			'prefixLabel' => esc_html__( 'Documentation', 'highstake-lite' ),
-		)
-	);
-
-}
-add_action( 'customize_controls_enqueue_scripts', 'highstake_lite_documentation_link' );
-
-/**
  * Custom styles.
  */
 function highstake_lite_custom_css() {
