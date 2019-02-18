@@ -1,8 +1,8 @@
 === Highstake Lite ===
 Contributors: Theme Junkie
 Requires at least: WordPress 4.7
-Tested up to: WordPress 4.9.8
-Version: 1.0.1
+Tested up to: WordPress 5.1
+Version: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,9 @@ License: CC0 License
 Source: https://www.pexels.com/photo/beverage-black-coffee-business-chart-33972/
 
 == Changelog ==
+
+1.0.3 - Feb 18, 2019
+* Support WordPress 5.1
 
 1.0.2 - Oct 25, 2018
 * Fixed minor issue per Theme Reviewer review.
