@@ -247,7 +247,5 @@ require trailingslashit( get_template_directory() ) . 'inc/header.php';
 require trailingslashit( get_template_directory() ) . 'inc/extensions/theme-layouts.php';
 require trailingslashit( get_template_directory() ) . 'inc/extensions/hybrid-media-grabber.php';
 
-/**
- * Demo importer.
- */
-require trailingslashit( get_template_directory() ) . 'inc/demo/demo-importer.php';
+// MailOptin integration
+require get_template_directory() . '/inc/extensions/mailoptin.php';
